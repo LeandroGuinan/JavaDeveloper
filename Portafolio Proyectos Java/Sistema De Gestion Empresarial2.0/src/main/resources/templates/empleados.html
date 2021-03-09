@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>[[#{Emp.head}]]</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: head"></header>
+        <div>
+            <h2>[[#{Emp.head}]]</h2>
+            <div>
+                <table border="1">
+                    <caption>[[#{general.Emp}]]</caption>
+                    <tr>
+                        <th>[[#{general.ID}]]</th>
+                        <th>[[#{var.nombre}]]</th>
+                        <th>[[#{general.Dep}]]</th>
+                        <th>[[#{general.sl}]]</th>
+                    </tr>
+                    <tr th:each="emp : ${emp}">
+                        <td th:text="${emp.idEmpleado}">ID</td>
+                        <td th:text="${emp.nombre} +' '+ ${emp.apellido}">Nombre</td>
+                        <td th:if="${emp.departamentos.idDepartamentos} == 1">Administracion</td>
+                        <td th:if="${emp.departamentos.idDepartamentos} == 2">Taller</td>
+                        <td th:text="${emp.sueldo}">Suel</td>
+                    </tr>
+                </table>
+                <br/>
+                <div>
+                    <form th:action="@{/agregar}">
+                        <input type="submit" th:value="#{Emp.agregar}"/>
+                    </form>
+                    <br>
+                    <form th:action="@{/pEditar}">
+                        <input type="submit" th:value="#{Emp.editar}"/>
+                    </form>
+                    <br>
+                    <form th:action="@{/pEliminar}">
+                        <input type="submit" th:value="#{Emp.eliminar}">
+                    </form>
+                </div>
+            </div>
+            <br/><br/>
+            <div>
+                <form th:action="@{/}">
+                    <input type="submit" th:value="#{general.back}">
+                </form>
+            </div>
+        </div>
+    </body>
+    <br/>
+    <footer th:replace="layout/plantilla :: foo"></footer>
+</html>

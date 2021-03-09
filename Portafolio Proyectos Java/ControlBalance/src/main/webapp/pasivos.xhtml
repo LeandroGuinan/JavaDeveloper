@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Pasivo Seleccionado</title>
+    </h:head>
+    <h:body>
+        <h2>Pasivo Seleccionado</h2>
+        ID: <h:outputText value="#{balanceBean.pasivoSeleccionado.idPasivos}"/><br/>
+        Cantidad:<h:outputText value="#{balanceBean.pasivoSeleccionado.cantidad}"/><br/>
+        Leyenda: <h:outputText value="#{balanceBean.pasivoSeleccionado.leyenda}"/><br/>
+        Fecha: <h:outputText value="#{balanceBean.pasivoSeleccionado.fecha}"/><br/>
+        <br/>
+        <h:button value="Volver a Balance" outcome="index"/>
+    </h:body>
+</html>

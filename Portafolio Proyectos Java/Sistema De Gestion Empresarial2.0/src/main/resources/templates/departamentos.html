@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>[[#{Dep.til}]]</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: head"/>
+        <div>
+            <h2>[[#{general.Dep}]]</h2>
+            <div>
+                <table border="1">
+                    <caption>[[#{Dep.deps}]]</caption>
+                    <tr>
+                        <th>[[#{var.nombre}]]</th>
+                        <th>[[#{index.prep}]]</th>
+                    </tr>
+                    <tr th:each="dep : ${departs}">
+                        <td th:text="${dep.nombreDepartamento}">Nombre Del Dep</td>
+                        <td th:text="${dep.presupuestoDepartamento}">Presupuesto</td>
+                    </tr>
+                </table>
+            </div>
+            <br/>
+            <div>
+                <form th:action="@{/}">
+                    <input type="submit" th:value="#{general.back}"/>
+                </form>
+            </div>
+        </div>
+    </body>
+    <br/>
+    <footer th:replace="layout/plantilla :: foo"></footer>
+</html>

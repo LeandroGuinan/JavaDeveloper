@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Activos</title>
+    </h:head>
+    <h:body>
+        <h2>Activos Totales</h2><br/>
+        <ul>
+            <c:forEach items="#{balanceBean.activos}" var="activos">
+                <li>ID: #{activos.idActivos} Cantidad: #{activos.cantidad} Leyenda:#{activos.leyenda} Fecha: #{activos.fecha}</li>
+            </c:forEach>
+        </ul>
+        <br/>
+        <p:commandButton value="Agregar Activos"/>
+        <br/><br/>
+        <h:button value="Volver a Balance" outcome="index"/>
+
+    </h:body>
+</html>

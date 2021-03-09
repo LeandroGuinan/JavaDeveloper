@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Control De Balance</title>
+    </h:head>
+    <h:body>
+        <h:form id="balanceList">
+            <p:growl id="messages" showDetail="true"/>
+            <p:messages/>
+            
+            <p:dataTable id="balanceTable" value="#{balanceBean.balances}" var="balance" editable="false" rowKey="#{balance.idBalance}">
+                <f:facet name="header">
+                    Balance General
+                </f:facet>
+                
+                <p:column headerText="ID">
+                    <h:outputText value="#{balance.idBalance}"/>
+                </p:column>
+                
+                <p:column headerText="PasivosID">
+                    <p:commandButton value= "#{balance.idPasivos.idPasivos}" actionListener="#{balanceBean.setPasivoSeleccionado(balance.idPasivos)}" action="pasivos"/>
+                </p:column>
+                
+                <p:column headerText="ActivosID">
+                    <p:commandButton value= "#{balance.idAcivos.idActivos}" actionListener="#{balanceBean.setActivoSeleccionado(balance.idAcivos)}" action="activos"/>
+                </p:column>
+                
+                <p:column headerText="Balance Total">
+                        <h:outputText value="#{balance.balance}"/>
+                </p:column>
+                
+                <p:column headerText="Fecha">
+                        <h:outputText value="#{balance.fecha}"/>
+                </p:column>
+                
+                <f:facet name="footer">
+                    <p:commandButton value="Activos" action="PaginaActivos"/>
+                    <p:spacer height="5px"/>
+                    <p:commandButton value="Pasivos" action="PaginaPasivos"/>
+                </f:facet>
+                
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>

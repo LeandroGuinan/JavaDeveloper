@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:fragment="head">
+            <div>
+                <h1>[[#{general.head}]]</h1>
+            </div>
+        </header>
+        <footer th:fragment="foo">
+            <div>
+                <label>[[#{general.head}]]</label>
+                <br/>
+                <label>[[#{general.foo}]]</label>
+            </div>
+        </footer>
+    </body>
+</html>

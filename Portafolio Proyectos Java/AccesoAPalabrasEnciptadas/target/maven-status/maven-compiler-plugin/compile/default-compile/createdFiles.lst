@@ -1,0 +1,6 @@
+it\com\ae\service\PalabraService.class
+it\com\ae\web\PalabraServlet.class
+it\com\ae\datos\PalabraDaoImpl.class
+it\com\ae\domain\Palabra.class
+it\com\ae\service\PalabraServiceImpl.class
+it\com\ae\datos\PalabraDao.class

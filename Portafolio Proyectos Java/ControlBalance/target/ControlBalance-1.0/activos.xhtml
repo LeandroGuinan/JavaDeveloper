@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Activo seleccionado</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h2>Activo Seleccionado</h2>
+        ID: <h:outputText value="#{balanceBean.activoSeleccionado.idActivos}"/><br/>
+        Cantidad:<h:outputText value="#{balanceBean.activoSeleccionado.cantidad}"/><br/>
+        Leyenda: <h:outputText value="#{balanceBean.activoSeleccionado.leyenda}"/><br/>
+        Fecha: <h:outputText value="#{balanceBean.activoSeleccionado.fecha}"/><br/>
+        <br/>
+        <h:button value="Volver a Balance" outcome="index"/>
+    </h:body>
+</html>

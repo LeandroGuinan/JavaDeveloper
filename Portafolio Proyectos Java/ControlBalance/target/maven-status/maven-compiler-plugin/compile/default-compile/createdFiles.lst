@@ -1,0 +1,13 @@
+it\com\em\datos\BalanceDao.class
+it\com\em\datos\BalanceDaoImpl.class
+it\com\em\datos\ActivosDao.class
+it\com\em\domain\Balance.class
+it\com\em\service\BalanceService.class
+it\com\em\service\BalanceServiceImpl.class
+it\com\em\datos\PasivosDao.class
+it\com\em\web\BalanceBean.class
+it\com\em\domain\Activos.class
+it\com\em\datos\ActivosDaoImpl.class
+it\com\em\datos\PasivosDaoImpl.class
+it\com\em\web\ConfigurationBean.class
+it\com\em\domain\Pasivos.class

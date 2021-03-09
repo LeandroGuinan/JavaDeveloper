@@ -1,0 +1,5 @@
+it\com\ae\service\GestionarPalabras.class
+it\com\ae\service\GestionarPalabrasImpl.class
+it\com\ae\web\ServletPalabraE.class
+it\com\ae\domain\Palabra.class
+it\com\ae\domain\PalabraEncriptada.class

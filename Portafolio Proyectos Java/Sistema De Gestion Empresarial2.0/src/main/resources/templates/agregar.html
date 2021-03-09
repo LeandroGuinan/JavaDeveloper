@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>[[#{Emp.agregar}]]</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: head"></header>
+        <div>
+            <h2>[[#{Emp.agregar}]]</h2>
+            <div>
+                <form th:action="@{/agregarEmp}" method="post" th:object="${empleado}">
+                    
+                    <input type="hidden" name="idEmpleado" th:field="*{idEmpleado}"/>
+                    
+                    <label for="nombre">[[#{var.nombre}]]:</label>
+                    <input type="text" name="nombre" th:field="*{nombre}"/>
+                    <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span>
+                    <br/>
+                    
+                    <label for="apellido">[[#{var.apellido}]]:</label>
+                    <input type="text" name="apellido" th:field="*{apellido}"/>
+                    <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error Apellido</span>
+                    <br/>
+                    
+                    <label for="sueldo">[[#{general.sl}]]:</label>
+                    <input type="number" name="sueldo" th:field="*{sueldo}"/>
+                    <span th:if="${#fields.hasErrors('sueldo')}" th:errors="*{sueldo}">Error Sueldo</span>
+                    <br/>
+                    
+                    <label for="direccion">[[#{var.dir}]]:</label>
+                    <input type="text" name="direccion" th:field="*{direcion.calle}"/>
+                    <span th:if="${#fields.hasErrors('direcion.calle')}" th:errors="*{direcion}">Error calle</span>
+                    <br/>
+                    
+                    <label for="pais">[[#{var.pais}]]</label>
+                    <input type="text" name="pais" th:field="*{direcion.pais}"/>
+                    <span th:if="${#fields.hasErrors('direcion.pais')}" th:errors="*{direccion}">Error pais</span>
+                    <br/>
+                    
+                    <label for="telefono">[[#{var.tel}]]:</label>
+                    <input type="tel" name="telefono" th:field="*{contacto.telefono}"/>
+                    <span th:if="${#fields.hasErrors('contacto.telefono')}" th:errors="*{contacto}">Error telefono</span>
+                    <br/>
+                    
+                    <label for="email">[[#{var.em}]]:</label>
+                    <input type="email" name="email" th:field="*{contacto.email}"/>
+                    <span th:if="${#fields.hasErrors('contacto.email')}" th:errors="*{contacto}">Error Nombre</span>
+                    <br/>
+                    
+                    
+                    <label for="departamento">[[#{var.dep}]]:</label>
+                    <input type="number" name="departamento" th:field="*{departamentos.idDepartamentos}"/>
+                    <span th:if="${#fields.hasErrors('departamentos.idDepartamentos')}" th:errors="*{departamentos}">Error Nombre</span>
+                    <br/><br/>
+                    
+                    <input type="submit" th:value="#{Em.ag}">
+                </form>
+            </div>
+            <br/>
+            <div>
+                <form th:action="@{/empleados}">
+                    <input type="submit" th:value="#{general.back3}">
+                </form>
+            </div>
+        </div>
+    </body>
+    <br/>
+    <footer th:replace="layout/plantilla :: foo"></footer>
+</html>

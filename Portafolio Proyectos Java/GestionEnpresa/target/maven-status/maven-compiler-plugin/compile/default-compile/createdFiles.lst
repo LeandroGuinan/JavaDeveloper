@@ -1,0 +1,5 @@
+it\com\em\domain\Administracion.class
+it\com\em\domain\Empleado.class
+it\com\em\service\ControlPanel.class
+it\com\em\domain\Persona.class
+it\com\em\domain\Taller.class

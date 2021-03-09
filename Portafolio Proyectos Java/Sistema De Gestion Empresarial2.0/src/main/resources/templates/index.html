@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>[[#{general.head}]]</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <header th:replace="layout/plantilla :: head"></header>
+            <div>
+                <h4>[[#{index.head}]]:</h4>
+
+                <div>
+                    <form th:action="@{/deps}">
+                        <input type="submit" th:value="#{general.Dep}">
+                    </form>
+                    <br/>
+                    <form th:action="@{/empleados}">
+                        <input type="submit" th:value="#{general.Emp}">
+                    </form>
+                </div>
+            </div>
+            <br/><br/>
+            <div>
+                <table border="1">
+                    <caption>[[#{index.prep}]]:</caption>
+                    <tr>
+                        <th>[[#{general.Dep}]]</th>
+                    </tr>
+                    <tr>
+                        <td th:text="${pres}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br/>
+        <div>
+            <a th:href="@{/(lang=es)}">ES</a>|
+            <a th:href="@{/(lang=en)}">EN</a>
+        </div>
+    </body>
+    <br/>
+    <footer th:replace="layout/plantilla :: foo"></footer>
+</html>
