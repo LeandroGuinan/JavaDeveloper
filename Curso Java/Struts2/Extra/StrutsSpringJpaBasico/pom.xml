@@ -1,0 +1,122 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>it.com.gm</groupId>
+    <artifactId>StrutsSpringJpaBasico</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+    <name>StrutsSpringJpaBasico</name>
+    
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <jakartaee>8.0</jakartaee>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- dependencia para utilizar struts2 -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>2.5.25</version>
+        </dependency>
+        <!-- dependencia para el uso de convenciones de struts2: -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-convention-plugin</artifactId>
+            <version>2.5.25</version>
+        </dependency>
+        <!-- con esta dependencia se integra los frameworks: -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-spring-plugin</artifactId>
+            <version>2.5.25</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>6.0</version>
+        </dependency>
+        
+        <!-- dependencias para el uso de logs: -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <!-- dependencias para el uso de spring: -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>5.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.0.4.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.0.4.RELEASE</version>
+        </dependency>
+        <!-- dependencia para el uso de mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
+    </dependencies>
+    <!-- a continuacion se crea y configura el persistence.xml -->
+    
+     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

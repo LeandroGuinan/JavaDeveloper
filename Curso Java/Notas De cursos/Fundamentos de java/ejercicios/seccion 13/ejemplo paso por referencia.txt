@@ -1,0 +1,28 @@
+public class PasoPorReferencia {
+
+    public static void main(String[] args) {
+        Persona persona = new Persona();
+        persona.cambiarNombre("juan");
+        System.out.println("persona = " + persona.obtenerNombre());
+        modificarPersona(persona);
+        System.out.println("persona modificado = " + persona.obtenerNombre());
+    }
+
+    private static void modificarPersona(Persona personaArg) {
+        personaArg.cambiarNombre("Carlos");
+    }
+    
+}
+
+public class Persona {
+
+    String nombre;
+
+    public String obtenerNombre() {
+        return this.nombre;
+    }
+    public void cambiarNombre(String nuevoNombre){
+        this.nombre = nuevoNombre;
+    }
+    
+}

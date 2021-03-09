@@ -1,0 +1,85 @@
+REST WEB SERVICES
+
+los SOAP web service utilizan http como mecanismo de transaporte un metodo get o post es ejecutada
+y la url que identifica el sitio web no especifica necesariamente que operacion debe realizarse del
+lado del servidor.
+
+en cambio los restfull web services se basan completamente en las operaciones soportadas por el
+protocolo http del lado del servidor, cada llamada al servidor debe llamar alguno de los siguientes
+metodos: get, post, put, delete,etc...
+
+REST: Representional State Transfer
+
+Principios de una Arquitectura REST:
+
+	*Recursos Direccionables: Los recursos pueden ser solicitados por medio de un URI
+
+	*Orientados a Representaciones: Clientes y servidores intercambian representaciones
+	la cual puede ser en XML, JSON, entre otros.
+
+	*Interfaces Restringidas: Podemos utilizar las operaciones basicas HTTP: GET,POST
+	PUT y DELETE, esto es similar a SQL: SELECT,INSERT,IPDATE Y DELETE respectivamente
+
+
+	Metodos HTTP
+
+Metodo			Significado en Restful Web Service
+
+GET	|	se utilizad para operaciones de solo lectura. No generan ningun cambio
+	|	el servidor
+--------------------------------------------------------------------------------------
+	|	Elimina un recurso en especifico. Ejecutar esta operacion multiples 
+DELETE	|	veces no tiene ningun efecto
+---------------------------------------------------------------------------------------
+	|	Cambia la informacion de un recurso en el servidor. Puede o no regresar
+POST	|	informacion.
+---------------------------------------------------------------------------------------
+	|	Almacena informacion de un recurso en particular. Ejecutar esta operacion
+PUT	|	multiples veces no tiene efecto, ya que se esta almacenando la misma informacion
+	|	sobre el recurso
+----------------------------------------------------------------------------------------
+	|	Regresa el codigo de respuesta y cualquier cabecero HTTP asociado con
+HEAD	|	la respuesta
+----------------------------------------------------------------------------------------
+	|	Representa las opciones disponibles para reestablecer la comunicacion en 
+OPTIONS	|	el proceso de peticion/respuesta de una URI
+
+
+metodos seguros: son aquellos que solo recuperan informacion como get y head
+
+metodos idempotentes: son aquellos de los que siempre se obtienen el mismo resultado, sin
+importar las veces que se ejecuten (get, head, put y delete).
+
+
+	REQUEST HEADERS CABECEROS DE PETICION
+
+Los cabeceros de peticion permiten obtener metadatos de la peticion HTTP, como pueden ser:
+
+	*El Metodo HTTP utilizado en la peticion(GET,POST, etc)
+	*La IP del equipo que realizo la peticion
+	*El dominio del equipo que realizo la peticion
+	*el recurso solicitado(uri)
+	*el navegador que se utilizo en la peticion
+	*entre varios mas 
+
+	CABECEROS DE RESPUESTA Y TIPOS MIME
+
+Los cabeceros de respuesta se utilizan para indicar al navegador web como debe comportarse ante
+una respuesta de parte del servidor web
+
+Un ejemplo comun es generar hojas de EXCEL, PDF'S, Audio, Video, etc... en lugar de solamente
+responder con texto.
+
+Para indicar el tipo de respuesta se utilizan los tipos MIME 
+(multipropose Internet Mail Extensions)
+
+Los tipos MIME son un conjunto de especificaciones con el objetivo de intercambiar archivos
+a traves de internet como puede ser texto, audio video, entre otros tipos
+
+	DESCRIPCION DE REST WEB SERVICE
+
+el documento WADL(documento xml) permite describir los restfull web services de manera muy 
+similar a un documento wsdl, aun en desarrollo cabe resaltar
+
+como parte de la autodocumentacion del servicio web en el documento wadl se especifica el
+documento xsd que valida el documento xml a transmitir 

@@ -1,0 +1,32 @@
+REQUEST HEADERS(CABECEROS DE PETICION)
+
+estos permiten obtener metadatos de la peticion HTTP, por ejemplo el metodo http manejado en la
+peticion, ademas de esta podremos recuperar:
+
+	*El Metodo HTTP utilizado en la peticion(GET,POST,etc)
+	*La IP del equipo que realizo la peticion
+	*El dominio del equipo que realizo la peticion
+	*El recurso solicitado
+	*El navegador que se utilizo en la peticion
+	*Entre varios cabeceros mas.
+
+METODOS PARA PROCESAR PETICIONES HTTP
+
+*Metodos de la clase HttpServletRequest:
+	*getHeader()
+	*getHeaders()
+	*getHeaderNames()
+
+*Metodos con informacion relativa al contexto:
+	*getMethod()
+	*getRequestURI()
+	*getQueryString()
+	*getProtocol()
+
+*Metodos mas especializados:
+	*getCookies()(cookies: archivos guardados con preferencias del usuario)
+	*getAuthType() y getRemoteUser()
+	*getContentLength()
+	*getContentType()
+	*getDateHeader()
+	*getIntHeader()

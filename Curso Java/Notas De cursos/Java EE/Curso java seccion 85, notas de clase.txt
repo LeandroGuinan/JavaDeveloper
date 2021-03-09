@@ -1,0 +1,140 @@
+ROL DE JSF EN JAVA EE 
+
+JSF aplica directamente en la capa de presentacion de una aplicacion web, utilizando tecnologias
+como HTML,css y JavaScript para generar respuestas para mostrar al usuario, ejecutar peticiones
+en un formulario para agregarlo a una base de datos, ademas de validar formularios antes de 
+agregarlos, convertidores para poder directamente trabajar con tipos como date, Boolean, integer
+ETC...
+
+ademas de tambien la recuperacion del modelo utilizando la capa de servicio, procesamiento de la
+respuesta, como tambien de vista a mostrar al usuario...
+
+	Que es JSF
+
+*JavaServer Faces(JSF) es el marco de aplicaciones web estandar para Java Enterprise Edition(java EE)
+
+*Al ser un estandar de Java, la tecnologia cuenta con el apoyo de una industria muy solida
+
+*La tecnologia ha crecido en su uso a nivel mundial
+
+*Se cuenta con un fuerte apoyo de IDE's de Java, asi como Servidores de Aplicaciones para
+su despliegue
+
+*El numero de empresas que extienden la funcionalidad de JSF es muy amplia y muchos proyectos
+son OpenSource
+
+JSF fue diseñado para simplificar la construccion de interfaz de usuario para aplicaciones web
+con java, esto por las herramientas creadas para estas aplicaciones .
+
+
+
+	Caracteristicas de JSF
+
+
+*MVC: implementa el patron de diseño modelo-vista-controlador
+
+*RAD: Desarrollo rapido de aplicaciones para web
+
+*Componentes de interfaz de usuario: JSF tiene desarrollados componentes reutilizables listos para 
+utilizarse
+
+*Render-Kits: Los componentes pueden desplegarse no solamente en navegadores Web, sino en
+dispositivos moviles u otros de clientes
+
+*Extensibilidad: JSF es altamente extensible debido a su arquitectura
+
+*Internacionalizacion: Las vistas pueden mostrarse en distintos idiomas.
+
+
+
+	NUEVAS CARACTERISTICZS EN JSF 2.X
+
+
+*Manejo de condiciones por default mas inteligentes
+
+*Manejo de anotaciones para varias configuraciones
+
+*Soporte nativo para AJAX
+
+*Soporte por default para Facelets
+
+*Mas componentes y validadores
+
+*Entre muchos mas...
+
+  
+
+	AJAX en JSF
+
+AJAX es un conjunto de tecnologia que permiten mejorar la usabilidad de nuestras aplicaciones web,
+este nos permite que no sea necesario esperar que se termine de procesar una peticion para seguir
+trabajando, por otro lado el servidor al terminar de procesar una peticion este genera una respuesta
+al cliente, pero nunca se detuvo la pagina web durante este proceso y el usuario pudo realizar
+otras tareas. 
+
+1.El cliente			    2.El servidor
+realiza		------>request----->procesa la peticion
+una peticion			    sin bloquear la pagina web
+						|
+						|
+						|
+						|				    
+4.se hace un				3.El servidor regresa la
+refresh parcial<-------response-------- respuesta y envia el contenido
+		   			parcial
+
+	Extenciones de JSF 
+
+*http://primefaces.org/
+
+*http://www.icesoft.org/
+
+*http://www-jboss.org/richfaces/
+
+*http://openfaces.org/
+
+*entre varios mas.
+
+	Caracteristicas de Prime Faces
+
+Algunas de las caracteristicas de la extension PrimeFaces son:
+
+*OpenSource y con una comunidad en constante crecimimento
+
+*Manejo de mas de 100 componentes(Editor HTML, Graficas, etc)
+
+*Soporte para AJAX basado en el API de AJAX de JSF 
+
+*Soporte de HTML5, CSS3, JQUERY
+
+*Ligero, solo un jar, sin configuraciones extras y sin dependencias
+
+*Soporte de AJAX Puush via websockets
+
+*RenderKit de interface para dispositivos moviles basados en web
+
+*Manejo de plantillas libres o de paga
+
+*Basta documentacion, entre muchas caracteristicas mas...
+
+	INTEGRACION ENTRE JSF Y EJB
+
+Ejemplo de integracin entre JSF y EJB
+
+@ManagedBean
+@RequestScoped
+public class PersonaBean{
+	@EJB o @Inject
+	private PersonaService personaService;
+
+	List<Persona> personas;
+
+	public PersonaBean(){
+	}
+
+	@PostConstruct
+	public void inicializar(){
+		personas = personaService.listarPersonas();
+	}
+	...
+}

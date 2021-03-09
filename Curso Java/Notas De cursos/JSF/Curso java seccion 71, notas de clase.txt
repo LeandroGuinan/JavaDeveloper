@@ -1,0 +1,20 @@
+CICLO DE VIDA DE JSP
+
+Este inicia con la peticion del usuario al servidor web, el proceso inicia con:
+
+1.Creacion o recuperacion de la vista, en caso que no exista nada que procesar o sea una peticion get
+se regresa la vista al cliente.
+
+2.Procesamiento De Parametros, aqui se procesan los elementos enviados del usuario hacia nuestra
+aplicacion java.
+
+3.Procesamiento Validadores, aqui se realizan las conversiones pertinentes hacia algun tipo de dato,
+de ocurrir un error se regresa al usuario y no se procesa en la aplicacion.
+
+4.Procesamiento de modelo, de no haber ocurrido errores se actualiza el modelo con los datos
+escritos por el usuario, utilizando los setters respectivos(hasta aqui los datos son operativos).
+ 
+5.Invocacion de la Aplicacion, en este punto se ejecuta los metodos que procesan las peticiones 
+de nuestros usuarios, se ejecuntan los metods actions(managedBeans), acctionListener, etc...
+
+6.Envio de Respuestas, se le hacen llegar al usuario los datos solicitados

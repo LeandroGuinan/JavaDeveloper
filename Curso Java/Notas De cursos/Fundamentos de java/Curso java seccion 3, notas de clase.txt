@@ -1,0 +1,66 @@
+VARIABLES PRIMITIVAS EN JAVA
+
+las variables son espacios en memoria que se utilizan para almacenar datos temporalemnte.
+
+las variables en las que se pueden guardar datos numericos son: byte, short, int, long, float
+ y double. Los cuales cada uno
+posee diferente capacidad de almacendo de datos.
+
+byte: valor minimo -128; valor maximo 127
+
+short: valor minimo -32.768; valor maximo 32.767
+
+int: valor minimo -214.748.3648; valor maximo 214.7483.647
+
+long: valor minimo -9223372036854775808; valor maximo 922337203685477580777.
+
+float: para declarar esta variable se inicializa como cualquier otra y al final del decimal se colofa una "F"
+valor minimo:1,4E-45; valor maximo: 3.4028235E38
+
+double: valor minimo: 4,9E-324; valor maximo: 1.7976931348623157E308
+
+VARIABLES DE TEXTO ESPECIALES
+
+variable tipo char: este se utiliza para imprimir en pantalla un solo caracter, el cual tambien se le pueden 
+establecer valores de unicode,pero estos deben ser entre comilla simple(ej:\u0021 = !;[sin comilla simple] 33 = !,
+ o solo el simbolo "!")
+
+cabe mencinar que estas variables son compatibles con declaracion var, pero en el caso decimal (33) no, por lo que
+declarara una tipo numerico
+
+VARIABLE TIPO BOOLEAN
+
+es un tipo especial de variable puesto que solo tiene valores de cierto o falso, su peso en bites depende del sistema
+operativo
+
+para declararles estas variables basta con inicializarla y asignarle nombre junto con true o false.
+
+otra forma de retornar variables de tipo false o true es asignar una sentencia del tipo (>=)
+ej: (18>=30 : false) o (31 >= 30 : true)
+
+CONVERSION ENTRE VARIABLES PRIMITIVAS
+
+para convertir una variable string a una int se utiliza el parse
+ej : variable1 = Integer.parseInt(variable2);
+donde variable1: string y variable2 es int.
+
+todas las variables pueden ser convertidas a otras, a exepcion del char
+
+para obtener un caracter char de una cadena string se usa el metodo .charAt(0). ej: texto.charAt(0);(se obtiene t)
+
+para convertir una variable de mayor capacidad de byte a una de menor se debe usar el casting.
+ej: short s = 10; byte b = (byte)s; puede causar perdida de informacion. solo valido cuando no sobrepasa el 
+valor maximo o minimo de las variables
+
+
+SISTEMAS NUMERICOS EN JAVA
+
+existen varios sistemas numericos entre los mas comunes de utilizar en java se encuentran el decimal, octal,
+hexadecimal y binario.
+
+para representar un 10 en cada sistema respectivamente seria:
+
+	Sistema Decimal: 10.
+	Sistema Octal: 012.
+	Sistema Hexadecimal: 0xA.
+	Sistema Binario: 0b1010.

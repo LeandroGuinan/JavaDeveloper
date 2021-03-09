@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC 
+    "-//Apache Software Foundation/DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<!-- en este archivo agregamos la configuracion de la plantilla tiles que vamos a utilizar en nuestra aplicacion web -->
+<tiles-definitions>
+    <!-- con esto basicamente definimos las plantillas y el lugar donde se alojan -->
+    <definition name="layout" template="/WEB-INF/content/layout.jsp">
+        <!-- en esta seccion definimos los atributos que tiene nuestra plantilla -->
+        <put-attribute name="title" value="plantilla"/>
+        <!-- en este caso estamos tomando un atributo de un jsp existente -->
+        <put-attribute name="header" value="/WEB-INF/content/header.jsp"/>
+        <!-- y asi sucecivamente -->
+        <put-attribute name="menu" value="/WEB-INF/content/menu.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/content/body.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/content/footer.jsp"/>
+    </definition>
+    <!-- y ahora creamos una plantilla que extendera de la seccion previamente creada, la cual no es necesario modificar todos
+    los atributos-->
+    <definition name="bienvenidoTile" extends="layout">
+        <!-- en esta seccion colocamos los atributos que deseamos sobreescribir -->
+        <put-attribute name="title" value="Bienvenido"/>
+        <put-attribute name="body" value="/WEB-INF/content/bienvenido.jsp"/>
+    </definition>
+    
+    <!-- sobreescribimos de nuevo los archivos, con el fin de que se muestre una seccion diferente al hacer click 
+         en una opcion    -->
+    <definition name="personasTile" extends="layout">
+        <put-attribute name="title" value="Personas"/>
+        <put-attribute name="body" value="/WEB-INF/content/personas.jsp"/>
+    </definition>
+</tiles-definitions>
+<!-- ahora debemos definir las acciones para que sean de tipo tiles -->

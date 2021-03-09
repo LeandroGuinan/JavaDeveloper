@@ -1,0 +1,33 @@
+INTRODUCCION JAVA SERVER PAGES(JSP's)
+
+los jsp's son componentes del lado del servidor web, estos estan especializados en manejar codigo
+html y a su vez agregar codigo java por medio de etiquetas o tags, los jsp's son utilizados como 
+componentes de presntacion, es decir, nos permite mostrar informacion procesada por otros componentes
+como pueden ser los servlets, un jsp al crearse se crea de manera automatica un servlet asociado a 
+este jsp, este se maneja de manera automatica y al vuelo, es decir que no debemos especificar nada
+respecto a la compilacion del jsp. 
+
+entonces un jsp es indirectamente un servlet del lado del servidor web, por ello el ciclo de vida
+de un jsp es muy similar a la de un servlet 
+
+	Beneficios de los JSP's
+
+*Enfocarse en escribir codigo HTML, haciendo mas facil el mantenimiento de la capa de presentacion.
+
+*Se puede utilizar herramientas de diseño para crear visualmente las paginas HTML es incustrar
+las etiquetas  dinamics de los JSP's 
+
+*Separa el codigo de presentacion del codigo de java
+
+*Cada miembro del equipo de desarrollo se puede enfocar en distintas tareas, al separar las 
+responsabilidades. 
+
+el jsp puede contener codigo java bastante completo, pero esto no se recomienda para mantener
+la division de tareas, y asi un diseñador pueda entender el codigo sin saber mucho de java 
+
+	Funciones de un jsp
+
+en el modelo vista-controlador un jsp se utiliza como un componente de presentacion, por lo que
+podemos asumir que en el modelo el jsp cumple la funcion de la vista, es decir, podran
+mostrar la informacion que reciban del servlet, a su vez tambien podran enviar informacion
+a nuestro servlet  

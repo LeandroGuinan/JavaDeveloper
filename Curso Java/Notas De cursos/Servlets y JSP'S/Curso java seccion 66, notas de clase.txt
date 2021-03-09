@@ -1,0 +1,42 @@
+DIRECIVAS JSP'S
+
+*Las directivas nos permiten controlar el comportamiento de un JSP, por ejemplo las clases que vamos 
+a utilizar y hacer imports de clases java, asi como tambien modificar el tipo MIME.
+
+*Con las directivas podemos especificar:
+
+	-Las clases Java que queremos importar en un JSP
+	-El tipo MIME utilizado
+	-Indicar si el JSP puede acceder a la sesion HTTP
+	-El tamaño del buffer de salida
+	-Indicar la pagina JSP de error en caso de alguna Excepcion
+	-El manejo de multihilos, entre otros.
+
+ATRIBUTOS EN LAS DIRECTIVAS DE UN JSP
+
+*Atributo import:
+	<%@page import = "paquete.clase1, paquete.claseN"%>
+
+*Atributo contentType:
+	<%@page contentType="MIME-Type"%>
+
+*Atributo session:
+	<%@page session="true"%>
+
+*Atributo isELIgnored:
+	<%@page= isELIgnored="false"%>
+
+*Atributo buffer:
+	<%@ page buffer="tamañoEnKb"%>
+
+*Atributo errorPage:
+	<%@ page errorPage="url relativo al JSP de error"%>
+
+*Atributo isErrorPage:
+	<%@ page isErrorPage="true"%>
+
+*Atributo isThreadSafe:
+	<%@ page isThreadSafe="true"%>
+
+*Atributo extends:
+	<%@ page extends="paquete.NombreClase"%>

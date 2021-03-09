@@ -1,0 +1,40 @@
+	GEOLOCALIZACION EN HTML5
+
+debido a el creciente uso de telefonos celulares surge la nececidad de integrar geolocalizacion a nuestras
+aplicaciones web. los gps incluidos en los equipos por default permite a las aplicaciones conocer la 
+ubicacion de este con gran presicion, aun si este no posee gps es posible encontrar su ubicacion por 
+la red celular, wi-fi y la direccion ip del equipo.
+
+*El API de geolocalizacion permite crear aplicaciones web que permiten conocer la ubicacion del usuario,
+con esta api es posible monitoriar la posicion del usuario de dos maneras:
+
+	1*podemos conocer la ubicacion actual sin monitoreo(currentLocation)
+	2*Monitoreo de ubicacion ante cambios(watchPosition)
+
+*La ubicacion del usuario puede obtenerse directamente de algun GPS instalado, la red del telefono movil, la
+señal WI-FI, la IP, entre otros metodos.
+
+el usuario puede aceptar/rechazar la peticion de rastrear su ubicacion, de esta manera no es posible rastrear
+la ubicacion del usuario sin el concentimiento expreso del mismo, de ser aceptada esta peticion, el api
+provee ciertos datos a la aplicacion acerca de la posicion del usuario.
+
+Una de las ventajas de la geolocalizacion es la posibilidad de marcar la ubicacion del usuario en un mapa,
+por ejemplo utilizando el API de googleMaps.
+
+	PROPIEDADES DE GEOLOCALIZACION
+
+Existen dos propiedades muy importantes en el API de Geolocalizacion:
+	
+	1*)coord:contiene ubicacion geografica, con propiedades tales como:
+	   latitude,longitude,altitude,accuracy(exactitud),altitudAccuaracy
+	   heading(direccionActual),speed(velocidad).
+
+	2*)timestamp:Contiene el tiempo en que se leyo la ubicacion del usuario
+
+*Practicamente todos los navegadores modernos soportan el API de geolocalizacion.
+*Tanto navegadores telefonos moviles, tablets y PC tienen soporte para geolocalizacion.
+*Para saber su el navegador soporta geolocalizacion usamos la propiedad: navigatos.geolocalizacion
+*La integracion con el API de Google Maps es muy simple
+
+al trabajar con geolocalizacion debemos tener en cuenta que el usuario puede o no haber aceptado que se sepa
+su ubicacion, debemos hacerle saber al usuario si es parte fundamental de la aplicacion

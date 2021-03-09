@@ -1,0 +1,48 @@
+CONVERTIDORES EN JSF 
+
+Los convertidores cubren la necesidad de asignar valores entre la vista y el modelo de manera
+automatica
+
+por ej se ingresa un valor String y este se puede convertir en Date de la vista al modelo
+
+Vista---Conversion a un----> Modelo
+	Tipo de datos
+
+Vista <---Formato a Desplegar-- Modelo
+
+CONVERTIDORES IMPLICITOS Y EXPLICITOS
+
+Conversiones Implicitas:
+
+	Son todas las conversiones que JSF realiza de manera automatica, por ejemplo
+	al usar tipos primitivos, BigInteger o String 
+
+	<h:inputText id="edadId" value"#{empleadoBean.edad}"/>
+
+Conversiones Explicitas
+Existen dos maneras de hacerlo
+
+	*Utilizando el atributo converter, por ejemplo:
+
+	<h:inputText value="#{empleadoBean.edad}"
+	converter = "javax.faces.Integer"/>
+
+	*Utilizando un componente de tipo converter:
+	<h:inputText value="#{empleadoBean.edad}">
+		<f:converter converterId ="javax.faces.Integer"/>
+	</h:inputText>
+
+Convertidores Personalizados
+JSF permite crear convertidores personalizados
+
+	*En la pagina JSF
+	<h:inputText id="fechaId" value="#{empleadoBean.fechaNacimiento}"
+	convert="util.ConvertidorFecha"/>
+
+	*Clase Java de tipo converter contiene el codigo del convertidor. Debe 
+	Implementar la interfaz javax.faces.convert.Converter
+
+	*La Clase Converter se registra en faces-config.xml o agregar la 
+	anotacion @FacesConverter a la clase de tipo Converter, la cual 
+	debe sobreescribir el metodo getAsObject() o getAsString()
+	

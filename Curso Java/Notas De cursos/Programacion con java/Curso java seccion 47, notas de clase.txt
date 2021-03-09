@@ -1,0 +1,69 @@
+GENERICOS EN JAVA
+
+estos nos permiten dejar pendiente el tipo de dato hasta el momento de instanciar una clase 
+generica o el paso de un parametro generico.
+
+Declaracion:
+
+//definimos una clase generica con el operador diamante <>
+public class ClaseGenerica<T>{
+
+
+	//definimos una variable de tipo generico
+	T objeto;
+
+	//constructor que inicializa el tipo a utilizar
+	public ClaseGenerica(T objeto){
+		this.objeto = objeto;
+	}
+
+	
+	public void obtenerTipo(){
+		System.out.println("El tipo T es: "+objeto.getClass().getName());
+	}
+		//Uso de un tipo o clase generico:
+
+	public static void main(String[]args){
+		//creamos una instancia de ClaseGenerica para Integer
+
+		ClaseGenerica<Integer> objetoInt = new ClaseGenerica<Integer>(15);
+	}
+}
+
+se pueden utilizar con otras letras ademas de <T>, ademas no se pueden utilizar tipos primitivos 
+en tipos genericos.
+
+TIPOS GENERICOS EN JAVA
+
+
+aunque no hay limites en el se sugiere utilizar las siguientes letras:
+
+E		element(utilizado generalmente por las colecciones de java)
+
+K		llave(utilizado en mapas)
+
+N		numeros(utilizado para numeros)
+
+T		Type(representa tipo, es decir, una clase)
+
+V		value(representan un tipo, es decir, una clase)
+
+S,U,V,etc	Usado para representar otros tipos
+
+en java una de las clases ams beneficiadas con los tipos genericos fueron las colecciones de java
+puesto que antes de estos se prestaba a errores puesto que podia alamacenar distintos tipos de 
+objetos.
+
+ej:
+
+public class Generincs {
+	public static void main(String[]args){
+		List<Integer> lista = new ArrayList<Integer()>;
+		lista.add(Integer(100));
+		Integer i = lista.get(0);
+	}
+
+}
+
+estas clases por defecto utilizan la letra E para las clases Collection, set y list,
+ y hashSet y arrayList

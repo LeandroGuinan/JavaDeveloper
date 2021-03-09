@@ -1,0 +1,59 @@
+PALABRA NULL EN JAVA
+
+La palabra null se utiliza en java para indicar que aun no se le ah asignado ninguna referencia a una
+variable de tipo object.
+
+no es posible asignar la palabra null a una variable tipo primitivo, esta literal la utilizaremos para
+varaibles de tipo object.
+
+ej:
+Persona p1 = new Persona();
+Persona p2 = p1;
+p1 = null;
+
+en primera instancia se crean un objeto tipo persona p1, el cual se le guarda la referencia en otro
+objeto p2, en ese momento ambos comparten la misma referencia al objeto persona.
+posteriormente la se le asigna la palabra null a p1, indicando que pierde la referencia al objeto
+Persona, ahora solo p2 tiene esta referencia.
+
+si p2 pasa a ser null entonces ninguna variable tiene esta referencia, y el objeto pasa a ser candidato
+de ser eliminado ya que ninguna variable puede accederlo.
+
+si ya no vamos a utilizar ningun objeto entonces es conveniente asignar el valor de null a todas
+sus refeencias.
+
+recordar que las variables son eliminadas del sistema una vez termina su funcion, el objeto dura
+hasta que termina la ejecucion del programa.
+
+EJ:
+
+public class PalabraNull{
+
+	public static void main(String[]args){
+		
+		Persona p1 = new Persona("Juan");
+		System.out.println("Nombre p1: "+p1.obtenerNombre());
+		
+		Persona p2 = p1;//p2 apunta al mismo objeto que p1.
+		System.out.pirntln("Nombre p2: "+ p2.obtenerNombre());
+
+		//hacemos que p1 ya no se apunte al objeto p1
+		p1 = null;
+
+		//comprobamos que p2 sigue accediendo al objeto
+		System.out.println("Nombre p2: "+p2.ObtenerNombre);
+	}
+}
+
+class Persona{
+	String nombre; //valor por default es null.
+	
+	public Persona(String nombre){
+		this.nombre = nombre;
+		
+	}
+	
+	public String obtenerNombre(){
+		return this.nombre
+	}
+}

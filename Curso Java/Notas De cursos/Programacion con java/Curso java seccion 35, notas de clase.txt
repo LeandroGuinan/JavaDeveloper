@@ -1,0 +1,32 @@
+AUTOBOXING Y UNBOXING EN JAVA
+
+autoboxing es el proceso por el cual el  compilador realiza inmediatamente un cambio de variable
+de un tipo primitivo en un objeto por ej:
+
+//Autoboxing (de tipos primitivos a tipos objects)
+
+Integer enteroObj = 10; // en esta la primitiva int 10 se asigna a una clase Integer directamente
+			//de tipo object, esta clase Integer es una clase envolvente del tipo int
+			//que permite transformar un int a tipo object, existe un tipo de clase 
+			//envolvente por cada primitivo existente
+
+Float fltanteObj = 15,2F; // en este caso es de un tipo flotante se asigna a una variable tipo
+			  //float y esto es un objeto y se puede tratar como tal
+
+Double doubleObj = 40,1;  //este es un tipo double y se guarda en una variable tipo double, 
+			  //aqui no hace falta conversion
+
+unboxing es el proceso inverso al anterior, es decir permite transformar de un objeto a un tipo
+primitivo sin nececidad de una conversion de esta forma:
+
+//autoboxing(de objetos primitivos)
+
+int entero = enteroObj; //aqui se transforma un objeto a un int
+
+float flotante = flotanteObj;
+
+double doble = dobleObj;
+
+cada tipo primitivo tiene su equivalente envolvente, por lo general la clase envolvente inicia
+en mayusculas en la primera letra. como se ve en la tabla adjunta
+

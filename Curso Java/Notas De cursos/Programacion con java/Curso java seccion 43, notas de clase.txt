@@ -1,0 +1,37 @@
+MANEJO DE INTERFACES EN JAVA
+
+interface: es una forma en comun de comunicarse en diferentes sistemas, esta de una menera
+sustituye la nececidad de herencia multiple, ya que en java se pueden implementar varias 
+interfaces pero solo podemos heredar de una sola clase.
+
+una interface en java sirve para definir comportamiento y posteriormente la clase debe 
+implementar este comportaminento.
+
+EN JAVA
+
+un interface es una declaracion formal de un contrato, en la cual los metodos no contienen
+ninguna implementacion, muy similar a metodos abstratos.
+
+Sintaxis:
+
+por default estas interfaces son de acceso publico estaticos y finales, por ende son constantes
+
+<modificadores> interface <nombre_interface> [extends <interface padre>]
+{
+
+	<atributos>
+	<metodos>
+
+}
+
+
+uso de una interface en java:
+
+<modificadores> class <nombre_clase>[extends <superclase>][implements <interface1, interface2,etc>]
+
+{
+
+	<implementar_metodos_interface>
+
+}
+

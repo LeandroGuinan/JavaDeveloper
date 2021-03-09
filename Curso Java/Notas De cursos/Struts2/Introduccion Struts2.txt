@@ -1,0 +1,23 @@
+Introduccion A Struts2 Framework
+
+*Un framework es un conjunto de clases que nos permite resolver un problema en especifico
+
+*Struts2 es un framework (http://struts.apache.org) que implementa el patron de diseño 
+MVC(Modelo-Vista-Controlador)
+
+*Struts2 es la segunda version del popular framework de struts
+
+*Struts2 resuelve muchos de los problemas que se presentan en la capa de presentacion
+de una aplicacion JavaWeb y Empresarial
+
+*La tecnologia de Struts2 es utilizada en proyectos muy diversos, como pueden ser
+eb instituciones bancarias, Aseguradoras, Instituciones Educativas y de Gobierno, entre
+muchos mas...
+
+
+Rol de Struts Framework
+
+este su encuentra en la capa de presentacion, de una apliacion empresarial:
+
+Capa Presentacion --- Capa Negocio  --- Capa Datos
+

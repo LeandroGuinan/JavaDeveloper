@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Plantilla</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!-- para definir un elemento de plantilla, se debe crear el tipo de elemento, y en la etiqueta fragment, se debe
+             agregar el nombre al cual hacerle referencia-->
+        <header th:fragment="header">
+            <h1 th:text="#{plantilla.titulo}">Titlle</h1>
+            <!-- en este punto se pueden agregar cualquier codigo html, este se añadira a este elemento -->
+        </header>
+        
+        <footer th:fragment="footer">
+            <div>
+                <br/>
+                <!-- agregamos los parametros de lang(definido anteriormente) con el prefijo de idioma -->
+                <a th:href="@{/(lang=es)}">ES</a>|
+                <a th:href="@{/(lang=en)}">EN</a>
+                <!-- para hacer logout vasta con la configuracion: -->
+                <form method="POST" th:action="@{/logout}">
+                    <!-- en la que se agrega el link para ejecuar el path de la accion th -->
+                    <a href="#" onclick="this.parentNode.submit();">Logout</a>
+                    <br/>
+                    <!-- con este tag: -->
+                    <b>User:</b> <span sec:authentication="name">Login</span>|
+                    <b>Roles:</b> <span sec:authentication="principal.authorities">Roles</span>
+                    <!-- mostramos la informacion de los usuarios y sus roles asignados -->
+                </form>
+            </div>
+            <span>[[#{plantilla.pie-pagina}]]</span>
+        </footer>
+    </body>
+</html>

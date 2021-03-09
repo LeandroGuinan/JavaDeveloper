@@ -1,0 +1,13 @@
+ALCANCE DE VARIABLES EN JAVA
+
+palabra this: es un operador el cual nos permite acceder al objeto actual, la clase con la cual trabajamos, y entre
+otras cosas nos permite acceder a los atributosy metodos de la clase.
+
+dependiendo de donde se introduzca la variable es hasta donde se podra utilizar, por ej, si declaramos
+una variable en una clase esta se podra utilizar en todos los metodos u objetos de la clase.
+
+variables locales: son variables declaradas dentro de algun metodo, estas se pueden usar solo en el
+metodo en el que se definen y deben inicializarse antes de usarse.
+
+en el dado caso que se declaren tanto variables de clase o variables locales se utiliza la palabra reservada
+this para solicitar el uso de las variables locales en el metodo.

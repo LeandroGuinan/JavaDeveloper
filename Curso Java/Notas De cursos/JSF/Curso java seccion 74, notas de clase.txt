@@ -1,0 +1,52 @@
+INTERNALIZACION EN JSF 
+
+jsf tiene soporte total para la especificacion i18n de java, esto es para la especificacion del
+idioma en una aplicacion web, para definir un idioma debemos incluir un archivo de propiedades, 
+estos nos permiten especificar nuestras etiquetas de las paginas web en varios idiomas.
+
+
+
+Codigo del lenguaje/Subregion		Descripcion
+	es				  Español
+	es_MX				  Español/Mexico
+	en				  ingles
+	en_GB				  ingles/Britanico
+	en_US				  ingles/Estados Unidos
+
+
+
+estos se pueden programar en el archivo de faces config, o via programatica de un ManagedBean,
+para ello debemos utilizar el objeto facesContext e indirectamente el metodo setLocate, utilizando
+este especificamos el codigo del lenguaje que vamos a utilizar.
+
+RESOURCE BUNDLE EN JSF
+
+JSF puede cargar las etiquetas de un archivo de propiedades (Resource Boundle)
+en el archivo faces-config.xml se configura el archivo a utilizar
+
+<application>
+	<resource-bundle>
+		<base-name>mensaje</base-name>
+		<var>msg</var>
+	</resource-bundle>
+</application>
+
+podemos utilizar el archivo de propiedades en la pagina JSF como sigue:
+
+<h:outputText vaue="#msg['form.usuario']"/>
+
+<h:commanButton value="{msg.enviar}" type="submit" action="login"/>
+
+SOBREESCRITURA DE MENSAJES JSF
+
+Se debe crear un archivo(no importa el nombre) de propiedades
+jsf.properties
+
+Se sobreescriben los mensajes del sistema deseados
+javax.faces.component.UIInput.REQUIRED=Valor Requerido
+
+se configura el archivo faces config.xml
+
+<application>
+	<message-bundel>jsf</message-bundle>
+</application>

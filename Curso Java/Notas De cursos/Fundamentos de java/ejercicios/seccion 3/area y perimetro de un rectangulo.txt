@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class HolaMundo {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Introduzca por favor la base del rectangulo: ");
+        int base = Integer.parseInt(in.nextLine());
+        System.out.println("Introduzca por favor la altura del rectangulo: ");
+        int altura = Integer.parseInt(in.nextLine());
+        int area = base*altura;
+        int perimetro = 2*(base + altura);
+        System.out.println("El Area del rectangulo es: " + area);
+        System.out.println("el Perimetro del rectangulo es: "+ perimetro);
+        
+    }
+}

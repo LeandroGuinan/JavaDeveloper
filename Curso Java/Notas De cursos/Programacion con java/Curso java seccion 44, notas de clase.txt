@@ -1,0 +1,16 @@
+JAVABEANS EN JAVA
+
+son una clase especial en java que cumplen ciertas caracteristicas para poder ser utilizadas 
+en cualquier framkework de java.
+
+entre estas condiciones estan:
+
+1.implementara la interface Serializable del paquete java.io(esta no tiene metodos)
+
+2.los atributos deben ser privados
+
+3.deben tener un constructor vacio obligatoriamente
+
+4.cada propiedad debe tener su metodo get o set(para tipo boolean is), segun su nececidad, 
+por ejemplo su un atributo de solo lectura solo nececita un get
+

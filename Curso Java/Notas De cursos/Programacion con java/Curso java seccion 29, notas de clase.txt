@@ -1,0 +1,33 @@
+Estructura de una clase en java
+
+como un repaso del curso anterior los elementos de una clase son:
+
+package.//<donde esta guardada nuestra clase>
+
+import.//<si se necesitan clases de otros paquetes, o tambien metodos estaticos>
+
+public class NombreClase{//<nombre de la clase>
+
+	<atributos>; //las variables presentes en esta clase
+
+	<constructores>;//para crear un objeto de esta clase
+
+	<metodos>; //son de diversos tipos como get y set para atributos, ademas de toString
+
+Bloques de codigo en java
+
+todo lo que esta dentro de los corchetes de la clase de llama se le conoce como bloque de codigo.
+las variables de este bloque de codigo existen solo en la ejecucion de este.
+
+el compilador ignora los saltos de linea y lineas en blanco
+
+Convenciones en java
+
+una convencion es un acuerdo, por ende el compilador no lo reconocera como un error,
+es el equipo de trabajo quienes definiran estas convenciones.
+
+algunos generales son:
+
+	*las clases son sustantivos y siguen notacion de camello e inicia en mayus
+	*las constantes final se definen en mayuscula
+	*los metodos por lo general son verbos

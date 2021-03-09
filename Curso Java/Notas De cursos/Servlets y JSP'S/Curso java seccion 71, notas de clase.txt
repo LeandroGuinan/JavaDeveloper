@@ -1,0 +1,61 @@
+PATRON DE DISEÑO MVC
+
+un patron de diseño permite solucionar problemas comunes que se presentan al momento de realizar
+aplicaciones y en particular en aplicaciones web buscamos separar la vista de los datos y unirlos
+por un patron que hace las veces de controlador y los datos hacen del modelo.
+
+	*Los Servlets estan enfocados en controlar el flujo de la peticion HTTP
+
+	*Los JSP's estan enfocados en desplegar la informacion de la aplicacion web.
+
+	*La informacion que se comparte entre los componentes(Servlets y JSP's)
+	suele manejarse con JavaBeans.
+
+	*El patron de Diseño MVC(Modelo Vista Controlador) nos permite integrar a los
+	JSP's (vista), a los servlets(Controlador) y a los JavaBeans(Modelo).
+
+FRAMEWORKS QUE UTILIZAN EL PATRON MVC
+
+*JSP/Servlet: se implementa manualmente con ayuda del objeto RequestDispatcher para
+controlar el flujo de la aplicacion
+
+*Struts: Es un framework de apache, el cual utiliza JSPs(Vista) con tags de Struts,
+ActionForm(Modelo), Action(Controlador), entre otros componentes.
+
+*JavaServer Faces(JSF): Es una tecnologia que utiliza conceptos como JSPs(Vista)
+con tags de JSF, ManageBean(Controlador) y JavaBeans(Modelo)
+
+*SpringMVC: Es una extension del framework de Spring, que utiliza JSP(Vista) con tags
+de Spring, clses Java(controladores) y javaBeans(Modelo)
+
+
+ARQUITECTURA MVC CON JSP'S Y SERVLETS
+
+la estructura inicia con un formulario html, en el cual el usuario realiza una peticion, esta
+peticion es posteriormente es procesada por un servlet, luego de esto enviamos la informacion
+a un JavaBean, ya creada y almacenada la informacion regresamos el control al servlet y en
+este punto lo que hace este es colocar la informacion a un alcance(session, application, etc)
+luego de esto hace un redireccionamiento por medio del objeto requestDispacher.
+
+en este punto el servlet controlador toma la desicion de a que jsp se va a llamar, por ejemplo
+de tener varios jsp el servlet toma la desicion segun el flujo de la aplicacion web.
+
+posteriormente ya estando en el jsp seleccionado este juega el papel de la vista, unicamanete
+recupera la informacion que le ah proporcionado el servlet, estos en teoria no deberia crear
+nuevos objetos java, una vez procesado este redirige la informacion a la pagina resultado,
+puede ser una salida html como tambien otro tipo de contenidos (excel, pdf, audio, etc).
+
+PASOS GENERALES DE UN SERVLET CONTROLADOR
+
+a) Procesamos y validamos los parametros(si aplica)
+	request.getParameter("nombreParametro);
+
+b)Realizamos la logica de presentacion almacenando el resultado en JavaBeans
+	Rectangulo rec = new Rectangulo();
+
+c)Compartimos el objeto bean a utilizar en algun alcance(scope)
+	request.setAtribute("rectanguloBean",rec);
+
+d)Redireccionamos al JSP seleccionado
+	RequestDispatcher dispatcher = request.getRequestDispatcher("resultado.jsp");
+	dispatcher.forward(request, response); 

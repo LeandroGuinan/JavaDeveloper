@@ -1,0 +1,62 @@
+MANEJO DE JAVA BEANS
+
+*Los JSP's puede acceder a los JavaBeans.
+
+*Un JavaBean es una clase de java que sigue ciertas reglas basicas:
+	-Debe tener un constructor vacio
+	-Todos los atributos deben ser privados
+	-se debe generar el metodo get y set para cada atributo
+
+*Un JSP debe utilizar el nombre de la propiedad para acceder o modificar el atributo de un JavaBean
+
+*Indirectamente el JSP manda a llamar los metodos get o set asociado con la propiedad indicada en el
+JSP
+
+EJEMPLOS DE PROPIEDADES DE JAVABEANS
+
+
+Nombre			Nombre de los			Codigo en
+Propiedad		Metodos				el JSP
+
+nombreUsuario		getNombreUsuario		<jsp:getProperty...property="nombreUsuario"/>
+			setNombreUsuario		<jsp:setProperty...property="nombreUsuario"/>
+
+eliminado		isEliminado			<jsp:getProperty...property="eliminado"/>
+			setEliminado			<jsp:setProperty...property="eliminado"/>
+
+noTelefono		getTelefono			<jsp:getProperty...property="telefono"/>
+			setTelefono			<jsp:getProperty...property="telefono"/>
+
+codigo_postal		getCodigo_postal		<jsp:getProperty...property="codigo_postal"/>
+			setCodigo_postal		<jsp:getProperty...property="codigo_postal"/>
+
+
+ALCANCES DE ATRIBUTOS EN UN JSP(SCOPE)
+
+el alcance de una variable es la duracion o tiempo de uso de una variable en una aplicacion web,
+existen cuatro alcances o scope:
+
+*page: es el alcance mas basico, solo se utiliza en los jsp's, un atributo con este alcance unicamente
+existe en el momento que se traduce un jsp a un servlet, posteriormente no se puede utilizar. 
+
+*request: las variables con este alcance solo existen en el momento que un usuario realiza una
+peticion al servidor web, una vez llega esta informacion al servidor esta informacion se destruye.
+
+*session: cuando agregamos una variable en este alcance va a durar hacia distintas peticiones
+a nuestro servidor web, esta existira por el tiempo que este activa la sesion, por default son
+30 minutos.
+
+*application: cuando agregamos atributos en este alcance estara activo por todo el tiempo que
+tengamos activa nuestra aplicacion, y se destruye hasta que cerremos el servidor web o que hagamos
+undeploy de nuestra aplicacon.
+
+USO BASICO DE LOS JAVABEANS
+
+*jsp:useBean: Permite acceder a un bean en un alcance(scope) especificado
+	<jsp:useBean id="nombreBean" class ="paquete.NombreClase"/>
+
+*jsp:setProperty: Permite modificar una o varias propiedades de un bean especificado
+	<jsp:setProperty name="nombreBean" property="nombreUsuario" value="Juan"/>
+
+*jsp:getProperty: Permite acceder a una propiedad de un bean especificado
+	<jsp:getProperty name="nombreBean" property="nombreUsuario"/>

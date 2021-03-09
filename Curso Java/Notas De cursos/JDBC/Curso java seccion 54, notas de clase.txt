@@ -1,0 +1,70 @@
+MANEJO DE JDBC
+
+Drivers JDBC
+
+un driver es la implementacion de la especificacion del api de jdbc definido por java,
+cada proveedor de bases de datos implementa una o varias versiones para que podamos 
+conectarnos a sus bases de datos con nuestrar aplicaciones.
+
+dependiendo de la version del jdk es la version que podremos utilizar del jdbc.
+
+conexiones en base de datos:
+
+existen tres maneras de conectarnos a una base de datos:
+
+ aplicacion 
+estandar   ----    1.driver manager	\
+java               \			 \
+                    \ 			  \
+			3.pool conexiones-- MySql
+		    /  			  /
+	aplicacion /          		 /
+	empresarial---- 2.dataSource    /
+	java
+
+como podemos ver, normalmente una aplicacion estandar utiliza el drive manager, y la aplicacion
+de java empresarial usa principalmente un data source.
+
+pero ambas pueden utilizar conexiones pool, lo que reduce el costo de conexion a un servidor.
+cada una de estas opciones, son distintos paquetes de java, cada uno con sus metodos ya 
+establecidos.
+
+TIPOS DE SENTENCIAS EN JDBC
+
+la interface statement de jdbc tiene distintos tipos:
+
+statemennt: se utiliza para cualquier tipo de sentencia sql, pero no hace cache del sql ejecutado
+
+PreparedStatement: Se usa para hace cache del query a ejecutar, evitando la re-compilacion de
+la sentencia de sql.
+
+
+CallableStatement: se utiliza para llamar a procedimientos almacenados en una base de datos.
+es la mas basicas entre todas las interfaces. 
+
+
+METODOS DE LA INTERFACE STATEMENT EN JDBC
+
+la interface statement tiene varios metodos:
+
+Para una sentencia select:
+executeQuery(String sql): Regresa un objeto ResultSet para procesar los registros
+
+Para una sentencia DML/DDL(data modification lenguage, data definition lenguage):
+executeUpdate(String sql): regresa un int
+
+Para cualquier sentencia sql:
+excecute(String): Regresa un boolean
+
+EXEPCIONES DE JDBC
+
+siendo la clase SQLException la clase padre, yde las la cuales heredan las clases SQLWarning y
+BatchUpdateException. 
+
+la clase SQLWarning a su vez es clase padre de la clase DataTruncationExceptions
+
+
+
+
+
+

@@ -1,0 +1,46 @@
+ALMACENAMIENTO HTML5
+
+uno de los principales problemas del protocolo http es que es un protocolo sin memoria, es decir, no recuerda
+que usuario hizo la peticion, por ende nececita de ciertos mecanismos para reconocer a los usuarios, anterior
+mente eran necesarios mecanismos como las cookies para seber que usuario habia hecho la peticion.
+
+estas solian ser la manera de guadardar informacion del cliente del lado del servidor.
+
+ahora gracias a html5 podemos guardar informacion del usuario sin necesidad de pedir intervencion del servidor,
+incluso sin nececidad de internet.
+
+	EXISTEN MENERAS DE ALMACENAMINETO EN HTML5
+
+estas nos permiten almecenar informacion del usuario para posteriormente agregarla a la base de datos cuando
+se recupere la conexion. esto puede traer ventajas en performance y en el rendimiento, estas maneras son:
+
+	*Local Storage: esta permite al navegador guardar pequeñas cantidades de informacion(5-10mb)
+	*session Storage: esta nos permite almacenar informacion unicamente mientras este abierto el navegador
+			  web, si se habre una nueva sesion o ventana se concidera una nueva sesion
+	*Web SQL: este fue ya descontinuado
+	*IndexDB: es una base de datos no relacional para almacenar datos de manera jerarquica.
+	*Offline Aplications: esta es mas un complemento a las anteriores, creando un manifest nos permite
+	utilizar la aplicacion de manera offline
+
+CACHE EN HTML5
+
+html5 nos permite ejecutar aplicaciones offline, utilizando archivos de manifiesto, solo debemos especificar
+los archivos que seran gardados en el dispositivo.
+
+para manejar el cache y aplicaciones offline en HTML5 debemos realizar los siguiente:
+	1.crear un archivo cache manifest
+	2.secciones del archivo de cache:
+		*cache: archivo por default si no se especifica que archivos. aqui podemos especificar
+		 todos los archivos(html, css js) que queremos que se guarden de manera local
+		*Network: aqui especificamos todos los recursos que deben buscarse por internet en la
+		 aplicacion
+		*FallBack: especificamos los archivos que queremos hacer intercambio en caso que no exista 
+		conecxion (por ejemplo mostrar una version distinta en offline o con internet)
+
+ademas del archivo de manifest es posible manipular el cache con JavaScript con el objeto aplication chache,
+si hay un cambio en el cache podemos utilizar el metodo swap cache para indicar al navegador que recargue
+el cache que se esta utilizando
+
+una de las ventajas de ejecutar asi nuestra aplicacion es que podemos  navegar el sitio completo sin nececidad
+de conexion a internet, mejorando el tiempo de respuesta de nuestra aplicacion y reducir la demanda de recursos
+al servidor		

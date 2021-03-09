@@ -1,0 +1,34 @@
+SENTENCIAS DE CONTROL EN JAVA
+
+decision en programas: con el fin de realizar una accion o no se ejecuta una sentencia de condicion,
+con el fin de que si se da una condicion se ejecute un codigo o de caso contrario se ejecute otro.
+
+estructuras de control:
+
+if/else:if(){
+	}else{
+	}
+
+esta es muy utilizada en java, esta condicion puede funcionar perfectamente sin la parte del else
+
+swtch: switch(expresion){
+	case valor1:
+	brake;
+	case valor2:
+	brake;
+	case valorN:
+	brake;
+	default:
+	}
+esta no es tan utilizada, sin embargo es mas util para ciertos casos especificos.
+
+cabe destacar que ambas estructuras condicionales se rigen por la necesidad de un valor booleano para
+ejecutar sus sentancias.
+
+normalmente estas sentencias se les incluye operadores logicos para la toma de decisiones y tambien 
+con operadores relacionales, por la necesidad de comprar valores
+
+Operaciones en corto circuito: cuando uno de dos variables cumple con un requisito el cual esta implicita
+en un operador logico esta no se evalua con la idea de ahorrar lineas de codigo
+
+

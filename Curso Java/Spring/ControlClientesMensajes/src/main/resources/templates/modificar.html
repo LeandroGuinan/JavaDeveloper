@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Datos de la persona</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header th:replace="layout/plantilla :: header"></header>
+        
+        <h2>[[#{persona.formulario}]]</h2>
+        <!-- para redirigir a otro path: -->
+        <a th:href="@{/}">[[#{accion.regresar}]]</a>
+        <br/>
+        <!-- tambien sirve para llamar path de acciones: -->
+        <!-- en este caso se esta llamando al objeto persona definido para esta path al inicio -->
+        <form th:action="@{/guardar}" method="post" th:object="${persona}">
+            
+            <!-- este es un atributo oculto, que directamente guarda el id de la persona
+                 si es null entonces se interpreta que es una persona nueva y se hace persist al llamar la accion
+                 de lo contrario significa que se existe y por tanto se hace un update-->
+            <input type="hidden" name="idPersona" th:field="*{idPersona}"/>
+            
+            <!-- la notacion *{atrib} hace referencia a el objeto de ese nombre en el objeto de este table: -->
+            <!-- lo que en expresion languege seria: ${persona.nombre} -->
+            <label for="nombre">[[#{persona.nombre}]]:</label>
+            <input type="text" name="nombre" th:field="*{nombre}"/>
+            <!-- si se introduce un valor no valido se procesara como un error en el campo: -->
+            <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span>
+            <!-- el cual se envia al path de este form, y debe ser procesado -->
+            
+            <br/>
+            <label for="apellido">[[#{persona.apellido}]]:</label>
+            <input type="text" name="apellido" th:field="*{apellido}"/>
+            <!-- la ventaja de esto es que los elementos de error personalizados, se agregan automaticamente, si es que existen -->
+             <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error Apellido</span>
+            <br/>
+            <label for="email">[[#{persona.email}]]:</label>
+            <input type="text" name="email" th:field="*{email}"/>
+             <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error Email</span>
+            <br/>
+            <label for="telefono">[[#{persona.telefono}]]:</label>
+            <input type="tel" name="telefono" th:field="*{telefono}"/>
+            <br/>
+            <!-- para agregar un elemento de propiedades se dede especificar el th:value, con el valor de la llave -->
+            <input type="submit" name="guardar" th:value="#{accion.guardar}"/>
+        </form>
+        
+        <br/>
+        <footer th:replace="layout/plantilla :: footer"></footer>
+    </body>
+</html>

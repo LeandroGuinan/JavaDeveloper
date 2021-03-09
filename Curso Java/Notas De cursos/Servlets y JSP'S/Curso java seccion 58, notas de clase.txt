@@ -1,0 +1,75 @@
+COMCEPTO DE SERVLETS
+
+Comceptos basicos:
+
+un sevlet es una clase en java que permite procesar peticiones web a travez del protocolo http,
+cuando el cliente hace una peticion por el servidor web, podremos procesar esa peticion.
+en el resultado pueden haber parametros como resultado de enviar un link o informacion que provenga
+de un formulario html, de esta manera se conecta al cliente y servidor.
+
+una vez procesada la informacion del cliente y recupera los parametros, normalmente realiza un
+procesamiento como es buscar en una base de datos o realizar una operacion en el servidor, y como
+resultado de este procesamiento se vuelve a mostrar informacion al cliente que hizo esta peticion.
+
+un servlet permite leer informacion del cliente web, es decir los parametros de una peticion, tambien
+nos permite generar una respuesta para mostrar al cliente, es decir generar el codigo html y/o
+archivos binarios como: pdf, audio, video, etc...
+
+FUNCIONES DE UN SERVLET
+
+el uso mas comun es para controlar el flujo de una aplicacion web, por ej en el modelo mvc
+(modelo-vista-controlador) el servlet juega el papel de un controlador, de esta manera el sevlet
+nos permite controlar el flujo de nuestra aplicacion web.
+
+un sevlet contiene codigo java y puede generar codigo html de manera envevida, esto quiere decir
+que los sevlets no seran la mejor manera de manejar codigo html, debido a que sera mas complejo
+enbeber el codigo html en nuestro codigo java.
+
+para simplificar el uso del html se creo jsp(java server pages).
+
+MODELO VISTA-CONTROLADOR:
+	1.el usuario visualiza informacion(de un jsp o html)
+	2.el usuario realiza una peticion
+	3.el sevlet procesa la informacion
+en el cual este se apoya de nuestro modelo de negocio.
+
+su caracteristica principal es separar responsabilidades en una aplicacion web, se aplica en la capa
+presentacion
+
+	JSP(vista): despliega la informacion al usuario.
+	Servlet(controlador):recupera los parametros, procesa la informacion y decide a donde
+			     se dirige la respuesta.
+	JavaBean(modelo):el servlet se apoya de este para devolver la informacion requerida.
+
+por ultimo el jsp se encarga de mostrar la informacion al usuario de nueva cuenta.
+
+METODO HTTP Y PROCESAMIENTO CON SERVLETS
+
+En total son 8 los metodos soportados por el protocolo HTTP. los cuales son:
+
+	*Option
+	*Get
+	*Head
+	*Post
+	*Put
+	*Delete
+	*Trace
+	*Conect.
+
+Los mas utilizados son GET y Post.
+
+Get: envia informacion del cliente pos un url, se utiliza con el metodo doGet();
+
+Post: envia informacion en el cuerpo del mensaje, no en el url, se utiliza el metodo doPost();
+(este es el metodo que debemos utilizar si no queremos que se vizualice informacion en el url).
+
+para utilizar un sevelts debemos extender de la clase httpSevlets y esta clase que creemos debemos
+sobreescribir ya sea el metodo doGet o doPost, segun la peticion que sea enviada.
+
+CICLO DE VIDA DE UN SERVLET
+
+	1.Se compila y se carga la clase
+	2.se crea un subproceso(hilo) del sevlet
+	3.se ejecuta el metodo init()
+	4.se ejecuta el metodo service()
+	5.se ejecuta el metodo destroy()

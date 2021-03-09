@@ -1,0 +1,17 @@
+TABLAS CON HTML
+
+el manejo de tablas con html es de gran utilidad al organizar informacion, las cuales para crearlas 
+hacemos uso de la etiqueta <table wigth=""border=""> donde wigth es el ancho y border el tipo de borde
+
+para agregar un titulo se utiliza las etiquetas <caption> titulo </caption>
+
+con <tr> agregamos una fila a la tabla
+
+y con <th> nombre </th> agregamos una columna, cada elemento <th> sera un renglon para agregar informacion
+
+una vez agregadas todas estas columnas se comienza a agregar su contenido utilizando <td>
+cabe destacar que esta se agrega de izquierda a derecha, por ende si tenemos 3 th deberemos agregar
+3 td por cada nivel
+
+esto para llenar cada parte de la tablam por ende se deben crear tantos td como th hubiera
+

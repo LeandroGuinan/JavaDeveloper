@@ -1,0 +1,54 @@
+MENSAJES STRUTS2
+
+mensaje: cualquier cadena que se muestre en nuestras paginas web.
+
+archivo: MiClaseAction.properties
+lo primero que se encuentra para aplicar el comcepto de mensajes es este archivo
+este se debe encontrar una ruta en especifica, debe tener el mismo nombre la clase accion
+pero con el atributo de .properties, debe tener tambien el mismo nombre de paquete, y se
+encuentra en la carpeta de resources de maven...
+
+clase: MiClaseAction.java
+esta clase debe extender directamente de la clase ActionSupport, para incluir directamente
+el comcepto de mensaje, esta clase AS es una clase del framework de struts2.
+
+archivo: pagina.jsp
+este puede acceder muy facilmente a las acciones y mensajes a travez de la clase .java, y esta
+accede al archivo properties, o tambien este .jsp puede acceder a el archivo de propiedades
+directamente.
+
+
+	ActionSupport.java
+		|
+	    <extends>
+		|
+	MiClaseAction.java
+     /			  \
+    /			   \	
+   /			    \
+pagina.jsp------------MiClaseAction.proerties
+
+
+		Accediendo a los mensajes(.properties) desde JSP
+
+
+*se puede lograr a travez del tag:
+<s:textfield key="nombre" name="nombreAtributo"/>
+
+donde:
+key: hace referencia a la llave definida dentro del archivo de propiedades, al definir esto
+ira a buscar directamente en el archivo de .properties la llave con el valor de nombre y regresa
+el valor asociado a esta llave
+
+*se puede utilizar tambien el tag:
+<s:text name="nombre"/>
+
+donde:
+name: hace refeencia directamente a el valor asociado de la llave nombre en el archivo .properties
+
+*se puede utilizar tambien el tag:
+<s:property value="getText('nombre')"/>
+
+donde:
+value: llamamos directamente el metodo get del atributo que queremos obtener, en este caso el valor
+asociado a la llave nombre, esto existe solo si extendemos de la clase ActionSupport

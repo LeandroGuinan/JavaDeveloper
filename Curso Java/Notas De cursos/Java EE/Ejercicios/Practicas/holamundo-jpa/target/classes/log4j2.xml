@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- este archivo es la configuracion de log4j, es un xml document -->
+
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- En la siguiente linea se especifica como queremos mostrar la informacion del servidor -->
+            <PatternLayout pattern = "%d{HH:mm} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

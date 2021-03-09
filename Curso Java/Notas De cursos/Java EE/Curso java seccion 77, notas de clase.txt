@@ -1,0 +1,65 @@
+INTRODUCCION A JAVA EMPRESARIAL
+
+existen muchas aplicaciones que pueden ser utiles al usuario, ya sean de escritorio, web o moviles
+cada una con sus distintas utilidades, java EE se encarga del manejo y de la aplicacion web
+empresarial, en el mundo de hoy es importante la optimizacion de informacion en las empresas
+y de eso se encarga Java EE
+
+la aplicacion empresarial de java tiene como objetivo la simplificacion en la programacion para
+requerimientos empresariales, y con ella la productividad del programador java.
+
+¿QUE ES JAVA EE?
+
+*Un API es un conjunto de clases que nos permite resolver una necesidad muy particular
+
+*Java EE es un conjunto de API's enfocadas en brindar servicios empresariales, ej:
+	
+	-Transaccionalidad
+	-Seguridad
+	-Interoperabilidad
+	-ETC...
+
+*Algunas de las API's Empresariales son:
+
+	-JTA-Java Transaction API
+	-JPA-Java Persistance API
+	-JMS-Java Message Service
+	-Etc... 
+
+en una aplicacion JEE podemos utilizar tecnologias como EJB, JPA, Web Services, entre muchas mas
+
+JSF 2.2(Facelets)  	presentacion
+
+CDI 			Inyeccion de dependencias
+
+EJB 3.2			Servicio de Negocio
+
+JAX-RS			REST
+
+JAX-WS			SOAP	
+
+JPA 2.1			Persistencia
+
+ARQUITECTURA MULTICAPAS EN JAVA EE
+
+una aplicacion java EE se divide en varias capas, lo cual tiene algunas ventajas, como optimizacion
+de una capa a una sola tarea, mejor distribucion de personal segun sus capacidades, mejor 
+distribucion de la aplicacion.
+
+la aplicacion java EE ofrece una API distinta orientada a cada capa(presentacion, negocio y datos).
+
+
+CAPA PRESENTACION:
+
+JSF (modelo-vista-controlador), servlets y jsp
+
+CAPA DE NEGOCIOS
+
+EJB(enterprise java beans) tambien se pueden exponer como servicios web
+
+CAPA DE DATOS
+JDBC/JPA(con este codigo accederemos a bases de datos)
+
+ademas de todo esto podemos añadir seguridad a nuestra aplicacion java EE
+
+

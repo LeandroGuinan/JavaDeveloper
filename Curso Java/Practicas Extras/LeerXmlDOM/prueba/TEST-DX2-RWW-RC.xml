@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<d2LogicalModel xmlns="http://datex2.eu/schema/2/2_0" modelBaseVersion="2">
+    <exchange>
+        <supplierIdentification>
+            <country>it</country>
+            <nationalIdentifier>5T-Test</nationalIdentifier>
+        </supplierIdentification>
+    </exchange>
+    <payloadPublication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="SituationPublication" lang="it">
+        <publicationTime>2020-10-21T09:54:55.612+02:00</publicationTime>
+        <publicationCreator>
+            <country>it</country>
+            <nationalIdentifier>5T-Test</nationalIdentifier>
+        </publicationCreator>
+        <situation id="39594" version="4">
+            <overallSeverity>lowest</overallSeverity>
+            <situationVersionTime>2020-10-21T09:54:36.333+02:00</situationVersionTime>
+            <headerInformation>
+                <confidentiality>noRestriction</confidentiality>
+                <informationStatus>real</informationStatus>
+                <urgency>normalUrgency</urgency>
+            </headerInformation>
+            <situationRecord xsi:type="RoadOrCarriagewayOrLaneManagement" id="1eedca5f-4f05-499e-a9d1-9c7dab985a8a" version="4">
+                <situationRecordCreationTime>2019-10-23T12:21:21.964+02:00</situationRecordCreationTime>
+                <situationRecordVersionTime>2020-10-21T09:54:46.000+02:00</situationRecordVersionTime>
+                <confidentialityOverride>noRestriction</confidentialityOverride>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceCountry>it</sourceCountry>
+                    <sourceIdentification>CCISS</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="it">5T-Test</value>
+                        </values>
+                    </sourceName>
+                </source>
+                <validity>
+                    <validityStatus>active</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2019-10-23T12:21:21.977+02:00</overallStartTime>
+                    </validityTimeSpecification>
+                </validity>
+                <cause xsi:type="ManagedCause">
+                    <managedCause targetClass="SituationRecord" id="aaa11fd4-b1d5-4abc-9e6a-54ecc8825d1c" version="4"/>
+                </cause>
+                <groupOfLocations xsi:type="Linear">
+                    <supplementaryPositionalDescription>
+                        <affectedCarriagewayAndLanes>
+                            <carriageway>mainCarriageway</carriageway>
+                            <lane>rightLane</lane>
+                            <footpath>false</footpath>
+                            <lengthAffected>20.0</lengthAffected>
+                        </affectedCarriagewayAndLanes>
+                    </supplementaryPositionalDescription>
+                    <alertCLinear xsi:type="AlertCMethod4Linear">
+                        <alertCLocationCountryCode>5</alertCLocationCountryCode>
+                        <alertCLocationTableNumber>1</alertCLocationTableNumber>
+                        <alertCLocationTableVersion>4.3</alertCLocationTableVersion>
+                        <alertCDirection>
+                            <alertCDirectionCoded>positive</alertCDirectionCoded>
+                            <alertCDirectionNamed>
+<values>
+    <value lang="it">Incrocio Corso Maroncelli - Torino - TO - Piemonte</value>
+</values>
+                            </alertCDirectionNamed>
+                        </alertCDirection>
+                        <alertCMethod4PrimaryPointLocation>
+                            <alertCLocation>
+<alertCLocationName>
+    <values>
+        <value lang="it">Incrocio Sottopasso Lingotto</value>
+    </values>
+</alertCLocationName>
+<specificLocation>40190</specificLocation>
+                            </alertCLocation>
+                            <offsetDistance>
+<offsetDistance>1160</offsetDistance>
+                            </offsetDistance>
+                        </alertCMethod4PrimaryPointLocation>
+                        <alertCMethod4SecondaryPointLocation>
+                            <alertCLocation>
+<alertCLocationName>
+    <values>
+        <value lang="it">Incrocio Piazza Polonia</value>
+    </values>
+</alertCLocationName>
+<specificLocation>40191</specificLocation>
+                            </alertCLocation>
+                            <offsetDistance>
+<offsetDistance>350</offsetDistance>
+                            </offsetDistance>
+                        </alertCMethod4SecondaryPointLocation>
+                    </alertCLinear>
+                </groupOfLocations>
+                <complianceOption>advisory</complianceOption>
+                <roadOrCarriagewayOrLaneManagementType>roadClosed</roadOrCarriagewayOrLaneManagementType>
+            </situationRecord>
+            <situationRecord xsi:type="MaintenanceWorks" id="aaa11fd4-b1d5-4abc-9e6a-54ecc8825d1c" version="4">
+                <situationRecordCreationTime>2019-10-23T12:21:21.964+02:00</situationRecordCreationTime>
+                <situationRecordVersionTime>2020-10-21T09:54:46.000+02:00</situationRecordVersionTime>
+                <confidentialityOverride>noRestriction</confidentialityOverride>
+                <probabilityOfOccurrence>certain</probabilityOfOccurrence>
+                <severity>medium</severity>
+                <source>
+                    <sourceCountry>it</sourceCountry>
+                    <sourceIdentification>CCISS</sourceIdentification>
+                    <sourceName>
+                        <values>
+                            <value lang="it">5T-Test</value>
+                        </values>
+                    </sourceName>
+                </source>
+                <validity>
+                    <validityStatus>active</validityStatus>
+                    <validityTimeSpecification>
+                        <overallStartTime>2019-10-23T12:21:21.977+02:00</overallStartTime>
+                    </validityTimeSpecification>
+                </validity>
+                <groupOfLocations xsi:type="Linear">
+                    <alertCLinear xsi:type="AlertCMethod4Linear">
+                        <alertCLocationCountryCode>5</alertCLocationCountryCode>
+                        <alertCLocationTableNumber>1</alertCLocationTableNumber>
+                        <alertCLocationTableVersion>4.3</alertCLocationTableVersion>
+                        <alertCDirection>
+                            <alertCDirectionCoded>positive</alertCDirectionCoded>
+                            <alertCDirectionNamed>
+<values>
+    <value lang="it">Incrocio Corso Maroncelli - Torino - TO - Piemonte</value>
+</values>
+                            </alertCDirectionNamed>
+                        </alertCDirection>
+                        <alertCMethod4PrimaryPointLocation>
+                            <alertCLocation>
+<alertCLocationName>
+    <values>
+        <value lang="it">Incrocio Sottopasso Lingotto</value>
+    </values>
+</alertCLocationName>
+<specificLocation>40190</specificLocation>
+                            </alertCLocation>
+                            <offsetDistance>
+<offsetDistance>1160</offsetDistance>
+                            </offsetDistance>
+                        </alertCMethod4PrimaryPointLocation>
+                        <alertCMethod4SecondaryPointLocation>
+                            <alertCLocation>
+<alertCLocationName>
+    <values>
+        <value lang="it">Incrocio Piazza Polonia</value>
+    </values>
+</alertCLocationName>
+<specificLocation>40191</specificLocation>
+                            </alertCLocation>
+                            <offsetDistance>
+<offsetDistance>350</offsetDistance>
+                            </offsetDistance>
+                        </alertCMethod4SecondaryPointLocation>
+                    </alertCLinear>
+                </groupOfLocations>
+                <roadMaintenanceType>roadworks</roadMaintenanceType>
+            </situationRecord>
+        </situation>
+    </payloadPublication>
+</d2LogicalModel>

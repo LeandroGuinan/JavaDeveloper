@@ -1,0 +1,108 @@
+JAVA SERVER FACES
+
+es una tecnologia que fue diseñada para simplificar la construccion de interfaz de usuario para
+aplicaciones web java, esta tiene el apoyo de IDE's como netbeans, eclipse, etc... 
+
+cuenta con el apoyo de muchos servidores de aplicaciones java.
+
+	*JavaServerFaces(JSF) es el marco de aplicaciones web 
+	estandar para Java Enterprise Edition(Java EE).
+
+	*Al ser estandar de Java, la tecnologia cuenta con el
+	apoy de una industria muy solida 
+	
+	*La tecnologia ha crecido en su uso a nivel mundial
+
+	*Se cuenta con un fuerte apoyo de IDE's de Java, asi
+	como Servidores de aplicciones para su despliegue 
+
+CARACTERISTICAS DE JSF
+
+*MVC: implementa el patron de diseño Modelo-Vista-Controlador
+
+*RAD: Desarrollo de aplicaciones para web
+
+*Componentes de interfaz de usuario: JSF tiene desarrollados
+componentes reutilizables listos para utilizarse
+
+*Extensibilidad: JSF es altamente extensible debido a su 
+arquitectura
+
+*Internacionalizacion: Las Vistas pueden mostrarse en distintos
+idiomas.
+
+Nuevas Caracteristics en JSF 
+
+*Manejo de condiciones por default mas inteligentes
+
+*Manejo de anotaciones para varias configuraciones
+
+*soporte nativo para AJAX
+
+*Soporte por default para Facelets
+
+*Mas componentes y validadores
+
+ARQUITECTURA JAVASERVERFACES
+
+Capa del  --Http--> Capa WEB --> Capa de  ---> Capa  --JDBC-->BD 
+Cliente		    (JSF)	 Negocios      Datos
+
+las cuales contienen:
+
+Capa cliente: HTML, CSS, JavaScript
+
+Capa Web: faces-config.xml, Managed Bean(controlador), JavaBean(modelo) Facelets/JSP Tags(vista)
+
+Capa Negocio: Objetos de Negocio
+
+Capa Datos: Objetos Entidad
+
+BD: base de datos
+
+PATRON DE DISEÑO MVC CON JSF
+
+	MODELO------->VISTA------>CONTROLADOR
+	|				    |
+	--<---<------<----------<---------<-- 
+
+MODELO: (ManagedBean de Modelo)
+
+-EL(expression Language)
+-JSTL(Java Standar Tag Library)
+
+Vista: Facelets o JSP
+
+Controlador: Managed Bean controlador
+
+TECNOLOGIA DE LOS FACELETS
+
+*Los Facelets son la tecnologia estandar de despliegue en JSF
+
+*Los Facelets pueden ser hasta un 30% mas rapidos en el analisis y 
+elaboracion de paginas
+
+*Los Facelets fueron creados tomando en cuenta el ciclo de vida de JSF
+
+*Al ejecutar un Facelet, todos los componentes JSF se convierten a 
+instancias Java y son administradas por un Component Tree
+
+*Todos los componentes JSF se derivan de la clase abstracta
+javax.faces.component.UIComponent
+
+*El estado de los componentes (Component Tree puede almacenarse del
+lado del cliente o del lado del servidor
+
+FLUJO DE NAVEGACION EN JSF
+
+1.Peticion getRequest index.html
+
+2.Envio formulario
+
+3.instancia el managed bean
+
+4.ejecuta el metodo controlador
+
+5.ejecuta logica y obtiene el modelo
+
+6.selecciona la pagina Facelet O jsp

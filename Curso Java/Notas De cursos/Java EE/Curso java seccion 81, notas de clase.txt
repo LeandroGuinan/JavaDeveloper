@@ -1,0 +1,74 @@
+ASOCIACIONES EN JPA
+
+	Relaciones En JPA
+
+normalmente los sistemas con bases de datos relacionales mantienen relaciones con uno o mas objetos,
+los tipos de relaciones que se manejan en jpa son los mismo que se manejan en la teoria de base
+de datos relacional.
+
+	Tipos De Relaciones:
+
+*Uno a Uno: @OneToOne
+
+*Uno a Muchos: @OneToMany
+
+*Muchos a Uno: @ManyToOne
+
+*Muchos a Muchos: @ManyToMany
+
+JPA soporta las relaciones mencionadas en los archivos de mapeo de cada clase de entidad o en clases
+java utilizando anotaciones.
+
+ 	Direccionalidad En Las Relaciones:
+
+se pueden acceder a los objetos de manera unidireccional o bidireccional.
+
+*Unidireccional: Se define el atributo de relacion solo en una clase
+
+*Bidireccional: Se define los atributos de relacion en ambas clases 
+
+cuando cada objeto entidad se apunta uno al otro por medio de un atributo o una direccion se le
+llama bidireccional, si solo una entidad apunta a otro objeto se le llama unidireccional 
+
+ejemplos:
+
+@OneToOne:
+relacion de 1 a 1
+en 2 tablas de datos relacionadas un alumno tiene un domicilio.
+
+@OneToMany:
+relacion de 1 a muchos
+en 2 tablas de datos relacionados un instructor imparte muchos cursos 
+
+@ManyToMany:
+relacion de muchos a muchos
+en 2 tablas de datos relacionados un alumno tiene muchos cursos y un curso tiene muchos alumnos
+
+esta ultima relacion es mejor normalizarla utilizando 3 tablas de datos, que divida mejor la
+informacion, esto para no caer en bucles de peticiones.
+
+	FETCHING RELACIONES
+
+con JPA podemos especificar el comportamiento de las colecciones de objetos, relacionadas a nuestras
+clases de entidad, existen dos tipos:
+
+*Lazy Loading: Carga Retardada
+en esta los atributos no se hacen de manera inmediata, esto para evitar la sobrecarga de queries,
+este es el comportamiento por default en las relaciones @OneToMany y @ManyToMany, en ciertos
+casos hay que especificarlos de maneras explicitas.
+
+
+*Eager Loading: Carga Inmediata
+en este tipo las colecciones asociadas a la carga identidad son recuperadas, por lo tanto son 
+recuperadas con el objeto de entidad, realizando mas consultas que se solo se recupera el objeto
+de entidad en cuestion, este no es el comportamiento por defalut, por ende debemos especificarlo
+
+	Guardado En Cascada
+
+Una de las caracteristicas de persistencia en JPA es la posibilidad de persistir un objeto
+de entidad junto con sus relaciones.
+
+por ejemplo una tabla de usuario asociado a una tabla de tipo persona, si queremos iterar
+un objeto usuario no guardara un objeto tipo persona, pero si indicamos que tambien guarde la 
+relacion de la identidad asociada, utilizando la anotacion de persistencia en cascada, entonces
+se guardara no solo el objeto usuario y tambien el objeto tipo persona 

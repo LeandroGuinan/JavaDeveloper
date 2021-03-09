@@ -1,0 +1,50 @@
+class PruebaPersonas {
+    //el metodo main es donde se ejecuta el programa siempre
+   public static void main(String[]args){
+       
+       
+       // creacion de un objeto de tipo persona
+       //definicion de variable tipo persona
+       Persona p1;
+       
+       //instanciando (creando un objeto de clase persona)
+       
+       p1 = new Persona();
+       /* explicacion: de la plantilla(clase) persona se creo un objeto
+       utilizando la palabra "new" + el nombre de la clase(Persona), la variable
+       p1 asi como cualquier "string", "int" es una variable tipo persona, que es
+       donde se esta alojando el objeto creado, para hacer su uso en el metodo
+       main*/
+       
+       // accedemos al objeto persona
+       p1.desplegarNombres();
+       
+       //modificamos los valores de los atributos del objeto persona
+       
+       p1.nombre = "juan";
+       p1.apellido = "perez";
+       //imprimimos de nuevo los vaores
+       System.out.println("");
+       p1.desplegarNombres();
+       
+       /*se creo la clase pesona con dos atributos(variables) con un 
+       metodo desplegar nombres, creamos un objeto de tipo persona y creamos
+       una variable de tipo persona, la cual accedio a los atributos de nuestro
+       objeto y los modifico, se puede crear mas objetos y modificar sus atributos*/
+       
+       //creamos un segundo objeto
+       Persona p2 = new Persona();
+       p2.nombre = "Karla";
+       p2.apellido = "Gomez";
+       System.out.println("");
+       p2.desplegarNombres();
+       
+       /*tenemos nuestra clase persona, y creamos un segundo objeto la cual utiliza
+       los mismo atributos de la plantilla persona y los modifica creando su variable
+       respectiva para acceder a este(p2)*/
+       //lo que se asigna en realidad a la variable persona es lla referencia de espacio en memoria del programa
+       
+       
+       
+   }
+}

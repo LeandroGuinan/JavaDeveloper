@@ -1,0 +1,61 @@
+FACELETS EN JSP
+
+CARACTERISTICAS DE FACELETS
+
+*Los facelets es la tecnologia estandar de despliegue en JSF
+
+*Los Facelets eliminan completamente la necesidad de los JSP's
+
+*Utilizan un parser XML en lugar del compilador de JSP
+
+*Comparado con JSP, los facelets crean un component tree mas ligero
+
+*los Facelets resultan hasta un 30% mas rapidos en compilacion
+
+*soporte para templates
+
+*creacion de componentes compuestos 
+
+LOS FACELETS NO SON JSP'S
+
+Dentro de una pagina Facelet NO es posible utilizar los siguientes taglib de JSP
+
+	<jsp:root/>
+	<jsp:directive.include/>
+	<jsp:output/>
+	<jsp:directive.content/>
+
+Sin embargo, SI es posible utilizar los tags de JSTL en Facelets:
+
+	<c:forEach.../>
+	<c:if.../>
+	<c:catch.../>
+
+PLANTILLA CON FACELETS
+
+las plantillas definen las regiones logicas de una JSF
+
+los elementos generales son:
+	
+	-Template(plantilla): pagina utilizada para controlar el layout
+	 (disposicion de los elementos)
+
+	-Template-client(Cliente-Plantilla): pagina que personaliza su
+	 propia distribucion(layout) a partir de la plantilla que implementa
+	
+Los clientes acceden al Template-client, NUNCA directamente a la plantilla
+
+COMPONENTES COMPUESTOS
+
+*La creacion de nuevos componentes JSF requerian de crear clases Java
+
+*Los facelets permiten crear componentes reutilizables combinando HTML y
+tags de JSF:
+	
+	-Permite la reutilizacion de otros componentes
+	-se definen en un archivo XHTML, no en clases java
+
+*Los componentes compuestos son basicamente templates asociados a un tag library y personalizado
+
+*Para referenciar un componentes compuesto basta con importar el namespace en el XHTML
+

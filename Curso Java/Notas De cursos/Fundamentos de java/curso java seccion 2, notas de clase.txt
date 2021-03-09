@@ -1,0 +1,52 @@
+Variables En Java:
+son espacios en memoria que se utilizan para almacenar datos
+
+
+
+Tipos De Datos en Java:
+tipos primitivos: tipo entero, tipo flotante
+tipos referenciados: clases, interfaces, arreglos
+
+mas a fondo en tipos primitivos:
+tipos enteros: byte(8 bits), short(16bits), char(16 bits), int (32 bits) y long (64 bits)
+tipos flotantes: float (32 bits), double (64 bits)
+boolean: valor primitivo que solo puede ser true o flase (por defecto false)
+
+variable string: no es un valor primitivo, pero dado sus frecuencia se declara como variable primitiva
+"string", y un metodo para comparar variables de tipo texto es: variable.equals("hola mundo")
+a partir de la version 14 de java se esta utilizando la palabra reservada "var" para declarar variables de tipo string.
+
+tambien pueden ser declaradas variables enteras con la palabra reservada var, el jdk toma como referencia el tipo
+de dato que se tiene a la derecha para declarar variable ej: (var num = 1).
+
+definicion concatenacion: es el uso del operador mas (+) para añadir una variable de tipo string a otra
+ej: (variable1 + variable2).
+este es el unico operador en java que cumple dos funciones(sobre cargado), puesto que tambien cumple como operador
+de suma en valores de tipo numerico.
+
+dado el caso si se esta en: variable1(tipo texto) + variable2(tipo numerico) tomara solo la variable de texto.
+todo depende de la operacion que encuentre primero al lado izquierdo.
+
+REGLAS PARA DECLARAR VARIABLES EN JAVA
+	1. se debe delarar el tipo de variable "string", "int", o la palabra reservada "var"
+	2. se debe declarar el identificador (nombre de la variable)
+	3. por ultimo se le asigna un valor.
+
+se acostumbra iniciar el identificador en minusculas, las mayusculas se utilizan para clase, interface o cualquier otro dato.
+
+el identificador si contiene mas de una palabra estas deben estar pegadas pero todas las letras iniciales,
+posteriores a la primera, deben ir en mayuscula(notacion de altas y bajas).
+
+CARACTERES ESPECIALES EN JAVA:
+\n : agrega una linea al texto.
+\t : agrega una tabilador al texto
+\b : da un salto hacai atras en el texto
+\r : parecida al salto de linea, pero varia segun el sistema operativo
+\' : iniciara los caracteres con una comilla simple.
+\'': inicia los caracteres con una comilla doble
+
+LIBRERIA SCANNER:
+se uiliza para solicitar datos desde teclado, de no utilizarla solo se podra trabajar variables con codigo duro o
+estatico.
+
+

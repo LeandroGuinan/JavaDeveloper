@@ -1,0 +1,158 @@
+MATRICES EN JAVA
+
+es otra manera de ordenar informacion en java, se puede interpretar como dos arreglos, uno
+para las filas y otro para las columnas, y al juntarlos obtenemos una matriz. pero existen
+muchos aspectos similares a los arreglos.
+
+pueden ser de cualquier tipo que definamos, incluyendo de tipo object. al igual que los arreglos
+no todos los elementos de la matriz deben tener un valor.
+
+tanto en las filas como las columnas el indice inicia en 0. para obtener el valor en una posicion
+en especifico se debe indicar la filay columna en ese orden
+
+Declaracion de una matriz
+
+muy similar al manejo de arreglos:
+
+	tipo [][] nombreMatriz 		o		tipo nombreMatriz[][];
+
+ejemplo de declaracion de matrices de tipo primitivo
+	
+	int [][] enteros;		o		int enteros [][];
+	boolean[][]banderas;		o		boolean banderas[][];
+
+Ejemplo declaracion de matrices de tipo object
+
+	Persona[][]personas;		o		Persona personas[][];
+	String[][] nombres;		o		String nombres[][];
+
+normalmente las matrices se escriben en plurales esto para que a simple viste sepamos que es
+una coleccion e datos.
+
+este es uno de varios sistemas de datos que se encuentran.
+
+SINTAXIS PARA INSTANCIAR UNA MATRIZ	
+
+	nombreMatriz = new tipo [filas][columnas];
+
+EJEMPLO de matrices
+
+	enteros = new int[2][2]; //Matriz tipo int: 2 filas y 2 columnas
+	banderas = new boolean[3][2]; // matriz de tipo boolean: 3 filas y 2 columnas
+
+EJEMPLO de matrices tipo object
+
+	personas = new Persona[4][2];//matriz tipo persona: 4 filas y 2 columnas
+	nombres = new String[5][3]; //matriz tipo string: 5 filas y 3 columnas
+
+PARA INICIALIZAR LOS ELEMENTOS DE UNA MATRIZ
+
+	nombreMatriz[indice_filas][indice_columnas] = valor;
+
+ejemplo para inicializar los elementos de una matriz tipo int
+	
+	enteros[0][0] = 15;	//se asigna el valor de 15 en la fila 0 y culumna 0
+	enteros[1][0] = 13;	//se asigna el valor de 13 en la fila 1 y columna 0
+
+ejemplo para inicializar los elementos de una matriz de tipo object
+
+	personas[0][0] = new Persona(); //se asigna objeto en fil = 0 y col = 0.
+	personas[1][1] = new Persona("Pedro","Lara"); //se asigna en fil = 1 y col = 1.
+	nombres[0][0] = new String("Juan"); //se asigna String en fil=0 y col = 0
+	nombres[2][1] = new String ("Sara"); // se asigna String en fil = 2 y col = 1
+
+EXTRAER ELEMENTOS DE UNA MATRIZ
+
+sintaxis para extraer los elementos de una matriz
+
+	variableReceptora = nombreMatriz[indice_FILA][Indice_Columna];
+
+ejemplo para extraer los elementos de una matriz de tipo entero
+	
+	int i = enteros[0][0]; //extraemos valor de fila 0 y columna 0
+	int j = enteros[1][0]; //extraemos valor de fila 1 y columna 0
+
+ejemplo para extraer los elementos de una matriz de tipo object
+
+	Persona p1 = personas[0][0]; //extraemos valor de fila 0 y columna 0
+	Persona p2 = personas[1][1]; //extraemos valor de fila 1 y columna 0
+	String nombre1 = nombres[0][0]; // extraemos el valor de fil 1 y columna 0
+	String nombre2 = nombres[1][1]; //extraemos valor de fil 1 y col 1
+
+DECLARACION, INSTANCIACION E INICIALIZACION
+
+sintaxis para declarar, instanciar e inicializar los elementos de una matriz:
+	
+	tipo[][] nombreMatriz = {{lista valores},{lista valores}};
+
+EJ:
+
+	int[][]edades ={{10,23,41},{10,23,41}{10,23,41},{10,23,41}};
+			    0		1	 2	     3
+
+cada uno de este conjunto es una fila, ordenadas en columnas una abajo de otra
+
+EJ tipos object:
+
+	Persona[][] personas = {{new Persona(),new Persona()},{new Persona(),new Persona()}};
+	String[][] nombres = {{"Karla","Arturo","Juan"},{"Pedro","Laura","Oscar"}};
+
+no siempre es posible usar este metodo, puesto que no siempre se conocen los elementos de una
+matriz antes de inicializarla.
+
+EJEMPLO DE MANEJO DE MATRICES
+
+public class EjemploMatrices{
+	
+	public static void main(String[]args){
+
+		//1.declaramos una matriz de enteros
+		int edades [][];
+
+		//2.Instanciamos la matriz de enteros
+		edades = new int[3][2];
+	
+		//3.Inicializamos los valores de la matriz de enteros
+		edades[0][0] = 30;
+		edades[0][1] = 15;
+		edades[1][0] = 20;
+		edades[1][1] = 45;
+		edades[2][0] = 5;
+		edades[2][1] = 38;
+
+		//Imprimimos los valores a la salida estandar
+		//4.leemos los valores de cada elemento de la matriz
+		System.out.println("Matriz enteros indice 0-0: "+ edades[0][0]);
+		System.out.println("Matriz enteros indice 0-1: "+ edades[0][1]);
+		System.out.println("Matriz enteros indice 1-0: "+ edades[1][0]);
+		System.out.println("Matriz enteros indice 1-1: "+ edades[1][1]);
+		System.out.println("Matriz enteros indice 2-0: "+ edades[2][0]);
+		System.out.println("Matriz enteros indice 2-1: "+ edades[2][1]);
+	}
+}
+
+public class EjemploMatrices{
+
+	public static void main(String[]args){
+
+		//1. matriz de tipo String, notacion simploficada
+		String nombres[][] ={{"Teresa","Cesar","William"},{"Yesenia","Esteban","Maria"}}
+
+		//Largo de elementos de la matriz, primero el # de renglones
+		System.out.println("Largo de matriz renglones: "+nombres.lenght);
+
+		//seleccionando una fila valida nos regresa el numero de columnas
+		System.out.println("Largo de matriz renglones: "+nombres[0].lenght);
+
+		//Imprimimos los valores a la salida estandar
+		//2. iteramos la matriz de String con un for anidado
+
+		for(int i = 0; nombres.lenght; i++){
+
+			for(int j = 0; nombres[i].lenght; j++){
+			System.out.println("Matriz String indice: "+i + "-"+ j+" : "+ nombres[i][j]);
+	
+			}
+		}
+	}
+}

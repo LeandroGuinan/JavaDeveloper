@@ -1,0 +1,5 @@
+it\com\gm\sga\servicio\PersonaService.class
+it\com\gm\sga\servicio\PersonaServiceImpl.class
+it\com\gm\sga\servicio\PersonaServiceRemote.class
+it\com\gm\sga\domain\Persona.class
+it\com\gm\sga\web\PersonaServlet.class

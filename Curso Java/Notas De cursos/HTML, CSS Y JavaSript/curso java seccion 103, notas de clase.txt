@@ -1,0 +1,5 @@
+FRAMES CON HTML
+
+los frames son un conjunto de paginas unidas entre si, las cuales dependiendo de donde hagas click te enviara 
+a una pagina distinta, cabe destacar que esta variacion esta en des uso,
+

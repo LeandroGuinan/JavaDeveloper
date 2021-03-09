@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="CL" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="CL"/>
+        </Root>
+    </Loggers>
+</Configuration>

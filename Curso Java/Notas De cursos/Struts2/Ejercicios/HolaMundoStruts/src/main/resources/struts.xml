@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Definimos el tipo de documeto y las dependendias de struts: -->
+<!DOCTYPE struts PUBLIC
+  "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+  "http://struts.apache.org/dtds/struts-2.5.dtd">
+  <!-- definimos los struts que vamos a utilizar: -->
+<struts>
+    <!-- definimos el paquete donde se aloja por default: -->
+    <package name="struts2" extends="struts-default">
+        <!-- la accion que se manda a llamar y la execution establecida: -->
+        <action name="saludar" class="beans.HolaMundoAction">
+            <!-- y por ultimo a la pagina que se va a refirigir
+                 ya que configuramos la cadena "exito" en el execute, al 
+                 aparecer esta se manda a llamar al jsp correspondiente            -->
+            <result name="exito">/saludos.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,89 @@
+CONTEXTO ESTATICO EN JAVA
+
+primero se debe marcar diferencia entre contexto estatico del dinamico
+
+para comenzar a crear objetos de una clase primero se debe cargar la clase en memoria por medio del 
+class louder, aqui en entra por primera vez el comcepto de contexto estatico y pude ser utilizado hasta que
+la clase se elimine de la memoria que pasa cuando se detiene el proceso de la maquina virtual de java.
+
+Una vez la clase esta cargada en memoria es posible crear objetos de dicha clase, a esto se le conoce como
+cotexto dinamico ya que aqui es posible crear objetos y interactuar entre los mismos.
+
+En resumen: el contexto estatico se carga primero que el contexto dinamico y por ende las clases que vallamos
+a utilizar se cargan en primera instancia.
+
+Luego se carga el contexto dinamico y aqui es cuando se empiezan a crear los objetos cargados en memoria.
+
+como se entiende el contexto estatico tiene mayor tiempo de vida que el dinamico, y otra caracteristica
+es que el contexto estatico lleva dentro al contexto dinamico pero no al revez.
+
+el apuntador this solo tiene uso cuando se esta creando un objeto en una clase, por ende no es posible 
+utilizarlo en un contexto estatico.
+
+el contexto estatico lo podemos aplicar en java por medio de la palabra static
+
+static: se usa para interactuar por el contexto estatico. 
+
+por ejemplo si definimos un atributo static en una clase estamos indicando que este pertenece a la clase y 
+no al objeto. tambien se indica que e atributo se crea una sola vez, asi que sin importar cuantos objetos
+se creen solo existe una variable, la cual se asocia a la clase y no al objeto.
+
+si un objeto accede al valor de la palabra static leera el mismo valor que los demas objetos, si un objeto
+modifica el valor de la variable estatica todos los demas objetos accederan al mismo valor ya que este valor
+esta almacenado en la clase y no en los objetos de dicha clase.
+
+podemos acceder a cualquier variable de la clase sin nececidad de crear un objeto de dicha clase ej:
+
+NombreClase.atributoEstatico (deben tener el modificador de acceso public)
+
+por tanto los atributos static se conocen como atributos de clase ya que  pertecen a la clase y no a los 
+objetos
+
+EJ:
+
+public class EjemploThisStatic{
+
+	public static void main(String[]args){
+	//this no puede usarse dentro de un contexto estatico
+	//ya que solo tiene sentido cuando se ah creado un objeto
+	this.imprimir("hola");//marca error
+ }
+}
+
+	//Metodo NO estatico
+	public void imprimir(String s){
+	
+	System.out.println("Valor recibido:"+s)
+
+}
+
+EJ:
+
+public class EjemploStatic{
+	public static void main(String[]args){
+		Persona p1 = new Persona("Juan");
+		System.out.println("Persona1: "+p1);
+
+		//Imprimimos el contadorPersonas
+		System.out.println("No. Personas:"+Personas.getContadorPersonas());//aqui vemos que podemos llamar al metodo directamente 
+										   //unicamente con el nombre de la clase . el objeto 
+										   //pero unicamente cuando este es static
+	}
+}
+
+class Persona{
+	private String nombre;
+	private int idPersona;
+	private sttic int contadorPersonas;
+
+	public Persona(String nombre){
+		//cada que creamos un objeto persona incrementamos el contador para obtener un nuevo idPersona
+		contadorPersona++
+		//Asignamos el nombre recibido
+		this.nombre = nombre;
+
+	}
+	public static int getContadorPersonas(){
+		return contadorPersonas;
+	}
+}

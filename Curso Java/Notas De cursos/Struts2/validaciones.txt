@@ -1,0 +1,37 @@
+VALIDACIONES STRUTS2
+
+parte de lo nuevo implementado en struts2 es la capacidad de validar valores antes de enviarlos
+a la clase Action, si extendemos de ActionSupport entonces ya es posible ejecutar las validaciones
+de tipos Actions, de manera que:
+
+public class ValidarUsuarioAction extends ActionSupport{
+
+	private String usuario;
+	private String password;
+
+	@Override
+	public void validate(){
+		
+		if(this.usuario == null || "".equals(this.usuario.trim()){
+			addFieldError("usuario",Valor usuario Invalido);
+		}else if(!usuarioValido()){
+			addActionError("Valor usuario no valido")
+		}
+
+		if(this.password == null || "".equals(this.password.trim()){
+			addFieldError("password",getText(val.password));
+		}else if(this.password.lenght()<3){
+			addFieldError("password", getText("val.pass.min.lenght"))
+		}	
+	}
+}
+
+el metodo validate esta presente en la calse ActionSupport, por ende podemos utilizarlo 
+sin problema al extender de esta.
+
+en la validacion de la variable ususario vemos que podemos agregar un filtro directamente
+en el metodo validate, el primero ocurre si el usuario es null o si es igual a cadena vacia,
+la segunda condicion es una mas general, en este caso se despliega si no es un usuario valido.
+
+la primera condicion de password ocurre si esta es igual null o esta es cadena vacia, la segunda
+ocurre si la logitud de esta cadena es menos a 3

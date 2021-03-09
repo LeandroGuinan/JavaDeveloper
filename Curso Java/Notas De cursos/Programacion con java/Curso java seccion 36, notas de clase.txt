@@ -1,0 +1,24 @@
+MODIFICADORES DE ACCESO EN JAVA
+
+uso de modificadores de acceso.
+
+existen 4 modificadores de acceso en java los cuales son:
+public, protected, default y private
+
+de izquierda a derecha segun si alcance siento el public el menos restrictivo y el private el
+mas restrictivo.
+
+(+)Public: este aplica para todo elemento en java(variable, metodo, constructor, etc).
+con este cualquier clase dentro del mismo paquete o fuera tendra acceso al elemento
+
+(#)Protected: este modificador de acceso hace que una clase hija tenga acceso a elementos
+de la clase madre este o no en el mismo paquete, pero las clases que no hereden de la 
+clase madre no tendran acceso, no es posible definir una clase tipo Protected.
+
+(~)Default: este modificador hace que los elementos del paquete sean los unicos elementos que tengan acceso
+a las variables, es decir, no se puede utilizar esta variable en otro paquete, este se declara
+por defecto si no añadimos un modificador de acceso al declarar una variable.
+
+(-)Private: este lo que hace es que evita que cualquier otra clase incluso subclases accedan 
+al elemento marcado como private, no se puede definir una clase como privada
+

@@ -1,0 +1,15 @@
+CONSTRUCTORES EN JAVA
+
+Constructor: es un metodo que nos permite incicializar objetos en los cuales podemos asignar valores
+a estos objetos.
+
+se asemejan mucho a los metodos, con la diferencia que estos nunca retornan ningun valor
+por lo que nunca tendra un return.
+
+SINTAXIS:
+
+contructor vacio:
+NombreClase variable = new NombreClase();
+
+constructor NO vacio:
+NombreClase variable = new NombreClase(5,10);

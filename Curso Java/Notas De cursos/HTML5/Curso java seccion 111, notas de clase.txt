@@ -1,0 +1,58 @@
+MULTIMEDIA EN HTML
+
+antes de la llegada de html5 solo se podia reporducir video por flashplayer, pero este no era una opcion
+con la llegada de dispositivos moviles.
+
+al dia de hoy html5 ofrece caracteristica similares , con ayuda de css y java script podemos lograr
+caracteristicas muy similares a flash, y con el uso de cambass podemos dibujar incluso sobre el video.
+
+devido a la creciente demanda de contenido multimedia actual html5 nos permite gran varieadad a la hora
+de manejar archivos multimedia, las posibilidades son mayores, pero entramos en temas de compatibilidad
+entre navegadores.
+
+existen varias razones para incluir audio y video en nuestras paginas web
+
+	*es la unica manera de llegar a una audiencia mas amplia, debido al crecimiento de dispositivos moviles
+
+uno de los principales problemas que podemos encontrar a la hora de utilizar video en html5 son los formatos
+
+existen formatos abiertos como ogg theora y webm que son soportados por google, mozilla
+
+y los formatos cerrados que requieren una licencia para usarlos que es mp4.
+
+lo ideal es utilizar dos formatos como minimo para ser lo mas diverso posible(mp4 y webm)
+
+AUDIO EN HTML5
+
+el tema del audio no es muy diferente al manejo de video, de hecho es una variante, se apoyan ciertos formatos
+tanto abiertos como cerrados, en este se recomienda utilizar mp3 y ogg como minimo.
+
+CODIFICADORES DE VIDEO
+
+dentro del formato del video se componen dos ramas importantes el codex del video y el del audio.
+
+el mp4 utiliza en H.264 como codificdor de video y AAC como codificador de audio, pero este tiene licencia
+para poder utilizarlo
+
+por otro lado en el formato ogg theora utiliza theora como codificador de video y vorbis como codificador
+de audio, este formato es libre de licencia, pero es el que tienen menor calidad.
+
+el formato webm cuenta con VP8 como codificador de video y Vorbis como codificador de audio.
+
+se recomienda utilizar al menos estos formatos para ser compatible con la mayoria de navegadores, y existen
+varias formas de convertir de un formato a otro.
+
+CODIFICADORES DE AUDIO
+
+en muchas ocaciones los formatos simplemente quitan la parte de video para utilizar audio, pero existen
+algunos que solo tienen el codificador de audio, por ejemplo el formato mp3, solo es un archivo comprimido.
+
+el formato AAC esta asociado al mp4, por ende es uno de los mas estables, por lo tanto se recomienda ofrecer
+esta opcion al usuario.
+
+ambos tienen licencia.
+
+los formatos OGG de audio y wave(de los discos) no tienen licencia, sin embargo el wave es mas pesado
+
+se recomienda utilizar al menos dos de los anteriores para ofrecer mejor experiencia al usuario.
+

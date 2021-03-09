@@ -1,0 +1,25 @@
+Capa presentacion:
+html,css,js
+jsp(aplicado el anterior) + boostrap
+primefaces(componentes pm)
+
+
+Capa Web:
+Servlets(clasico)
+primefaces(beans)
+spring(servlet spring)
+struts2
+
+Capa Servicio
+EJB's(empresariales)
+
+Capa Datos
+eclipselink(persistencia)
+hibernate
+
+Bases de datos
+MySql
+
+servidores de aplicaciones:
+glassfish
+Tomcat

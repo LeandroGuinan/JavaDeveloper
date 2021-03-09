@@ -1,0 +1,30 @@
+MANEJO EVENTOS EN JSF
+
+Value change Listener en JSF
+
+JSF provee dos maneras de detectar cambios (value change) en los componentes, ya sea agregando un 
+atributo valueChangeListener al componente o como elemento interno. Por ejemplo:
+
+<h:inputText id="codigoPostal" onchange="this.form.submit()"
+value="#{empleadoBean.codigoPostal}"
+valueChangeListener="#{vacanteForm.codigoPostalListener}"/>
+
+Una vez definido el atributo o elemento interno, se debe agregar el metodo action en el Managed
+Bean que escucha el cambio en la vista
+
+public void codigoPostalListener(ValueChangeEvent valueChangeEvent){...}
+
+ACTION LISTENER EN JSF
+
+JSF provee dos maneras de configurar la deteccion de eventos cuando un usuario ejecuta una accion
+de tipo submit, ya sea agregando el atributo actionListener al componente JSF o como un elemento
+interno en el componente
+
+algunos componentes de este tipo son h:commandButton y h:commandLink
+
+	<h:commandLink actionListener="#{vacanteForm.enviar}"/>
+
+Una vez definido el atributo o elemento interno, se debe agregar el metodo action en el Managed
+Bean que procesa la peticion de la vista
+
+	public void enviar(ActionEvent actionEvent){...}

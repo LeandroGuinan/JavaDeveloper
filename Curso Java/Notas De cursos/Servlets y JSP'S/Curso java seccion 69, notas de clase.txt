@@ -1,0 +1,60 @@
+EXPRESSION LANGUAGE CON JSP'S
+
+EL (expression language nos permite simplificar el despliegue de informacion en un JSP utilizando
+JavaBeans.
+
+*Sintaxis con acciones JSP:
+
+	<jsp:useBean id="nombreBean" class"ClaseBean"/>
+
+	<jsp:getProperty name="nombreBean" propiedad="nombrePropiedad"/>
+
+*Sintaxis con Expression Languege(EL):
+	
+	${nombreBean.nombrePropiedad}
+	${nombreBean["nombrePropiedad"]}
+
+CARACTERISTICAS DE EXPRESSION LANGUAGE
+
+*Los objetos JavaBean a utilizar se deben agregar previamente en algun alcance(scope) por medio
+del metodo setAtribute() en un servlet:
+	
+	-page
+	-request
+	-session
+	-application
+
+*La notacion es muy simplificada pero solo permite la lectura de informacion(getters). No existe
+notacion para la modificacionde los atributos en un JavaBeans(setters).
+
+*Permite acceder a propiedades de un JavaBean de manera anidada.EJ: ${alumno.direccion.calle}
+
+*Acceso a propiedades de objetos de tipo collection o Arreglos
+Ej:${listaPersonas[indice/llave]}
+/nota:No es posible iterar elementos, para ello debemos usar JSTL/
+
+*Conversiones automaticas de tipos de datos al desplegar la informacion.
+
+*Manejo automatico de valores null o vacios, convirtiendolos en cadenas vacias.
+
+*Conjunto de operaciones:
+	-${3+2-1}
+	-${"x"> "y"}
+	-${3 >= 10/2}
+
+ACCESO A VARIABLES IMPLICITAS CON EL
+
+*Objeo pageContext. 
+EJ: ${pageContext.session.id}
+
+*Valores de parametros con param y paramValues
+EJ: ${param.nombre}
+
+*Valores de cabeceros con header y headerValues.
+EJ: ${header["user-agent"]}
+
+*Valores con el objeto cookie.
+EJ: ${cookie.nombreCookie.value}
+
+*Valores de atributos en algun alcance con pageScope, requestScope, sessionScope y applicationScope
+EJ: ${sessionScope.rectangulo.area} o ${rectangulo.area}

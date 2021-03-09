@@ -1,0 +1,102 @@
+Componentes HTML
+
+se clasifican en: 
+
+componentes de hipervinculos: links, botones e imagenes 
+
+componentes de un formularios: formularios, checkboxes, radiobuttons, listas, campos de texto y de area
+
+otro tipos de componentes: frames, graficos, div, objetos embebidos, etc.
+
+COMPONENTES DE UN URL
+
+Scheme: - //host -> :port -> /path -> :parameters -> ?query -> #ancla
+
+scheme: el protocolo a utilizar (http, ftp, etc) es el primer elemento a utilizar
+
+//host puede ser el nombre de la ip, o tambien el dominio del sitio web
+
+:port de manera opcional, ya que por defecto el puerto en internet es siempre 80
+
+/paht es la ruta donde se encuentran los recursos del sitio web, en ocaciones se encuentran pahts de varias
+      carpetas, como tambien en sin que hubiera ninguno
+
+:parameters se puede requerir informacion del sitio web en la url, estos se le conoce como parametros
+
+?query son otro tipo de parametros
+
+#ancla hace referencia a una parte de la pagina html
+
+
+ejemplo:
+
+	http://192.168.0.1:80/miSitioWeb?user=ubaldo&apellido=acosta
+
+	http://localhost/miSitioWeb/subcarpeta/index.html#ancla
+
+
+componentes basicos:
+
+cabe destacar que todo componente de html se compone de etiquetas, y por ende estas deben ser abiertas y
+ cerradas por ej:
+
+<title> Componentes Html</title>
+
+este comando sirve para agregar el titulo en la pestaña del navegador, como se ve, se abre y se cierra
+para que la accion se ejecute.
+
+algunos comandos son:
+
+<!DOCTYPE html> : este indica el tipo de documento ejecutandose
+
+<html> </html> : este par de etiquetas son el documento html, todo el codigo a utilizar va dentro de estas
+
+<head> </head> : con esta se construye el titulo de la pestaña que corresponde a la cabeza.
+
+<meta charset="UTF=8">: esta linea implica que se van a utilizar caracteres para agregar un dato, esta
+			va sin etiqueta de cierre.
+
+<title>ejemplo</title>: con estas se agrega el titulo en la pestaña, que es el que esta entre ambas etiquetas
+
+<body></body> : entre estas etiquetas se encuentra el codigo que se vera en la pagina web vacia.
+
+<h1>ejemplo</h1>: estos se utilizan para agregar un caracter grande a la pagina, que sera el que esta
+		  entre estas etiquetas.
+
+<p></p> : representa el parrafo de un texto, cada que se quiera agregar uno nuevo se debera abrir y
+	  cerrar donde termine esto.
+
+<table> </table>: se utiliza para agregar una tabla, este elemento se agrega a un parrafo primero.
+
+<tr> </tr>: se trata de una celda de la tabla, cada inclusion agrega una celda de datos.
+
+<th></th>: elementos de encabezado de tabla, van dentro de <tr></tr>
+
+<td></td>: se trata de un elemento de tabla, que no es el titulo, tambien van dentro de <tr></tr>
+
+<select name = "lista1"></select>: se utiliza para crear una lista desplegable. 
+
+<option>valor1</option>: se utiliza para agregar una opcion a la lista desplegable
+
+<img src="link" alt ="default">: se utiliza para agregar imagenes.
+
+<form name = "formulario1" action ="recursos"></form>: se utiliza para agregar una forma
+
+<fieldset></fieldset>: se utiliza para agregar un campo de datos
+
+<legend>ejemplo</legend>: se utiliza para agregar palabras a una forma.
+
+Name: <input type ="text" size "30" name="nombre"/> : se utiliza para agregar un textfield
+
+<br/>: se utiliza para agregar un salto de linea
+
+<button type="submit">nombre</button>: se utiliza para agregar un boton.
+
+
+
+
+
+
+
+
+

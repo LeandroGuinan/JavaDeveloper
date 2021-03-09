@@ -1,0 +1,47 @@
+CICLOS EN JAVA
+
+son una linea de codigo que nos permite realizar una misma accion un determinado numero de veces, se controla con
+una variable
+
+elementos de un ciclo:
+INICIO-CONDICION-SENTENCIAS-CONDICION-SENTENCIAS-FIN
+
+condicion explicita: es cuando esta condicion depende exclusivamente de la misma ejecucion del programa, sin
+interaccion del usuario
+
+condicion implicita: es cuando una condicion depende del usuario para cumplir esta condicion.
+
+dentro de un ciclo puede ejecutarse cualquier sentencia, incluyendo otros ciclos. estos ciclos 
+siempre estan regidos por una variable tipo boolean.
+
+TIPOS DE CICLOS EN JAVA:
+
+ciclo while: este revisa la condicion, luego ejecuta el codigo y vuelve a realizar su condicion,
+hasta que el valor boolean que rije la condicion sea false:
+
+while(condicion){
+
+}
+
+Ciclo DO WHILE: este a diferencia del anterior evalua la condicion al final del ciclo, siendo su ciclo:
+do-ejecutar sentencia-while(condicion) al revisar la condicion el codigo entra o no al do:
+
+do{
+
+}while(condicion);
+
+Ciclo FOR: existen dos maneras de de declarar un ciclo for:
+clasica: inicializacion-condicion-ejecuta codigo-incrementa/decrementa(condicion)-revisa condicion
+
+for(inicializacion; condicion; iteracion){
+sentencia
+}
+shortcut:escribir: for + TAB
+
+uso de la palabra brake: se utiliza para detener la ejecucion de un ciclo for.
+uso de la palabra continue: se utiiza para evitar que se ejecute una linea de codigo posterior a la sentencia continue y cierra
+el ciclo
+
+etiquetas en ciclos: se utilizan para marcar el inicio de un ciclo y de nuevo en especifico al uso de una de las
+palabras anteriores, no afecta al funcionamiento, solo se usa de manera interactiva para saber donde aplican
+se utiliza comunmente en ciclos anidados.

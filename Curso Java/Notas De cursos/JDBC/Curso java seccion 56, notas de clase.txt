@@ -1,0 +1,64 @@
+CAPA DE DATOS CON JAVA JDBC
+
+	*Buenas practicas y patrones de diseño
+
+en una arquitectura java empresarial es comun que la aquitectura se divida en varais capas, cada una 
+responsable de tareas en especifico, debido a la complejidad de los sistemas a desarrollar, entra el
+comcepto de buenas practicas, con el objetivo de reducir los problemas anteriores.
+
+las buenas practicas abarcan varios temas: como codificacion, la division de responsabilidades en capas
+logicas entre otros temas.
+
+los patrones de diseño: resuelven un problema que se presente de manera recurrente, en particular en 
+sistemas orientados a objetos.
+
+cuando tenemos varias capas logicas entra el juego de cohecion y acoplamiento.
+
+en programacion empresarial los programas se dividen en capas de datos conectadas entre si, dichas 
+capas llevan los nombres:
+
+		Capa presentacion <-----> capa negocio <-----> capa datos
+
+capa de presentacion: se encarga de administrar el flujo y presentacion de pantallas del sistema,
+asi como procesar los datos del usuario y enviar informacion al usuario.
+
+capa negocio: se encarga de procesar la logica de negocio y servicios del sistema.
+
+capa de datos: es la encargada de la comunicacion entre la base de datos, archivos, entre otras fuentes de 
+informacion.
+
+COHESION Y ACOPLAMIENTO
+
+	*el objetivo del diseño es minimizar costos de desarrollo
+	**La Cohesion es la medida en la que un componente de software se dedica a realizar solo
+	  la tarea para la cual fue creado, delegando las tareas complementarias a otros componentes
+	**El Acoplamiento es la medida en que los cambios de un componente tiende a necesitar cambios
+	  de otro componente
+	*El objetivo del deseño de software es tener ua alta cohesion y un bajo acoplamiento entre sus
+	 componentes.
+
+PATRONES DE DISEÑO
+
+Capa Presentacion: 
+incluye MVC
+	FRONT CONTROLLER
+	DTO
+	etc...
+
+Capa Servicio:
+incluye: Bussines Delegate
+	 Service Locator
+	 DTO
+	 etc...
+
+Capa Acceso a Datos:
+incluye: DAO
+	 DTO
+	 etc
+
+
+
+
+
+
+

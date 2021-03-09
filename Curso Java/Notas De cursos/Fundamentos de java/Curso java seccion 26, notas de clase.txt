@@ -1,0 +1,23 @@
+DISEÑO DE CLASES EN JAVA
+
+normalmente se crearan varias clases con la finalidad que trabajen como sistemas funcionales.
+
+por ejemplo sistemas de ventas, de facturacion o de contabilidad, como cualqueier otro usado
+como tema general se realizara un diseño de clases.
+
+con java se pueden crear estos sistemas, ya que es un sistema de proposito general.
+
+en el ejemplo se muestran la relacion entre dos clases, las cuales se encuentran en un paquete
+llamado: com.gm.ventas
+
+las clases estan asociadas por una relacion de UML(lenguaje de modelado de objetos) y se conoce
+como relacion de agregacion.
+
+una de ellas es una clase tipo orden, esta clase orden se puede considerar como una factura,
+la cual contiene el resumen de todos los productos a vender para una orden en particular,
+con sus respectivas variables y metodos.
+
+la cual esta asociada con una clase llamada productos, la cual le envia los datos a la clase orden
+con sus variables y metodos
+
+finalmente esta la clase de prueba donde se probaran las anteriores.

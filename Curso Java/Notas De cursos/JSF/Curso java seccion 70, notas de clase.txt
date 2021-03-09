@@ -1,0 +1,136 @@
+MANAGEDBEAN
+
+JavaBean: es una clase java que cumple con ciertas caracteristicas:
+
+	*tiene un constructor vacio
+	*sus atributos son privados
+	*tiene un get y set para caa atributo 
+	
+un managedBean cumple tambien con estas caracteristicas, pero al ser JSF los configuraremos de
+manera distinta.
+
+COMCEPTO DE MANAGEDBEANS
+
+Un Managed Bean es una clase java que sigue la nomenclatura de los JavaBeans
+	
+	-Los Managed Beans no estan obligados a extender de ninguna otra clase
+
+Aunque JSF no define una clasificacion para los Backing Beans(lo mismo que el managed Bean, solo que
+del lado del servidor, por eso el comcepto de beakind), podemos definir las siguientes: 
+
+	-Beans de Modelo: Representan el modelo en el patron MVC
+	-Beans de control: Represantan el controlador en el patron MVC
+	-Beans de Soporte o Helpers: Contienen codigo por ejemplo de Convertidores
+	-Beans de Utilerias: Tareas genericas, como obtener el objeto request
+
+USO DE LOS MANAGED BEANS
+
+Un ManagedBean se puede declarar de distintas maneras:
+	
+	*Con anotaciones, antes del nombre de la clase
+	 @ManagedBean
+
+	*Como bean CDI (Context and Dependency Inyection), antes del nombre de la clase:	
+	 @Named
+	 Agregar un archivo llamado beans.xml en la carpeta web/WEB-INF
+
+	*En el archivo faces-config.xml
+	 <managed-bean>...</managed-bean>
+
+ALCANCE DE LOS MANAGEDBEANS
+
+JSF:
+
+/nota: 1 mas duracion, menor menos duracion/
+
+1*application: persiste durante toda la aplicacion
+
+2*session: persiste durante e tiempo de la sesion del usuario
+
+3*view: persiste si es la misma vista, util si usamos Ajax
+
+4*request: persiste solo durante la peticion del usuario
+
+CDI Y EL ALCANCE DE BEANS:
+
+/nota: 1 mas duracion, menor menos duracion/
+
+1*application: persiste durante toda la aplicacion
+
+2*session: persiste durante e tiempo de la sesion del usuario
+
+3*conversation: persiste si es la misma vista, util si usamos Ajax
+
+4*request: persiste solo durante la peticion del usuario
+
+
+NAVEGACION JSF 
+
+normalmene se define la navegacion web en medio del proceso de ejecutar el metodo controlador
+a seleccionar la pagina Facelet o JSP.
+
+La navegacion en JSF permite movernos entre paginas de la misma tecnologia
+
+Existen varios tipos de navegacion
+
+	*Navegacion Estatica
+	*Navegacion Dinamica
+
+Existen varias formas de configurar la navegacion
+
+	*Navegacion Implicita(JSF)
+	*Navegacion Explicita(en el archivo faces-config.xml)
+
+NAVEGACION ESTATICA
+
+La navegacion estatica aplica en los siguientes casos:
+
+	-No se requiere ejecutar codigo Java del lado del Servidor
+	sino unicamente dirigirse a otra pagina
+
+	-No hay logica para determinar la pagina siguiente
+
+Ejemplo de navegacion estatica:
+
+	-Pagina JSF que inicia la peticion:
+	<h:commandButton label="Entrar" action="login"/>
+
+	-La pagina siguiente se puede determinar de 2 formas:
+
+	a)Outcome por default, buscar directamente la pagina
+	login.xhtml
+
+	b)Buscar el outcome en faces-config.xml, encontrando
+	el caso que determina la siguiente pagina a mostrar 
+
+NAVEGACION DINAMICA
+
+La navegacion dinamica utiliza un metodo action, el cual tiene la logica para determinar 
+el outcome
+
+	Codigo paginaJSF (vista)
+		
+		<h:commanButton label="Aceptar"
+		action=#{loginBean.verificarUsuario}/>
+	
+	Codigo LoginBean(Controlador)
+		
+		public String verificarUsuario(){
+			if(...){
+				return "exito";
+			}else{
+				return "fallo"
+			}
+		}
+
+CREACION DE REGLAS DE NAVEGACION
+
+<faces-config...>
+	<navigation-rule>
+		<from-view-id>/inicio.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>entrar</from-outcome>
+			<to-view-id>/login.xhtml</to-view-id>
+		</navigation-case
+	</navigation-rule>
+</faces-config>

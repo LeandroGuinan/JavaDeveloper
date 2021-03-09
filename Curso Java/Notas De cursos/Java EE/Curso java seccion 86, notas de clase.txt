@@ -1,0 +1,121 @@
+WEB SERVICES CON JAX ES EN JAVA EE
+
+los web services son una tecnologia orientada a la comunicacion de sistemas.
+
+por ejemplo una aplicacion Java EE, a la que se le puede acceder por una aplicacion de escritorio
+C#, una aplicacion Web PHP, una aplicacion Iphone, o algun sistema empresarial, todo esto en un
+XML sobre HTTP, a travez de la Internet/Intranet de alguna empresa.
+
+en muchas ocaciones debemos interconectar la informacion ya sea creada en la misma tecnologia o no,
+ Java EE cuenta con dos API's principales para el desarrollo de web service's JAXWS y JAXRS.
+
+	Caracteristicas de web services
+
+*Interoperabilidad y portabilidad
+
+*Permiten la comunicacion entre distintas plataformas a travez de internet o intranet 
+
+*Reusabilidad, permite utilizar parte de la logica de nuestros servicios de negocios 
+
+*Disponibilidad 
+
+
+	ARQUITECTURA DE WEB SERVICES
+
+
+Capa Cliente		|Capa Negocio	|Capa de datos
+(Java,.NET,ANDROID,ect)	|(Web Services)	|
+			|		|
+Clientes Escritorio	|		|
+			|Proveedores	|Base de Datos
+Clientes Web/Moviles	|Web Service	|
+			|(SOAP/XML)	|
+Clientes		|		|
+Web Service(B2B)	|		|
+
+	
+
+	Tipos De Web Services
+
+En Java EE, JAX-WS Y JAX-RS son los estandares para crear Web Services:
+
+*JAX-WS(Java API for XMLS Web Services): es un API que permite abordar requerimientos empresariales
+mas complejos al momento de crear Web Services. Tambien se conocen como SOAP web services.
+
+*JAX-RS(Java API for RESTful Web Services): es un API mas simple de utilizar y de implementar
+al momento de crear Web Services. Tambien se conocen como Restful Web Services.
+
+*Se recomienda utilizar JAX-WS para integrar sistemas empresariales
+	estos proveen una implementacion mas robusta en las que se puede
+	implementar seguridad a las aplicaciones web
+
+*Se recomienda utilizar JAX-RS para exponer funcionalidad a aplicaciones Web o moviles,
+por ejemplo un cliente Iphone o Android.
+	estos son mas faciles de implementar pero utilizan sobreescrituras de metodos
+	genericos para su implementacion(doGet, doPost, delete) ultimamente se utilizan mucho
+
+
+	SOAP WEB SERVICES
+
+web service's es una tecnologia estandar que provee interoperabilidad entre distintas aplicaciones,
+es decir, envio y recepcion de mensajes XML los cuales son transmitidos en via HTTP o HTTPs,
+tanto el lenguaje XML como el protocolo http son un estandar.
+
+	WSDL - Web Service Description Language
+
+El WSDL es un lenguaje basado en XML el cual provee la descripcion de un servicio web, de hecho 
+bastante detallada con la cual es posible generar tanto el codigo del cliente como el del servicio
+web asociado, el cual maneja de manera automatica la conversion de codigo java a XML (marshaling)
+y viceversa (unmarshaling).
+
+Componentes:
+
+types: contenedor para definir tipos utilizando esquemas XML(XML schema).
+
+message: Definicion de un mensaje compuesto de partes.
+
+portType: interface del endpoint
+
+binding: Una instance concreta del protocolo a utilizar para el portType.
+
+service: Coleccion de endpoints, combina binding y address(direccion endPoint).	 
+
+ej:
+<definitions>
+	<types/>	|
+	<message/>	|Abstranctos
+	<portType/>	|
+
+	<binding/>	|Concrete
+	<service/>	|
+</definitions>
+
+	XML y SCHEME XSD
+
+la validacion de un documento XML se puede hacer sin intervencion humana utilizando XSD ya que
+permite agregar mas precicion al momento de validar documentos y atributos XML.
+
+
+
+	JAXB JAVA ARCHITECTURE FOR XML BINDING
+
+al trabajar con XML eventualmente sera necesario convertir estos elementos a un objeto java
+o viceversa, existen varias API'S para realizar esta labor, pero el estandar en Java EE
+es el API de JaxB.
+
+	Estrategia de generacion de web services
+
+Punto de inicio			Generacion de artefactos
+
+Java		------------->	WSDL
+
+se parte del codigo java y se genera el codigo WSDL con el API JaxB
+
+WSDL		--------------> Java
+
+se parte del codigo WSDL para general el codigo java
+
+JAVA &		--------------> Sin generacion de artefactos
+WSDL
+
+si se generan ambos manualmente no es necesario crear nada mas 

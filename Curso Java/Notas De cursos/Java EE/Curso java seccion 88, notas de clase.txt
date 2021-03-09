@@ -1,0 +1,109 @@
+SEGURIDAD EN JAVA EE
+
+uno de los principales puntos a tratar al desarrollar aplicaciones java EE es la seguridad 
+en nuestras aplicaciones web, siempre es necesario establecer los mecanismos que garanticen la
+seguridad del sistema e informacion, la seguridad se debe agregar en cada capa (presentacion, 
+negocio y acceso a datos)  y dependiendo del tipo de seguridad que requiera la aplicacion
+deberemos asegurar cada una de estas capas (no es necesario asegurar cada una, pero si es 
+buena practica hacer un analisis de la seguridad requerida).
+
+por ejemplo que un usuario no pueda acceder a una pagina esto no garantiza que no pueda ejecutar
+un metodo de la capa de negocio, por esto es necesario.
+
+existen dos comceptos basicos en la seguridad del sistema, los comceptos de auntenticacion y 
+autorizacion.
+
+*Autenticacion: es el proceso de verificar la identidad del usuario, lo mas comun es 
+auntenticarnos con un usuario y contraseña, a estos se les conoce como credenciales,
+formas mas avansadas de auntenticacion es por medio de auntenticacion biometrica (huellas
+dactilares, escaners de retina, identificacion de rasgos fisicos como el rostro, etc...)
+la autentificacion se debe realizar antes de la autorizacion.
+
+*Autorizacion: una vez identificado el usuario el siguiente paso es verificar los permisos
+del usuario a ejecutar cierta funcionalidad del sistema
+
+	Usuario, Grupos y Roles 
+
+son tres comceptos interelacionados que conforman la base del sistema de seguridad en un sistema
+empresarial. Para simplificar la administracion los usuarios son divididos por grupos.
+
+Grupos: son una particion logica para la identificacion de ususarios, los cuales pueden tener
+acceso a distintos recursos, por ejemplo una aplicacion puede tener un grupo de administradores
+compuestos de ususarios con permisos de eliminacion de recursos  
+
+por ejemplo usuarios de dos grupos, uno con acceso a metodos de eliminacion y modificacion, el otro
+con acceso solo a leer la informacion, estos son sus roles
+
+
+
+	AUNTENTICACION Y AUTORIZACION EN JAVA EE
+
+la seguridad en java EE esta basada ampliamente en el API de jass (auntetixation y autorisation
+ service) esta es responsable del proceso de auntenticacion de los usuarios y autorizacion de
+recursos en aplicaciones empresariales sobre todo enfocado en agregar seguridad en la capa 
+web y en la capa de negocio donde se encuentran los EJB's
+
+	Asegurando La Capa Web
+
+la seguridad se establece a travez del archivo descriptor web.xml  
+
+
+	Seguridad en JSF y PrimeFaces
+
+al auntenticarnos correctamente por medio de la aplicacion web JSF y PrimeFaces a agregado varios
+elementos que nos permiten facilmente manejar la seguridad, de tal manera que podemos habilitar 
+y deshabilitar funcionalidades  incluso a nivel de componentes, botones, links, tablas, etc.
+
+Opciones para restringir componentes en una pagina JSF con la extension de PrimeFaces:
+
+	#{p:ifGranted('ROLE_ADMIN')}
+	#{p:ifAllGranted('ROLE_ADMIN,ROLE_EDITOR)
+	#{p:AnyGranted(ROLE_USER,ROLE_ADMIN)}
+	#{p:ifNotGranted('ROLE_GUEST')}
+	#{p:remoteUser()}
+	#{p:userPrincipal()}
+
+Algunos ejemplos de su uso en las paginas JSF son:
+
+<h:commandButton value="Eliminar Persona" rendered="#{p:ifGranted('ROLE_ADMIN')}"/>
+
+<p:commandButton value="Reporte General" disabeled="#{p:ifNotGranted('ROLE_GUEST',ROLE_ADMIN)}/>
+
+	Tipos de Seguridad en la capa EJB
+
+Al momento de agregar seguridad a los EJB, existen 2 tipos:
+
+	*Seguridad Declarativa: Indicamos al contenedor el tipo de validacion deseada, a travez
+	de anotaciones o archivos de configuracion xml.
+	
+	el contenedor se hace cargo de la mayoria de las tareas de validacion, auntenticacion
+	y autorizacion.
+
+
+	*Seguridad Programatica: Existen situaciones en las que necesitamos un mayor control 
+	sobre la forma en que se realiza la auntenticacion y/o autorizacion, por ejemplo
+	a nivel usuario o grupo
+
+	La seguridad Programatica se puede combinar con la programacion declarativa para
+	incrementar el control sobre los requerimientos de seguridad en el sistema.
+
+
+	ANOTACIONES EN A CAPA EJB
+
+Para la seguridad declarativa tenemos las siguientes Anotaciones disponibles en los
+componentes EJB:
+
+@DeclareRoles: Esta anotacion lista los roles que se utilizaran en el EJB. Solamente
+se puede utilizar a nivel de la clase
+
+@RolesAllowed: Permiten ejecutar los metodos del EJB siempre y cuando los roles se
+encuentren listados en esta anotacion. Se puede definir al nivel de la clase o a nivel
+del metodo
+
+@PermitAll: Como su nombre lo indica, permite a cualquier ususario ejecutar el metodo
+EJB anotado
+
+@DenyAll: Como su nombre lo indica, prohibe a cualquier usuario ejecuar este metodo.
+
+@RunAs: Permite ejecutar el metodo como si el usuario tuviera otro rol, unicamente durante
+la ejecucion de dicho metodo

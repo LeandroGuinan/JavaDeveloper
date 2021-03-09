@@ -1,0 +1,16 @@
+it\com\em\dao\AsignacionDao.class
+it\com\em\test\ciclovida\Estado4EliminarObjeto.class
+it\com\em\dao\ContactoDao.class
+it\com\em\dao\DomicilioDao.class
+it\com\em\domain\Asignacion.class
+it\com\em\test\ciclovida\Estado2RecuperarObjetoPersistente.class
+it\com\em\dao\AlumnoDao.class
+it\com\em\dao\CursoDao.class
+it\com\em\test\ciclovida\Estado1Persistido.class
+it\com\em\domain\Contacto.class
+it\com\em\domain\Curso.class
+it\com\em\domain\Alumno.class
+it\com\em\test\cascade\PersistenciaCascadaTest.class
+it\com\em\test\ciclovida\Estado3ModificarObjetoPersistente.class
+it\com\em\web\ServletAlumno.class
+it\com\em\domain\Domicilio.class

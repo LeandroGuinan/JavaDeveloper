@@ -1,0 +1,74 @@
+PAQUETES EN JAVA
+
+son en esencia carpetas utilizadas para manejar nuestras clases.
+
+nos permiten organizar clases
+
+evitar conflictos entre nombres
+
+limita el acceso a sus clases
+
+hay una biblioteca de paquetes ya exixtentes.
+
+CONVENCION EN NOMBRE DE PAQUETES EN JAVA
+
+todo el nombre debe estar en minusculas
+
+se acostumbra escribir el nombre del dominio web de manera invertida.Ej: si el nombre del dominio es:
+globalmentoring.com.mx, entoces el nombre del paquete sera: mx.com.globalmentoring.
+
+ejemplo de un proyecto: mx.globalmentoring.miproyecto
+
+ejemplo de subpaquetes:
+
+mx.com.globalmentoring.contabilidad.miproyecto
+
+mx.com.globalmentoring.administracion.miproyecto
+
+EJEMPLO DE CLASE DENTRO DE PAQUETE.
+
+package com.gm; //Definicion del paquete
+
+public class Utileria{
+	public static void main(String[]args){
+		System.out.println("Imprimiendo mensaje: "+s);
+	}
+}
+
+import com.gm.*
+
+[lo que significa el asterisco es que se estan importando todas las clases del paquete
+"com.gm", para usar una clase en especifico basta con nombrar: import com.gm.Utileria;]
+
+public class EjemploPaquetes{
+	public static void main(String[]args){
+		
+		Utileria.imprimir("Hola");//se utiliza la clase importada
+	}	
+}
+
+java recomienda que todas las clases esten dentro de paquetes.
+
+EJEMPLO DE IMPORT ESTATICO EN JAVA:
+
+package com.gm;//definicion del paquete
+
+public classUtileria{
+	public static void imprimir(Strinh s){
+		System.out.println("Imprimir mensaje: "+s);
+	}
+}
+
+//Importamos el metodo estatico a utilizar
+import static cm.gm.Utileria.imprimir
+
+public class EjemploPaquetes{
+	
+	public static void main(String[]args){
+		imprimir("Hola");
+	}
+}
+
+Este a diferencia del anterior permite importar especificamente el metodo estatico en especifico
+con esto se logra simplificar mucho la sintaxis de la llamada del metodo imprimir, a costa de
+obviar los demas metodos de esta clase

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--debido a que vamos a utilizar diferentes acciones utilizaremos este archivo para
+configurar estas acciones-->
+    <!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- definimos nuestro tag: -->
+<struts>
+    <!-- Definimos nuestro paquete por default -->
+    <package name="default" extends="struts-default">
+        <!-- creamos nuestra accion de login, al escribir el path de login nos debe redirigir a el jsp de login -->
+        <action name="login">
+            <!-- no necesariamente debemos redirigir a una clase java, tambien se puede especificar la ruta aqui: -->
+            <result>/WEB-INF/content/login.jsp</result>
+        </action>
+        
+        <!-- en esta accion configuramos segun el resultado de el procesado de la clase action
+        nos redirija a una vista u otra-->
+        <action name="validarUsuario" class="beans.actions.LoginAction">
+            <!-- puede retornar dos valores, en el caso de "success" este redirige a la pagina de bienvenido -->
+            <result name="success">/WEB-INF/content/bienvenido.jsp</result>
+            <!--en este caso de ser resultado a input, se redirige de nuevo a la pagina de login, 
+            y se ejecuta de nuevo esta accion de login-->
+            <result name="input" type="redirectAction">login</result>
+        </action>
+    </package>
+</struts>

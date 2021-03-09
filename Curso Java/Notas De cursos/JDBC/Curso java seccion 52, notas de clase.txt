@@ -1,0 +1,34 @@
+INTRODUCCION A SQL
+
+sql significa structure quare lenguage, es un lenguaje que nos permite interactuar con una base
+de datos relacional, un motor de base de datos rdmbs permite administrar a las bases de datos.
+
+ejemplo de bases de datos son MySql, Oracle, SqlServer, postRest, etc.
+
+una base de datos contiene tablas relacionadas entre si, y cada tabla alojan renglones y columnas
+que alojan cierta informacion.
+
+SENTENCIAS DML EN SQL
+
+
+DML(data manipulation languaje) permite interactuar con los datos de una base de datos.
+
+las sentencias dml en sql son:
+
+SELECT: estas seleccionan sentencias seleccionan registros de la base de datos
+
+INSERT: esta inserta registros en la base de datos
+
+UPDATE: acctualiza registro en base de datos.
+
+DELETE: borran registro en una base de datos.
+
+EJEMPLO DE SENTENCIAS SQL
+
+SELECT *FROM ALUMNOS*;
+
+INSERT ALUMNO(id:alumno, nombre) VALUES(1,'juan');
+
+UPDATE ALUMNOS SET NOMBRE= 'Arturo' WHERE id_alumno = 20;
+
+DELETE FROM ALUMNOS WHERE id_alumno = 10;

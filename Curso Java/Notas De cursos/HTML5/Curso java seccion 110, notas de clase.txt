@@ -1,0 +1,49 @@
+FORMULARIOS HTML5
+
+uno de los objetivos principales con html5 fue mejorar la experiencia del usuario al momento de utilizar 
+formularios web, por esto se mejoro la cantidad de elementos que podemos utilizar.
+
+entre estos estan: day time, color, rango, etc... 
+
+estas permiten que las aplicaciones html5 sean mas faciles de utilizar, tambien desde cualquier 
+dispositivo movil.
+
+ademas de los nuevos componentes html5 trae nuevos atributos en comun como el auto completado,
+por ejemplo placeholder nos permite agregar un texto de ayuda sobre la informacion que deben agregar.
+
+esta tambien el auto focus que nos permiten colocar el cursor directamente sobre el elemento donde lo
+llamemos, ademas de esto ahora existen maneras de validar infromacion desde html5 sin nececidad de js.
+
+nos permite agregar componentes que antes era posible solo con java script, tales como barras de progreso,
+indicadores(meters) secciones que se puedan colapsar como details-sumary, y combobox de tipo datalist.
+
+el elemento progress: permite mostrarle al usuario una barra de progreso, ya sea un avance predeterminado
+o indefinido, por ejemplo el progreso de subida de un archivo se utiliza una barra de avance predeterminado,
+la otra barra implica solo que se esta realizando una tarea pero sin saber el porcentaje de la misma.
+
+el elemento meter:  nos permite mostrar una medicion en particular de un objeto, por ejemplo si queremos 
+ver un medir un elemento de bajo, medio, optimo, etc y verlo de manera grafica.
+
+los elementos details-sumary: nos permiten ver elementos que se colapsan sin nececidad de javascript, algunos
+navegadores no lo soportan.
+
+elemento datalist: nos permite agregar una lista de ayuda al usuario con forme escribe en la barra de texto.
+
+html5 nos permite vaidar la informacion de un formulario mas simplemente, esta es utilizando el atributo
+require o pattern, ademas en combinacion de sus clases de css podemos cambiar la apariencia de los campos 
+dependiendo de si son validos o invalidos sin necesidad de javascript. existen API que nos permiten validar
+la informacion mas facilmente.
+
+no se deberia confiar solo en la validacion del html5 ya que para un hacker seria sencillo saltar estas 
+validaciones
+
+existen pluigins que nos permiten agregar las opciones faltantes a nuestras aplicaciones web, para poder ser
+utilizadas en todos los navegadores web,estas librerias de java script son: jquery, modernizr y webshims
+
+jquery:se utiliza para agregar funcionalidad deseada en navegadores que no soportan html5
+
+modernizr: nos permite saber si el navegador soporta cierta caracteristica.
+
+webshins: es una libreria diseñada para agregar las funciones de html5 que no soportan ciertos navegadores,
+esta utiliza ambas anteriores y nos permite crear apilcaciones web interoperables, robustas y que se ejecuten
+en la mayoria de los navegadores.

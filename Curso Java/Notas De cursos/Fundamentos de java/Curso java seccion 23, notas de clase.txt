@@ -1,0 +1,14 @@
+PALABRA FINAL EN JAVA
+
+tiene distintos usos en nuestros programas todo depende de en donde se esta ejecutando.
+
+En variables: evita cambiar el valor que almacena la variable, es como crear una constante en java
+
+ej: la constante pi: se puede acceder a ella por medio de Maht.PI
+
+dentro de metodos: evita que se modifique la dfinicion de un metodo desde una subclase, es decir,
+una clase hija no puede modificar el comportamiento del metodo de la clase padre.
+
+en clases: si se crea una clase final se evita que esta clase herede sus atributos y metodos,
+es decir evita que se extienda a otra, o que se cree una sub clase.
+

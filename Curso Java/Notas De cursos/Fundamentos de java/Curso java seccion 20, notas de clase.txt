@@ -1,0 +1,82 @@
+SOBRECARGA DE CONSTRUCTORES EN JAVA
+
+tiene que ver con asignar varias opciones a un constructor de una clase en particular
+
+EJ:
+
+public class Persona(){
+
+	//constructor sin argumentos
+	public Persona(){
+		
+	}
+
+	//constructor sobrecargado
+	public Persona(String nombre, int edad){
+	this.nombre = nombre;
+	this.edad = edad;
+	}
+}
+
+COMCEPTO: es definir un constructor con el mismo nombre de la clase pero con distintos argumentos
+
+USO DE this SOBRECARGA DE CONSTRUCTORES
+
+se puede mandar a llamar los argumentos de otro constructor por medio del apuntador this, se debe colocar
+al inicio del constructor nuevo
+ 
+EJ:
+
+public class Persona{
+
+	//constructor sin argumentos
+	//asigna el idPersona
+
+	private Persona(){
+		this.idPersona = ++contadorPersonas;
+	}
+
+	//constructor sobrecargado
+
+	pubñic Persona(String nombre, int edad){
+	//se manda a llamar el constructor vacio 
+	//para que se asigne el idPersona
+	this();
+	this.nombre = nombre;
+	this.edad = edad;
+	}
+}
+
+USO DE super EN SOBRECARGA DE CONSTRUCTORES
+
+EJ: 
+public class Empleado extends Persona{
+
+	private double sueldo;
+
+	pubic Empleado (String nombre, int edad, double sueldo){
+		//Super debe ser la primera linea
+		super(nombre, edad);
+		this.sueldo = sueldo
+	}
+}
+
+ORDEN DE LLAMADA DE CONSTRUCTORES
+
+EJ:
+
+public static void main(String[]args){
+	//Creamos un objeto empleado
+
+	Empleado e1 = new Empleado("Pedro",29,18000);
+	System.out.println("\n Imprimimos el objeto e1");
+	System.out.println(e1);
+
+//siguiendo la cadena de clases descritas en este ejemplo:
+//se ejecuta el metodo main, se manda a llamar a un objeto tipo empleado, al crearlo este
+//a su vez inicializa los atributos de la clase persona, la cual tambien hereda de manera implicita
+//de la clase object, la clase object regresa sus argumentos al objeto persona, luego esta clase
+//persona regresa sus argumentos a el objeto empleado, este es el orden como se inicializan las
+//variables
+}
+

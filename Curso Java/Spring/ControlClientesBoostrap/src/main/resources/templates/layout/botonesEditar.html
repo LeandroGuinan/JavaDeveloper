@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Botones Editar</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!-- en esta seccion se agrega el fragmento de los botones que se utilizan en editarCliente, con sus respectivos href que hacen sus acciones: -->
+        <section th:fragment="botonesEditar">
+            <div id="actions" class="py-4 mb-4 bg-light">
+                <div class="container">
+                    <div class="row">
+                        <!-- volver al inicio: -->
+                        <div class="col-md-3">
+                            <a th:href="@{/}" class="btn bg-light btn-block">
+                                <i class="fas fa-arrow-left"></i>[[#{accion.regresar}]]
+                            </a>
+                        </div>
+                        <!-- guardar cambios -->
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-success btn-block">
+                                <i class="fas fa-check"></i>[[#{accion.guardar}]]
+                            </button>
+                        </div>
+                        <!-- eliminar registros: -->
+                        <div class="col-md-3">
+                            <a th:href="@{/eliminar(idPersona=${persona.idPersona})}" class="btn btn-danger btn-block">
+                                <i class="fas fa-trash"></i>[[#{accion.eliminar}]]
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

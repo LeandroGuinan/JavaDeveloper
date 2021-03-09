@@ -1,0 +1,18 @@
+MANEJO DE POOL DE CONEXIONES
+
+hasa el momento se ah visto como obtener un pool de conexiones de manera individual, utilizando drivermanager.
+pero en java EE seran necesarias muchas conexiones, con un coste en recursos altos.
+
+un pool de conexiones nos permite agilizar el proceso de creacion de conexiones, por cada clase java
+que necesite una conexion, ya que el objetivo de este es tener listas varias conexiones a la base de datos
+de manera que sea mas eficiente el proceso de conexion a la base de datos, de hecho el proceso de abrir y
+cerrar conexiones se delega al pool de conexiones, por lo que nos dejaremos de preocupar por cerrar conexiones
+ 
+se puede crear de varias formas: 
+
+crearlo por codigo java(debemos mantener nosotros mismos este codigo)
+
+utilizar un proyectojdbc de apache.
+
+otra manera es utilizar el servidor de aplicaciones de java(estos servidores nos ayudan a construir el pool
+de conexiones)

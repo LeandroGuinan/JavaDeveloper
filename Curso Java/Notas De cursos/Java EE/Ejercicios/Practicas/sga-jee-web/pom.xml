@@ -1,0 +1,137 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>it.com.sm</groupId>
+    <artifactId>sga-jee-web</artifactId>
+    <version>1.0</version>
+    <packaging>war</packaging>
+    <name>sga-jee-web</name>
+    
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <jakartaee>8.0</jakartaee>
+    </properties>
+    
+    <dependencies>
+        <!-- unidad de java EE -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${jakartaee}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- unidad de java EE para hacer persistencia -->
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
+        </dependency>
+        
+        <!-- es necesario una implementacion del API de JPA, que es:  -->
+        <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>eclipselink</artifactId>
+            <version>2.7.4</version>
+            <!-- aunque bien podria ser hibernate, pero esta es por default -->
+        </dependency>
+        
+        <!-- Controlador de MySql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
+        
+        <!-- Dependencia de log4j -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+        
+        <!-- implementacion de log4j -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.12.0</version>
+        </dependency>
+        <!-- Libreria Para Utilizar PrimeFaces -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>7.0</version>
+            <!-- proxima configuracion en WEB-INF/web.xml -->
+        </dependency>
+        
+        <!-- dependencia de java web servixes -->
+        <dependency>
+            <groupId>javax.jws</groupId>
+            <artifactId>javax.jws-api</artifactId>
+            <version>1.1</version>
+        </dependency>
+        
+        <!-- dependencia para añadir RestWebServices -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>2.31</version>
+        </dependency>
+            
+    </dependencies>
+    <!-- Ademas de estos, es necesaio configurar el persistence unit para usar JTA, y el archivo log4j2 -->
+    <!-- es necesario añadir un pool de conexiones en el servidor, para hacer ping a la base de datos desde alli -->
+    <!-- posteriormente se debe agregar un jdbc resources que haga uso de este pool de conexiones, y este jdbc resource es el que se agrega a la configuracion de persistence jta-->
+     <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${endorsed.dir}</outputDirectory>
+                            <silent>true</silent>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>javax</groupId>
+                                    <artifactId>javaee-api</artifactId>
+                                    <version>${jakartaee}</version>
+                                    <type>jar</type>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

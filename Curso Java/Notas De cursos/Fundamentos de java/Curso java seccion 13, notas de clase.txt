@@ -1,0 +1,39 @@
+PASO DE VALOR Y POR REFERENCIA EN JAVA
+
+PASO POR VALOR
+
+hasta ahora se ah utilizado valores primitivos para darle valores a nuestros metodos, lo que se llama paso
+por valor. ej: 
+
+public static void main(String[]args){
+	int x = 10;
+	imprimir(x); //Imprime 10
+	cambiarValor(x);
+	imprimir(x);//Imprime 10
+}
+
+en esta se esta declarando una variable de tipo int en una clase main, la cual solo puede cambiar su valor
+en esta clase
+
+ahora con el metodo:
+
+public static void cambiarValor(int i){
+	i = 200;
+}
+
+en este se intenta cambiar el valor de x, lo que es imposible porque en este solo se guarda una copia.
+para cambiar el valor de esta variable es solo posible desde la clase donde fue creado, solo puede cambiar
+el valor de su propia variable i y este valor de i, no afecta el valor de x ya que solo se creo una copia
+a esto se le conoce como paso por valor de una variable.
+
+PASO POR REFERENCIA
+
+este se utilizara cuando mandemos objetos como parametros a los metodos en lugar de utilizar tipos 
+primitivos. al hacer esto se esta enviando la referencia del objeto que se quiere utilizar.
+
+por ejemplo se crea una variable p que señala a un objeto de tipo persona.
+esta se le asigna un metodo para cambiar su nombre.
+ahora se crea un metodo con un argumento tipo Persona. 
+el cual se encarga de cambiar el valor de su referencia
+en este caso se puede modificar el metodo, porque se hace por referencia del objeto, en lugar de la
+variable de uno de estos.

@@ -1,0 +1,7 @@
+test\ManejoExcepciones2.class
+datos\ImplementacionMySql.class
+exepciones\AccesoDatosEX.class
+exepciones\LecturaDatosEx.class
+exepciones\EscrituraDatosEx.class
+datos\AccesoDatos.class
+datos\ImplementacionOracle.class

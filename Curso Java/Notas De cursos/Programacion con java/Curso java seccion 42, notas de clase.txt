@@ -1,0 +1,37 @@
+CLASES ABSTRACTAS EN JAVA
+
+la clase abstracta no define comportamiento como su nombre lo indica es un comportamiento muy 
+general
+
+por ejemplo el metodo:
+
+public class abstract class FiguraGeometrica{
+
+	//la clase padre no define comportamineto
+	abstract void dibujar();
+}
+
+la clase abstracta puede contener metodos abstractos y no abstractos, solo define la firma
+del metodo pero no agrega ningun comportamiendo
+
+aqui se ve un comportamiento general que realizar que es este metodo, y una de las reglas para
+crear metodos abstractos es que la clase debe ser abstracta.
+
+heredando el metodo a una clase hija:
+
+public class Rectangulo extends FiguraGeometrica{
+
+	void dibujar(){
+		//comportamiento de subclase
+	}
+}
+
+son las clases hijas las que se encargan de iplementar este metodo abstracto.
+
+restricciones:
+
+una clase abstracta no se puede instanciar esto debido a que un objeto abstracto no puede
+materializarse en un objeto.
+
+esto no implica que no se pueda acceder a sus metodos gracias al polimorfismo instanciando 
+variables de clases hijas

@@ -1,0 +1,100 @@
+	EXEPCIONES EN JAVA
+
+una exepcion es un resultado inesperado en la ejecucion de un programa, como  si un un argumento 
+es valido o no, alguna conversion de datos imcompatibles, o si existe una falla con coneccion de
+base de datos, entre otros...
+
+ya existen varias exepciones en el API de java para resolver estas situaciones, sin embargo
+si no hay alguna que se adecue a lo que nececitamos la podemos crear.
+
+	TIPOS DE EXEPCIONES EN EL API
+
+checkExeption(heredan de la clase exeptions): el compilador solicitara realizar una actividad
+con este tipo e exepcion. EJ: la clase SQLException que arroja excepciones relacionadas
+con el uso y manejo de base de datos
+
+
+UncheckExeption(heredan de la clase RunTimeException): estas no estamos obligados a procesarlas,
+por lo que es opcional el uso de try y cacht, se les conocen tambien como exepciones en tiempo
+de ejecucion. 
+
+	SINTAXIS DEL MANEJO DE EXPCIONES:
+
+public void verificaExepciones(){
+
+
+	try{
+		//codigo que lanza exepciones
+
+	}catch(Exception ex){
+
+		//bloque de codigo que manejan las exepciones
+	}
+	finally{
+		//bloque de codigo opcional, pero
+		//se ejecutara siempre
+	}
+}
+
+	ALGUNAS EXCEPCIONES MAS COMUNES EN JAVA
+
+la mayoria de las exepciones en java decienden de la clase throwable y se dividen en error y 
+exeption.
+
+de los errores no nos podemos recuperar
+
+y de las exepciones exeption existe una subdivision tambien, que se tratara distinto segun 
+sea el caso
+
+que son:
+	RuntimeExeption
+	IOException
+	AWTException
+	
+STACKTRACE EN JAVA
+
+es el conjunto de codigos de error que una clase arroja segun el caso, con un determinado
+bloque de mensajes de errores se puede rastrear mas facilmente el origen de este
+
+mecanismo:
+
+METODO ARROJA EL ERROR ----- SI NO LA ATRAPA LA EXEPCION, SE PROPAGA ----- METODO MAIN, SI NO ATRAPA LA EXEPCION
+									   LA PROPAGA Y FINALIZA DE MENERA ANORMAL
+								     	   EL PROGRAMA.
+
+	LA CLAUSULA THROWS
+
+nos permite especificar el tipo de exepcion que arroja cierto metodo, se puede deber a que el
+metodo no atrapo la exepcion y esta se propago al metodo que lo mando a llamar.
+
+una exepcion que hereda de la clase exeptions si estamos obligados a declararla en la firma del
+metodo. en cambio una exepcion que hereda de runTimeExeption no tiene que ser declarada.
+
+la palabra reservada throw nos permite arrojar explicitamente una exepcion.
+
+al hacer eso, estamos obligando al metodo main al procesar el error por un sentencia try cacht o
+a declarar en la firma del metodo que este tendra una exepcion.
+
+	CREACION DE NUESTRAS PROPIAS CLASES DE EXEPCION 
+
+la intencion al hacer esto es para poder personalizar nuestros propios mensajes de error.
+
+	USO DE EXEPCIONES UTILIZANDO HERENCIA
+
+se puede crear varias clases de expciones y jerarquizar estas clases, estas con la intencion
+que el metodo pueda arrojar exepciones que son subclases, pero la clase que usa a este metodo
+solo procesa la exepcion mas generica, con esto podemos tener un rango mas amplio del manejo de
+exepciones.
+
+una de las intenciones principales es lograr crear metodos mas generales que nos perminan 
+englobar mas exepciones en pocas lineas de codigo, que nos ahorra costos de mantenimiento.
+
+	USO DE EXPCIONES EN SOBRECARGA DE METODOS
+
+1.un metodo que reescribe un metodo que arroja una exepcion puede hacer lo siguiente:
+-no arrojar ninguna exepcion
+-arrojar una o mas exepciones arrojadas por el mtodo padre
+-arrojar exepciones de subclase de la exepcion arrojada por el mtodo padre
+-no puede arrojar exepciones no arrojadas por el metodo padre.
+-ni arrojar exepciones de superclases de la exepcion del metodo padre
+

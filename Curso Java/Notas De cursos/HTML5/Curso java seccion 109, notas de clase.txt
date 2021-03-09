@@ -1,0 +1,49 @@
+DOCUMENTOS CON HTML5
+
+una mjora con respecto a html es el doctype, anteriormente se debia escribir una linea bastante larga
+para definir un documento html5
+
+ahora basta con escribir al principio
+<!DOCTYPE html>
+
+lo mismo pasa con los caracteres, se agrega
+
+<meta charset="UTF-8"/>
+
+nuevas etiquetas semanticas: estas reemplazan el uso de div y agregar etiquetas con mas significado semantico
+para el documento html.
+es mas conveniente utilizar ahora:
+
+<section>: se utiliza para agregar un conjunto de elementos de la misma area.
+
+<article>: es un elemento independiente de una pagina o aplicacion, que puede ser reutilizado
+
+<aside>: es una etiqueta que se utiliza para representar una seccion de la pagina cullo contenido esta
+relacionado con el elemento padre que envuelve el elemento aside, que normalmente se utiliza para agregar
+barras laterales
+
+<header> y <footer>: representan el inicio de un grupo de elementos y el fin de un grupo de elementos
+respectivamente 
+
+<hgroup>: se puede utilizar para agrupar grupos de elementos de h1 a h6, es decir cabeceros, cuando
+tienen subniveles.
+
+<nab>: representa una seccion de la pagina que apunta a otras paginas dentro del contenido de la pagina, estas
+se pueden agregar en diferentes partes de la pagina
+
+elementos depreciados en html5:
+
+estos elementos ahora pasan a ser responsabilidad de hojas de estilos:
+basefont, bigm center, font, s, strike y u
+
+frame, frameset y noframes
+
+acronym y applet
+
+atributo background en el elemento body
+
+atributo bgcolor en los elementos table, tr, th y td
+
+los atributos height y width en los elementos td y th
+
+el atributo valing en el elemento table

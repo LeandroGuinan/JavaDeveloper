@@ -1,0 +1,84 @@
+OPERADORES EN JAVA
+
+en si son operaciones denotadas por ciertos simbolos en java, los cuales pueden ser aritmeticos, logicos, relacionales,
+etc.
+
+palabras reservadas: se trata de palabras cuya finalidad esta destinada al uso del compilador, es decir, no se 
+pueden utilizar para declarar variables.
+
+	/NOTA: la palabra bar no se puede utilizar para declaras varias variables en la misma linea/
+
+ARITMETICOS
+son: [+][-][*][/][%]
+el operador de suma es el unico que se puede usar e dos maneras ne java: como operacion aritmetica y para concatener caracteres.
+
+el operador de modulo (%) es utilizado para obtener el residuo de una division,
+o tambien para denotar si un numero es par o impar ej: (res = 123 % 2 : 1[impar]; res = 4 % 2: 0[par])
+
+DE ASIGNACION
+
+se trata de asignarela valoreas a las variables ej: a = 3 +3; aqui el [=] es operador de asignacion.
+
+DE COMPOSICION
+
+cuando se trata de incrementar en uno la misma variable se utiliza la forma a += 1; (no necesariamente solo 1)
+donde [+=] es el operador de composicion. cabe destacar que puede ser utilizado con cualquier operador aritmetico
+[-=][*=][/=]
+
+UNARIOS
+
+son operadores que le cambian el signo a una variable por ej: [a = 3, b = -a:-3] este para datos tipo numerico.
+para valores tipo boolean se utiliza el [!] con la misma estructura del anterior.
+
+
+DE INCREMENTO
+
+pre incremento:
+se trtan de operadores que incrementan el valor de una variable ej: e = 3; e = ++; e= 4; en este se incrementa antes
+de ser utilizada. 
+
+pos incremento:
+
+caso contrario al anterior pero con la misma funcion, en este primero se incrementa el valor de la variable antes
+de asignarla. este se incrementa despues de ser utilizada.
+
+DE DECREMENTO
+
+pre decremento y pos decremento:
+ocurre igual que con el caso anterior, todo depende de donde asignes la variable.
+
+DE IGUALDAD Y RELACIONALES
+
+para comparar dos variables de tipos PRIMITIVOS se puede utilizar [==] es como preguntar si estas dos
+son iguales. esta retorna un valor tipo boolean
+en caso contrario [!=] esta pregunta si ambas son diferentes.
+
+para preguntar esto mismo pero con datos de tipo string (variable no primitva) se debe utilizar el metodo .equals
+e: a.equals(b);
+
+operador [>] y [<] se utilizan para preguntar en especifico si una variable es mayor o menor que otra.
+
+operadoes [>=] y [<=] se utilizan para preguntar si una variable es mayor(o menor) o igual a otra, todas retornan
+una valor booleano
+
+OPERADORES CONDICIONALES
+
+[&&] se lee "and" y retorna un tipo booleano, se utiliza para denotar si dos valores son verdaderos.
+[||] se lee "or" y retorna un tipo booleano, se utiliza para denotar si uno de dos valores es verdadero.
+
+OPERADORES TERNARIOS
+se le llaman ternarios porque tienen 3 variables 
+se trata de una simplificacion de la condicion if-else ej:
+var res = (5>2)? true : false; 
+
+de ser true se ejecuta el codigo que encuentre en la parte true, de ser false el false
+en este no necesariamente debe retornar un valor booleano, sino cualquier linea de codigo en izquierda o derecha.
+tambien se pueden mezclar los tipos de datos.
+para este caso es recomendable declarar variables con var, porque esta infiere en el tipo de dato que retorna
+
+PRECEDENCIA DE OPERADORES EN JAVA
+
+es la jerarquia con la que se aplican los operadores en los codigos, siendo primero los unarios luego los aritmeticos.
+
+
+

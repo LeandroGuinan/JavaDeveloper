@@ -1,0 +1,102 @@
+MANEJO DE ARCHIVOS EN JAVA
+
+para poder manejar archivos en java se utilizan las clases file, fileWriter y printWriter
+para poder crear un archivo, es conveniente verificar que tengamos permisos para escribir el 
+archivo por ej: crear una carpeta y asignarle permisos de escritura.
+
+la clase FileWriter:
+
+cabe mencionar que al crear el archivo no se esta guardando como tal en el disco duro
+necesita de la clase FileWriter para escribir en este y printWriter para crear el archivo
+de la forma:
+
+import java.io.*;
+
+public class ManejoArchivos{
+
+	public static void main(String[]args){
+		File aechivo = new File("aqui va la direccion del archivo");
+
+		try{
+			PrintWriter salida = new PrintWriter(new FileWriter(archivo));
+			salida.close();
+
+		}cacht(IOException ex){
+			ex.printStackTrace();
+		}
+		System.out.println("El archivo se ah creado correctamente");
+	}
+}
+
+ESCRITURA A UN ARCHIVO
+
+import java.io.*;
+
+public class ManejoArchivos{
+
+	public static void main(String[]args){
+		File archivo = new File("Direccion del archivo");
+		try{
+			PrintWriter salida = new PrintWriter(new FileWriter(archivo));
+			salida.close();
+			//la clase printWriter se usa para imprimir lineas completas con los
+			//metodos print y println
+
+		}cacht(IOException ex){
+			ex.printStackTrace();
+		}
+		System.out.println("El archivo se ah creado correctamente");
+	}
+}
+
+LECTURA DE UN ARCHIVO EN JAVA
+
+para leer informacion de un archivo se usan las case file, fileWriter, y bufferReader,
+esto para poder leer informacion de un archivo.
+
+import java.io.*;
+
+public class LecturaArchivos{
+
+	public static void main(String[]args){
+		File archivo = new File("aqui va la direccion del archivo");
+
+		try{
+			BufferedReader entrada = new BufferedReader(new FileReader(archivo));
+			String lectura;
+			lectura = entrada.readLine();
+			while(lectura != null){
+				System.out.printl("Lectura: "+lectura);
+			}
+			entrada.close();
+		}catch(FileNotFound ex){
+
+			ex.printStackTrace();
+
+		}catch(IOException ex){
+			ex.printStackTrace();
+		}
+	}
+}
+
+ANEXANDO INFORMACION A UN ARCHIVO
+
+import java.io.*;
+
+public class AnexarInformaionArchivo{
+
+	File archivo = new File("Direccion del archivo");
+
+	try{
+		PrintWriter salida = new PrinWriter(new FileWriter(archivo, true));
+		String contenido = "Anexando Informacion al archivo";
+		salida.println("Contenido");
+		salida.println();
+		salido.println("Fin de anexar");
+		salida.close();
+	}catch(IOException ex){
+		ex.printStackTrace();
+		}
+		System.out.println("Se ah anexado la informacion correctamente");
+	}
+}

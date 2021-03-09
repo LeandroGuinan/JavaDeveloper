@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class HolaMundo {
+
+    public static void main(String args[]) {
+        
+        Scanner in = new Scanner(System.in);
+        System.out.println("ingrese el mes en numero");
+        var mes = in.nextInt();
+        String estacion = null;
+
+        switch (mes) {
+            case 1:
+            case 2:
+            case 12:
+                estacion = "invierno";
+                break;
+            case 3:
+            case 4:
+            case 5:
+                estacion = "primavera";
+                break;
+            case 6:
+            case 7:
+            case 8:
+                estacion = "verano";
+                break;
+            case 9:
+            case 10:
+            case 11:
+                estacion = "otroño";
+                break;
+            default:
+                estacion = "mes incorrecto";
+
+        }
+        System.out.println("estacion = " + estacion + " para el mes: " + mes);
+
+    }
+}

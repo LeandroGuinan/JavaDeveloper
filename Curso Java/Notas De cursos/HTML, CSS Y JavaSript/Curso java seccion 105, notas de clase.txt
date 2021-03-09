@@ -1,0 +1,25 @@
+INTRODUCCION A JAVASCRIPT
+
+javascript: es un lenguaje que permite agregar codigo dinamico a una pagina HTML, este se conoce como un
+lenguaje tipo scripting, es decir que no necesita de un compilador, si no que cada una de sus lineas 
+se ven reconociendo en tiempo de ejecucion. cualquier modificacion que hagamos en la pagina se vera 
+reflejado una vez recargemos el navegador web.
+
+javascript se puede agregar directamente al navegador web o tambien de manera similar a una hoja de estilos
+css, javascript NO ES JAVA, aunque la sintaxis es parecida el javascript es un lenguaje mas compacto y no
+es orientado a objetos y es tipo scripting
+
+	*Crear interfaces HTML interactivas
+	*Validar formularios HTML
+	*crear HTML dinamico en tiempo real(al vuelo)
+	*Uso de AJAX
+	*Nos permite controlar ciertas caracteristicas de los navegadores web.
+
+JAVASCRIPT EN UNA APLICACION EMPRESARIAL
+
+Capa de    -----> Capa -----> Capa de -------->Capa de Datos
+Presentacion:	  Web:	      *Negocio:		*EJB's de Entidad
+*HTML		  *JPS's      *EJB's de sesion	*JPA
+*JavaScript	  *Servlets   *Spring		*Hibernate
+*CSS		  *Struts
+		  *JSF

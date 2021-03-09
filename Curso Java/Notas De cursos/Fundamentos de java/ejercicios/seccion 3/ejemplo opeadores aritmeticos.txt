@@ -1,0 +1,38 @@
+public class HolaMundo {
+    
+    public static void main(String args[]) {
+       
+       
+       int a = 3, b = 4;
+       
+       int res = a + b;
+        System.out.println("res = " + res);
+       
+        System.out.println("Resultado: " + (a+b));
+        
+        res = a-b;
+        
+        System.out.println("resta  = " + res );
+        System.out.println("Resultdo de resta: " + (a - b));
+        
+        res = a*b;
+        System.out.println("res = " + res);
+        
+        float res2 = 5F/a;
+        System.out.println("res de division = " + res2);
+        
+        res = a % b;
+        System.out.println("res = " + res);
+        
+        res = 123 % 2;
+        
+        System.out.println("res = " + res);
+        if(res == 0){
+            System.out.println("es un numero par");
+        }else{
+            System.out.println("es un numero impar");
+        }
+       
+       
+    }
+}

@@ -1,0 +1,44 @@
+SOBREESCRITURA DE METODOS EN JAVA
+
+tiene que ver con el cemcepto de herencia y en definicion es la modificacion de un metodo de la
+clase padre en la clase hija 
+
+por ej:
+
+public class Empleado{
+
+	protected String nombre;
+	protected String puesto;
+	protected int nivel;
+
+	public String obtenerDetalles(){
+		return "Nombre: "+nombre +"\n"+
+			"Puesto: "+puesto +"\n"+
+			"Nivel: " + nivel;
+	}
+}
+
+public class Gerente extends Empleado{
+	private String departamento;
+
+	public String obtenerDetalles(){
+
+	return "Nombre: + nombre "\n"+
+		"Puesto: "+puesto + "\n"+
+		"Nivel: "+ nivel + "\n" +
+		"Departamento: "+departamento;
+	} 
+}
+
+siendo la clase gerente hija de la clase empleado hereda su metodo obtenerDetalles y ademas lo
+reescribe, es decir modifica su comportamiento, una vez hecho esto ya no sera posible utilizar
+el metodo original de la clase padre.
+
+una de las reglas para que esto se cumpla es que el metodo debe tener la misma firma
+pero el modificador de acceso si puede variar
+
+pero no se puede aplicar un modificador de acceso mas restritivo, es decir, si el metodo
+original es public la unica manera de sobreescribirlo es que el metodo sobreescrito sea public
+el nombre tampoco puede variar.
+
+pero si el metodo originalmente es protected por ejemplo entonces este puede ser public

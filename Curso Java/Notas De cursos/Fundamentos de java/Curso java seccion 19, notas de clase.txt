@@ -1,0 +1,87 @@
+HERENCIA EN JAVA
+
+Es uno de los comceptos mas importantes en la programacion orientada a objetos (POO), la herencia nos permite 
+representar un comportamiendo en comun, nos permite evitar el duplicado de codigo en entre clases padres y clases
+hijas. con lo cual reciclamos codigo.
+
+EJ:
+
+la clase persona cuenta con 4 atributos, cada uno de ellos con sus respectivos metodos get y set, las clases
+empleado y cliente heredan atributos de la clase principal con la palabra extends.
+
+con esto vemos que la clase persona es la clase padre y la clase empleado y cliente son las cases hijos que
+heredan de la clase persona.
+
+Los atributos privados no se heredan, pero si se heredan los metodos publicos, estos metodos en automatico 
+pasan a ser parte de la clase heredada,es decir, las clases que heredan de clases padres pueden usar los 
+metodos publicos como sus mismos metodos, por ende un objeto creado en una clase heredada contiene 
+todos los metodos de la clase padre mas los referenciados en su clase
+
+lo que limita la herencia en java son los modificadores de acceso.
+
+SINTAXIS:
+
+para indicar herencia en java basta con colocar la palabra extends en el nombre de la clase
+
+por ej:
+class Persona{}//Definicion de a clase padre o super clase
+
+class Empleado extends Persona{}//Definicion de la clase Hija o subclase
+
+class Gerente extends Empeado{}//definicion de otraclase hija o subclase
+
+	/Nota: todas las clases que no lleven en su definicion extends heredan de la clase object
+	que es una clase principal en java/
+
+solo se puede heredar de una clase a la vez.
+
+USO DE super Y this
+
+si utilizamos el comcepto de herencia podemos hacer uso de los metodos de la clase heredada solo con la palabra 
+super.
+
+ejmplo practico: 
+
+class Persona{//definicion de la clase padre o super clase
+
+	//constructor 1 argumaneto
+	public Persona(String nombre){
+		this.nombre = nombre;
+	}
+}
+
+class Empleado extends Persona{//dejinicion de la clase hija o subclase
+	
+	public Empleado(String nombre, double sueldo){
+		super(nombre);//el super debe ser la primera linea
+		this.sueldo = sueldo;
+	}
+}
+
+//Prueba creacion del objeto Empleado
+public static void main (String[]args){
+
+	Empleado el = new Empleado("Juan",25000);
+}
+
+ESO DE toString y super.
+
+//Extractos de las clases Persona y Empleado
+
+public class Persona{
+	@override
+	public String toString(){
+		return "Persona{" + "idPersona=" + idPersona
+				  +", nombre=" + nombre
+				  +", edad=" + edad + '}';
+	}
+
+	public class Empleado extends Persona{
+		@public String toString(){
+			//Primero mandamos a llamar el metodo toString de persona
+			//y despues que podamos observat los valores de la clase padre,
+			//y despues imprimimos los valores de la case hija
+		return super.toString()+"Empleados {sueldo=" + sueldo + "}";
+		}
+	}
+}

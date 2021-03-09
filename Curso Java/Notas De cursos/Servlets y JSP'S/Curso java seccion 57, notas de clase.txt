@@ -1,0 +1,62 @@
+INTRODUCCION A SERVLETS Y JSP
+
+WWW(word wide web)
+
+ Un sitio web contiene informacion estatica o lo que es lo mismo, que debemos
+cambiar manualmente, por otro lado una aplicacion web se puede recuperar de manera dinamica, en un 
+sitio web normalmente contamos con archivos html, css y javascript, etc...
+
+js nos permite agregar cierto dinamismo a nuestra pagina, pero si estamos utilizando js solo del 
+lado de una pagina web, la informacion no puede provenir de una base de datos, ni de archivos 
+almacenados  o de informacion almacenada en otros campos de informacion.
+
+en cambio una aplicacion web maneja de manera dinamica esta informacion, asi el objetivo de una
+aplicacion web es procesar una peticion de un cliente, y una vez procesada la peticion en un servidor
+web, el resultado se vuelve a mostrar al cliente que solicito dicha informacion. 
+
+asi es como normalmente funciona una aplicacion web. 
+
+internet o lo mismo WWW permite crear sitios y aplicaciones web y estos pueden ser accedidos 
+desde internet o por una intranet.
+
+al dia de hoy existen muchas aplicaciones como tiendas online, periodicos web, etc...
+
+ARQUITECTURA DE UNA APLICACION WEB CON JAVA
+
+Capa cliente: (esta se encarga de procesar las peticiones de los usuarios y mostrar la informacion)
+HTML, CSS Y
+JavaScript
+
+conecta con:
+
+Capa web:
+JSP's
+Servlets
+
+conecta con:
+
+Objetos de
+Negocios
+
+conecta con:
+
+Objetos Entidad
+
+conecta con:
+
+JDBC:BD
+aqui se aloja
+la informacion requerida
+por los usuarios
+
+PROCESO DE UNA PETICION HTTP
+
+en el caso de una aplicacion web nuestro servidor puede ser el servidor de tombcast, gladfish, Jboss,
+entre otros.
+
+normalmente el usuario hace una peticion al servidor web(peticion http).
+
+una vez que el servidor procesa esta informacion, entonces el servidor manda una respuesta a 
+nuestro cliente a travez de un navegador web.
+
+

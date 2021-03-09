@@ -1,0 +1,25 @@
+public class HolaMundo {
+
+    public static void main(String args[]) {
+
+        var numero = 3;
+        var numeroTxt = "numero desconocido";
+
+        switch (numero) {
+            case 1:
+                numeroTxt = "numero 1";
+                break;
+            case 2:
+                numeroTxt = "numero 2";
+                break;
+            case 3:
+                numeroTxt = "numero 3";
+                break;
+
+            default:
+                numeroTxt = "numero desconocido";
+        }
+
+        System.out.println("numeroTxt = " + numeroTxt + " para el numero proporcionado: " + numero);
+    }
+}

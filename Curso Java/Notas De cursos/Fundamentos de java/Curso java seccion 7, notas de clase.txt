@@ -1,0 +1,31 @@
+CLASES EN JAVA
+
+CLASES:una clase es una plantilla en la cual podemos crear mas objetos, es la base para crear caracteristicas
+de un objeto. Esta clase posse nombre, atributos y metodos
+
+Atributos: son las caracteristicas de una clase ej: class persona: atributos: nombre, altura, peso, sexo.
+
+metodos: son todas las acciones que una clase puede realizar ej: class persona: caminar, correr, dormir
+
+OBJETOS: Es una instancia de una clase, por ej: si la clase persona es la plantilla, entonces carlos seria un
+objeto de la clase persona.
+
+sintaxis para declarar una clase:
+
+class NombreDeLaClase{
+	
+	tipoDato variableDeInstancia1;
+	tipoDato variableDeInstancia2;
+	//se pueden crear tantas variables se nececite
+	
+	tipoDato nombreDelMetodo1(argumentos){
+	//cuerpo del metodo
+	}
+	
+	tipoDato nombreDelMetodo2(argumentos){
+	//cuerpo del metodo
+	}
+	//mas metodos.
+
+definir una clase es en si definir una plantilla, en la cual crearemos objetos que son con los que trabajaremos
+en la aplicacion

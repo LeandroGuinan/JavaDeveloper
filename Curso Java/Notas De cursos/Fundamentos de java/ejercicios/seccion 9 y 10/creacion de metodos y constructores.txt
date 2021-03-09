@@ -1,0 +1,42 @@
+public class Aritmetica {
+    
+    //atributos de la clase
+    int a;
+    int b;
+    
+    public Aritmetica(){
+       /* a = 3;
+        b = 3;*/
+        
+        System.out.println("Ejecutando contructor vacio");  
+    }
+    public Aritmetica(int arg1,int arg2){
+        System.out.println("Ejecutanco constructor con dos argumentos");
+      a = arg1;
+      b = arg2;
+    }
+    
+    public int sumar(){
+        int resultado = a + b; // se utltilizan los atributos del la clase
+        return resultado;
+    }
+    
+}
+
+Clase main:
+
+public class PruebaAritmetica {
+    public static void main(String[]args){
+        //crear un objeto tipo aritmetica
+        Aritmetica aritmetica = new Aritmetica();
+        aritmetica.a = 10;
+        aritmetica.b = 10;
+        
+        int resultado = aritmetica.sumar();
+        System.out.println("resultado = " + resultado);
+        //creacion de un segundo objeto:
+        
+        Aritmetica aritmetica2 = new Aritmetica(4,2);
+        System.out.println("resultado 2: " + aritmetica2.sumar());
+    }
+}

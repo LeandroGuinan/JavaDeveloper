@@ -1,0 +1,2 @@
+para agregar se debe crear una carpeta en src/main/resoruces, se puede llamar como sea pero deb estar en 
+esta direccion, las imagenes deben ir en esta direccion

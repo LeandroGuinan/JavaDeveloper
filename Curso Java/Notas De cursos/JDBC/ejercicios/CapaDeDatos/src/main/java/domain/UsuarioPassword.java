@@ -1,0 +1,47 @@
+package domain;
+
+public class UsuarioPassword {
+
+    private int id_usuario;
+    private String usuario;
+    private String password;
+
+     
+    public UsuarioPassword(){
+        
+    }
+    public UsuarioPassword(String usuario, String password) {
+        this.password = password;
+        this.usuario = usuario;
+    }
+
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioPassword{" + "id_usuario=" + id_usuario + ", usuario=" + usuario + ", password=" + password + '}';
+    }
+
+}

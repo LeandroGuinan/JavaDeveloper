@@ -1,0 +1,18 @@
+public class HolaMundo {
+    public static void main(String args[]) {
+        
+        int a = 15;
+        int valMin = 0, valMax = 10;
+        boolean resultado = a >= valMin && a <= valMax;
+        System.out.println("resultado = " + resultado);
+        
+        boolean vacaciones = true;
+        boolean diaDescanso= false;
+        
+        if(vacaciones||diaDescanso){
+            System.out.println("padre puede asistir al juego del hijo");
+        }else{
+            System.out.println("padre ocupado");
+        }
+    }
+}

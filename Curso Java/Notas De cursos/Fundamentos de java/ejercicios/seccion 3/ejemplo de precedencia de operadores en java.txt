@@ -1,0 +1,22 @@
+
+public class HolaMundo {
+    public static void main(String args[]) {
+        
+     var x = 5;
+     var y = 10;
+     var z = ++x + y--;// x = 6, y = 10
+     
+        System.out.println("x = " + x);
+        System.out.println("y = " + y);
+        System.out.println("z = " + z);
+        
+        System.out.println("\nEjemplo 2 precedencia de operadores ");
+        /*prioridad de los signos, se ejecuta primero multiplicacion o division,
+        de encontrarse ambas se ejecuta el que se encuentra primero de izquierda
+        a derecha, de tener parentesis estos se ejecutan primero, pero despues 
+        de los operadores unarios*/
+        var resultado = (4 + 5) * 6 /3; // 4 + ((5*6)/3) = 14
+        System.out.println("resultado = " + resultado);
+    }
+}
+

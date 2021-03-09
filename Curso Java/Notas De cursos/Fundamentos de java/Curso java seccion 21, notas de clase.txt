@@ -1,0 +1,26 @@
+SOBRECARGA DE UN METODO
+
+la sobrecarga de metodos esta muy relaciondado con la sobrecarga de constructorres, se trata tambien de asignarle
+mas opciones a los metodos, esto para aprovechar mas las opciones de los metodos.
+
+por ej:
+
+//definimos primero el metodo suma
+
+int sumar(int a, int b){
+
+	return a + b;
+}
+
+//si agregamos un metodo con el mismo nombre previamente definido
+//pero con distintos argumentos entonces se obtiene la sobrecarga
+
+double sumar(double a, double b){
+
+	return a + b;
+}
+
+al compilador no le interesa que los argumentos del metodo se llamen de la misma manera,
+lo que si observa son los tipos de las variables, las cuales no pueden coincidir.
+
+tampoco afecta el tipo de retorno.

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- para manejar infomacion dinamica de spring, se debe agregar: -->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h1>Inicio</h1>
+        <!-- este no es expresion language como tal, pero funciona de manera muy similar para alcanzar variables de lado de la vista -->
+        <br/>
+        
+        <!-- para hacer una verificacion: (corrsponde a un if) -->
+        <div th:if="${psp != null and !psp.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                </tr>
+                
+                <!-- para iterar elementos de una lista: (corresponde a foreach) -->
+                <tr th:each="persona : ${psp}">
+                    <td th:text="${persona.nombre}">Mostrar Nombre</td>
+
+                    <td th:text="${persona.apellido}">Mostrar Apellido</td>
+
+                    <td th:text="${persona.email}">Mostrar Email</td>
+
+                    <td th:text="${persona.telefono}">Mostrar telefono</td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${psp == null or psp.empty}">
+            La lista esta vacia
+        </div>
+    </body>
+</html>

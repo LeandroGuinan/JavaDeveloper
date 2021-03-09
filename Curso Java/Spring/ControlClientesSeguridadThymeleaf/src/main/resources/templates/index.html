@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- para manejar infomacion dinamica de spring, se debe agregar: -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+        <!-- para tomar un elemento de una plantilla, se debe crear un elemento del mismo tipo del componente que se tomara de la plantilla
+             especificar la direccion de esta, y colocar el nombre que se le dio en esta, de manera que: -->
+        <header th:replace="layout/plantilla :: header"></header>
+        
+        <!-- este no es expresion language como tal, pero funciona de manera muy similar para alcanzar variables de lado de la vista -->
+        <br/>
+        
+        <!-- para hacer una verificacion: (corrsponde a un if) -->
+        <div th:if="${psp != null and !psp.empty}">
+            <table border="1">
+                <tr>
+                    <!-- para acceder a un elemento del archivo de propiedades como texto, se utiliza la sintaxis: -->
+                    <th>[[#{persona.nombre}]]</th>
+                    <!-- en el cual se coloca dentro el nombre de la llave -->
+                    <th>[[#{persona.apellido}]]</th>
+                    <th>[[#{persona.email}]]</th>
+                    <th>[[#{persona.telefono}]]</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.editar}]]</th>
+                    <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{accion.eliminar}]]</th>
+                </tr>
+                
+                <!-- para iterar elementos de una lista: (corresponde a foreach) -->
+                <tr th:each="persona : ${psp}">
+                    <td th:text="${persona.nombre}">Mostrar Nombre</td>
+
+                    <td th:text="${persona.apellido}">Mostrar Apellido</td>
+
+                    <td th:text="${persona.email}">Mostrar Email</td>
+
+                    <td  th:text="${persona.telefono}">Mostrar telefono</td>
+                    <!-- en este caso se comperte el id persona a travez de path variable -->
+                    <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/editar/} + ${persona.idPersona}">[[#{accion.editar}]]</a></td>
+                    
+                    <!-- en este caso se envia la informacion como query param: -->
+                    <td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/eliminar(idPersona=${persona.idPersona})}">[[#{accion.eliminar}]]</a></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${psp == null or psp.empty}">
+            [[#{persona.lista-vacia}]]
+        </div>
+        <br/>
+        <!-- para acceder a otro path se utiliza: @{/pathNombre} -->
+        <!-- con la anotacion de sec:auth... nos aseguramos de que el usuario pueda acceder a esta funcion, de lo contrario no se mostrara -->
+        <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/agregar}">[[#{persona.crear}]]</a>
+        <br/>
+        <footer th:replace="layout/plantilla :: footer"></footer>
+        
+        
+    </body>
+</html>

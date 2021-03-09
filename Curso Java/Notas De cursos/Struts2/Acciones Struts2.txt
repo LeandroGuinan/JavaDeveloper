@@ -1,0 +1,82 @@
+ACCIONES EN STRUTS2 FRAMEWORK
+
+*Una accion es una de las partes mas importantes de Struts
+
+*Una accion representa el Controlador en el patron MVC
+
+*Existen distintos tipos de Accion en Struts, dependiendo de lo que se quiera realizar
+
+*No es necesario extender ninguna interface, pero es posible escoger entre varias existentes
+
+	por lo general las acciones cumplen con la siguiente logica:
+
+1.Request(peticion del usuario)
+
+2.Action(procesa la peticion)
+
+3.Logica de negocio(procesa la accion y redirige)
+
+4.action(regresa la accion ya procesada)
+
+5.Response(redirigida por las accion)
+
+	Creacion de una clase tipo Action
+
+package ...
+
+public class SaludarAction{
+
+	public String execute(){
+		return "exito";
+	}
+}
+
+asi de facil, unicas reglas: debe tener el nombre del comando a ejecutar, finalizando con la palabra
+action, y debe existir el metodo execute que retorna un String.
+
+Otro Ejemplo:
+
+package ...
+
+public class SaludarAction implements Action{
+	
+	@Override
+	public String execute(){
+		return "exito";
+	}
+}
+
+tambien podemos extender de la clase Action la cual solo posee un metodo que corresponde con
+el metodo execute.
+
+Constantes de la interface Action
+
+estan las constantes:
+SUCCES, NONE, ERROR, INPUT, LOGIN
+
+ademas del metodo execute que arroja una Exception.
+
+	La Clase ActionSupport
+
+extender de esta clase ofrece varias ventajas a diferencia de extender de la clase Action,
+o de crear una accion desde cero, estas ventajas son:
+
+*Action: soporta la accion como las clases anteriores
+*LocalProvider:para el manejo de internacionalizacion
+*TextProvider:para obtener mensajes de archivos de propiedades
+*Validateable: para agregar validaciones cuando trabajamos con formularios
+*ValidationAware: para aplicar otras validaciones cuando trabajamos con formularios.
+
+la firma de esta clase es:
+public class ActionSupport implements Action, Validateable, ValidationAware, TextProvider,
+LocalProvider Serializable{
+
+//podemos sobreescribir metodos como validate para la validacion de datos:
+validate(){
+...
+}
+
+//o metodos getText para el concepto de internacionalizacion:
+getText(){
+...
+}

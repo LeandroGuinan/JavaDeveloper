@@ -1,0 +1,39 @@
+CONVERSION DE OBJETOS EN JAVA(casting)
+
+un objeto creado en la memoria heap siempre sera del mismo tipo por lo que su tipo no cambiara
+sin embargo una variable de cierto tipo puede apuntar a diferentes tipos siempre y cuando tengan 
+relacion entre ellos, como clases y subclases.
+
+con el objetivo de generalizar nuestro codigo para asi y poder realizar mas codigos desde una
+misma funcion generalizada, nos permite reutilizar codigo y otras ventajas.
+
+si realizamos una conversion de un tipo inferior en la jerarquiar a uno superior se conoce
+como upcasting
+
+en caso contrario de uno superior a uno inferior se conoce como downcasting.
+
+el upcasting se hace de manera automatica.
+
+ej:
+
+public class EjemploConversionObjetos{
+
+	public static void(String[]args){
+		//Asignamos una referencia de un objeto de menor jerarquia
+		Empleado empleado = new Escritor("Roy",15000,TipoEscritura.CLASICO);
+
+		empleado.getTipoDeEscrituraEnTexto();//Esto no es posible, no accesible
+
+		//convierte objeto - downcasting
+		Escritor escritor = (Escritor)empleado;
+
+		//finalmente podemos acceder a los metodos de la clase escritor 
+		resultado = escritor.getTipoDeEscrituraEnTexto();
+		
+		// o tambien es valido aplicar:
+		resultado = ((Escritor)empleado).getTipoDeEscrituraEnTexto();
+
+		System.out.printn("Resultado tipoEscritura"+resultado);
+
+	}
+}

@@ -1,0 +1,3 @@
+it\com\sga\domain\Persona.class
+it\com\gm\sga\servicio\PersonaServiceRemote.class
+test\ClientePersonaService.class

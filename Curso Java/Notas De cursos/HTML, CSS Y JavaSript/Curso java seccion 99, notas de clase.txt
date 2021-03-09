@@ -1,0 +1,9 @@
+INTRODUCCION A HTML
+
+junto a javascript y css, son los lenguajes que nos permiten el desarrollo de paginas web, este curso esta
+orientado al la parte logica, no al diseño web.
+
+html esta apollado del protocolo http, que es el metodo que utilizan las paginas web para enviar y resivir
+informacion, desde y hasta cualquier computadora. 
+
+el html se basa en etiquetas y tags.

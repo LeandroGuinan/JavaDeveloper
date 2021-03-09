@@ -1,0 +1,47 @@
+MANEJO DE FOREACH EN JAVA
+
+este es una sintaxis resumida para iterar los elementos de un arreglo o coleccion de datos
+es una sintaxis basada en un ciclo for.
+
+ej:
+
+public class ForEach{
+
+	public static void main(){
+	
+	//creamos un arreglo de enteros
+	int[] edades = {15, 20, 41, 50};
+
+	//iteramos el arreglo
+	for(int edad : edades){
+			System.out.println("Edad: "+edad);
+		}
+	}
+}
+
+como se ve el ciclo for recorre el arreglo y guarda cada elemento temporalmente en la variable edad
+local del ciclo, y esta es impresa por el system accion que se repite con cada elemento del arreglo
+hasta este finalizar.
+
+
+ej2:
+
+public class ForEach{
+
+	public static void main(String[]args){
+		//creamos un arreglo de tipo personas
+		Persona[] personas = {new Persona("Juan"), new Persona("Karla")}
+
+		//iteramos cada elemento del arreglo de personas
+		for(Persona persona: personas){
+			//Accedemos a las propiedades y/o metodos del objeto
+			String nombre = persona.getNombre();
+			System.out.println("Nombre persona: "+nombre);
+		}
+	}
+}
+
+como se ve es posible utilizar este ciclo foeach en tipo objetos, sin embargo este es util si se
+quiere revisar todos los elementos de un arreglo, sin embargo si se desea finalizar el ciclo
+una vez encontrado algun valor este no se detiene, para este caso es mejor utilizar un ciclo for
+normal

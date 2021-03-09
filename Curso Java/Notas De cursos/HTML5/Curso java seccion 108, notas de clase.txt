@@ -1,0 +1,30 @@
+INTRODUCCION A HTML5
+
+cuenta con las mismas funciones de html base, pero cuenta tambien con nuevas caracteristicas como son:
+
+	*Semantica: una web orientada a datos, mas amigable para los usuario
+	*almacenamiento: gracias a este se pueden ejecutar aplicaciones offline
+	*acceso de dispositivos: ahora se puede acceder a la camara, etc,  microfono en el dispositivos
+	*conectividad: mejora la comunicacion entre cliente servidor
+	*multimedia: permite el uso de audio y video
+	*3d: permite el uso de css para crear objetos 3d
+	*performance e integracion: mejora tambien la coneccion para mejorar la experiencia
+
+APLICACIONES HTML5
+
+este se ah convertido en el lenguaje por excelencia para el desarrollo web, gracias al apoyo de grandes
+compañias, ademas que se adapta mas que otros a los cambios.
+
+es tan diverso las aplicaciones que se pueden lograr en HTML5 que incluyen:
+
+*agregado de archivos
+*crear documentos de texto
+*hojas de calculos
+*juegos
+*video y efectos de estos
+*hojas de calculo
+*geolocalizaciones
+*web socket: nos permite agregar chats interactivos
+*animaciones
+*juegos
+*etc

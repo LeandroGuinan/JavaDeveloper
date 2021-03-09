@@ -1,0 +1,33 @@
+MEMORIA STACK Y MEMORIA HEAP EN JAVA
+
+como en todo lenguaje de programacion java almacena la las variables que se ejecuntan mientras en el programa
+este activo, estas se almacenan en la memoria stack, en cambio en la memoria heap se guardan los objetos
+y metodos de la clase, la cual tienen un tiempo de vida mas prolongado.
+
+por ej: el objeto
+Persona p1 = new Persona();
+int x = 10
+
+lo que se estaguardando en el objeto p1 es la referencia de donde esta alojado en la memoria del programa
+
+en cambio la variable primitiva almacena directamente el valor donde esta creado esta variable.
+
+entender esto es importante porque el recolector de basura en java elimina todo objeto que no esta
+referenciado por una variable, es decir, el objero creado tipo persona como esta siendo referenciado
+por una variable p1 este no se elimina por el recolector, en cambio si la variable pasa a ser null
+esta referencia se rompe y puede ser eliminado de la memoria heap por el recolector de basura.
+
+ASIGNANDO REFERENCIA DE MEMORIA
+
+si existe una referencia a un objeto del tipo:
+Persona p1 = new Persona();
+Persona p2 = p1;
+
+en este contexto existen dos referencias al mismo objeto, por ende si dado el caso que p1 pase a ser null
+aun existira la variable p2 aun referencia al objeto creado, ahora si p2 es null ya no hay referencia al 
+objeto persona, asi ahora es candidato a ser eliminado.
+
+por ende solo seran eliminados los objetos que no esten refereciados por un por una variable, es decir,
+que ninguna variable contenga su referencia.
+
+

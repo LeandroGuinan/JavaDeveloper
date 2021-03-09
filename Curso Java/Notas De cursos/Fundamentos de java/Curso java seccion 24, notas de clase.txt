@@ -1,0 +1,156 @@
+ARREGLOS EN JAVA
+
+en jav la estructura de datos mas simple es el arreglo, que basicamente es un conjunto de informacion, que nos
+nos permite guardar informacion normalmente de un tipo en particular.
+
+solo se puede asignar un solo tipo de dato a los arreglos, por ej todos los elemetos del arrglo seran int
+float o double, tambien se permite almacenar objetos como string
+
+los arreglos en java empiezan desde el 0 es decir que si tiene un lenght de 8 elementos el arreglo es de lenght 7.
+(8-1=7)
+
+no todos los elemntos del arreglo deben tener valores, por ejemplo si el arreglo tiene 10 espacios, de los cuales
+7 estan ocupados, los otros 3 tendran su valor por defecto.
+
+para obtener el valor de un arreglo es necesario un indice o apuntador que señala a una casilla del
+arreglo.
+
+DECLARACION DE ARREGLOS.
+
+	sintaxis para declarar un arreglo de una dimension:
+
+tipo [] nombreArreglo  		o		tipo nombreArreglo []
+
+	ej de declaracion de arreglos de tipo primitivo:
+
+int[] enteros;					int enteros[];
+boolean[] banderas;				boolean banderas[];
+
+	ej de declaracion de arreglos de tipo Object
+
+Persona[] personas; 				Persona personas[]
+String[] nombres;				String nombres[]
+
+INSTANCIAR ARREGLOS
+
+sintaxis para instanciar un arreglo de una dimension
+
+nombreArreglo = new tipo[largo];
+
+Ej:
+
+tipo primitivo:
+
+enteros = new int[10]; // arreglos de tipo entero de largo 10
+banderas = new boolean[5]; //Arreglos de tipo boolean de largo 5
+
+tipo object:
+
+personas = new Persona[13];//arreglo de tipo persona de largo 13
+nombres = new String[8]; //arreglo de tipo String de largo 8.
+
+INICIALIZAR LOS ELEMENTOS DE UN ARREGLO.
+
+*Sintaxis para inicializar los elementos de un arreglo de una dimension:
+
+	nombreArreglo[indice] = valor;
+
+*Ejemplo para inicializar arreglos tipo entero:
+
+	enteros[0] = 15; //se asigna el valor de 15 al indice 0
+	enteros[1] = 13; //se asigna el valor de 13 al indice 1
+
+*Ejemplo para inicializar los elementos de un arreglo de tipo object:
+
+personas[0] = new Persona; //se asigna el objeto en indice 0
+personas[1] = new Persona("Pedro","Lara"); // se asigna objeto en indice 1
+nombres[0] = new String("Juan");//Se asigna el String en indice 0
+nombres[1] = new String("Sara"); //se asigna el string en indice 1
+
+es conveniente tener un contador para saber cuantos elementos del arreglo se han asignado.
+
+EXTRAER ELEMENTOS DE UN ARREGLO
+
+para extraer los elementos de un arreglo de una dimension se debe asignar el valor del arreglo
+a una variable receptora compatible con el tipo del dato del arreglo. por ej:
+
+variableReceptora = nombreArreglo[indice];
+
+*Ejemplo para extrar los elementos de un arreglo de tipo entero:
+
+int i = enteros[0];//extraemos el valor almacenado en el indice 0
+int j = enteros[1];//extraemos el valor almacenadi en el indice 1
+
+*Ejemplo para extraer los elementos de un arreglo tipo object
+
+Persona p1 = personas[0];//extraemos valor almacenado indice 0
+Persona p2 = personas[1];//extraemos valor almacenado indice 1
+
+String nombre1 = nombres[0];//Extraemos valor almacenado indice 0
+String nombre2 = nombres[1];//extraemos valor almacenado indice 1
+
+es importante que el indice no supere el lenght-1 del arreglo de lo contrario marcara un error.
+
+DECLARACION, INSTANCIACION E INICIALIZACION
+
+se pueden declarar arreglos de otra manera, ya con sus valores asignados de la forma:
+
+tipo[] nombreArreglo = {lista de valores separados por coma};
+
+Ejemplo:
+
+int[] edades={10,23,41,68,7};//arreglo de enteros de 5 elementos.
+
+solo se puede utilizar esta sintaxis cuando sabemos el numero exacto de elementos del arreglo.
+
+Ejemplo para tipos object:
+
+Persona[] personas = {new Persona(), new Persona("Juan","Perez")};
+String [] nombres = {"Karla","Arturo","Leandro","Sara"};//arreglo de 4 alementos
+
+EJEMPLO DE USO DE ARREGLOS DE UNA DIMENSION:
+
+public class EjemploArreglos{
+
+	public void main(String[]args){
+	//1.declaramos un arreglo de enteros
+	int edades[];
+	//2. instanciamos el arreglo de enteros
+	edades = new int[3];
+	//3.inicializamos los valores del arreglo de enteros
+	edades[0] = 30;
+	edades[1] = 15;
+	
+	//4. leemos los valores de cada elemento del arreglo
+	System.out.println("Arreglo enteros indice 0: " + edades[0]);
+	System.out.println("Arreglo enteros indice 1: " + edades[1]);
+
+	Persona personas[];
+	personas[0] = new Persona("Juan");
+	personas[1] = new Personas("Karla");
+	
+	System.out.println("Arreglo personas indice 0: " + personas[0]);
+	System.out.println("Arreglo personas indice 1: " + personas[1]);
+	
+	}
+}
+
+EJEMPLO PARA RECORRER UN ARREGLO CON UN CICLO FOR:
+
+public class EjemploArreglos{
+
+	public static void main(String[]args){
+		//1.Arreglo de String, notacion simplificada
+		String nombres[] = {"Sara","Laura","Carlos","Carmen"};
+
+		//Imprimimos los valores a la salida estandar
+		System.out.println("");
+
+		//Iteramos el arreglo de String con un for:
+
+		for(int i = 0, i < nombres.lenght; i++){
+		
+			System.out.println("Arreglo String indice: " + i + ": " nombres[i]);
+		}
+	}
+}

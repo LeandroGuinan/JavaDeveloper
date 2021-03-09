@@ -1,0 +1,106 @@
+MANEJO DE TRANSACCIONES
+
+	¿Que es una transaccion?
+
+Una transaccion se conoce como una unidad de trabajo atomica, es decir, se realiza toda o nada 
+del metodo transaccional.
+
+
+		    ----------->Dao A -------->Base De Datos A
+Servicio	   /
+Begin transaction /
+------------------
+commit/rollback	  \
+		   \
+		    ----------->Dao B--------->Base de Datos B.
+
+El objetivo de una transaccion es ejecutar todas las lineas de codigo de nuestro metodo
+y guardar la informacion en un repositorios en este caso base de datos, esto se conoce como
+commit, pero si algo fallara en nuestro programa imediatamente se revierten los cambios en 
+nuestra base de datos, que se conoce como rollback.
+
+EJ: un sistema de compra de billete de avion por internet
+
+						   
+Comprar el boleto |1.Verificar boletos disponibles| /------------>Commit
+----------------->|2.Reservar un boleto	          |/
+		  |3.Realizar el pago	          |\
+		  |4.Recibir el boleto	          | \------------->rollback
+
+de haberse hecho los 4 pasos correctos en el servidor se hace commit, y se cuenta como un
+boleto vendido, de no ser asi se hace rollback.
+
+	Caracteristicas de una transaccion
+
+Las caracteristicas de una transaccion tienen el acronimo ACID:
+
+*Atomic:Las actividades de un metodo se consideran como una unidad de trabajo.
+Esto se conoce como Atomicidad
+
+*Consistent: Una vez termina una transaccion la informacion queda en estado consistente,
+ya que se realiza todo o nada.
+
+*Isolated:Multiples usuarios pueden utilizar los metodos transaccionales, sin embargo debemos
+prevenir errores por accesos multiples, aislando en la medida de lo posible nuestros metodos
+transaccionales.
+
+*Durable: Sin importar si hay una caida del servidor, una transaccion exitosa debe guardarse
+y perdurar posterior al termino de una transaccion.
+
+	Manejo de una transaccion
+
+en una aplicacion empresarial se deben prestar especial atencion a las transacciones, y ademas
+estas aplicaciones se dividen en distintas capas, que tienen sus roles bien definidos.
+
+por ejemplo se inserta un usuario nuevo a una base de datos, que a su vez esta agregando
+informacion a dos tablas separadas, la transaccion inicia cuando el usuario introduce los 
+datos, haciendo uso de sus UsuarioDao y PersonaDao respectivos, una vez ejecutado estos
+metodos sin errores se hace commit de la transaccion, de lo contrario se hace rollback.
+
+	Configuracion De Propagacion en Java EE
+
+Demarcacion de transacciones por medio de Container-Managed Transactions(CMTs)
+
+
+Tipo					Significado
+de propagacion
+
+MANDATORY		El metodo tiene que ejecutarse dentro de una transaccion,
+			de lo contrario se lanzara una excepcion
+----------------------------------------------------------------------------------
+			El metodo DEBE ejecutarse dentro de una transaccion. Si ya
+REQUIRED		Existe una transaccion el metodo la utilizara, de lo contrario
+			creara una nueva
+----------------------------------------------------------------------------------
+			El metodo DEBE ejecutarse dentro de una transaccion. Si ya 
+REQUIRES_NEW		existe una transaccion, se suspende durante la ejecucion del
+			metodo, de lo contrario creara una nueva
+----------------------------------------------------------------------------------
+			Indica que el metodo no requiere el manejo transaccional, pero
+SUPPORTS		puede participar de una transaccion si ya hay alguna ejecutandose
+----------------------------------------------------------------------------------
+			El metodo NO debe ejecutarse en una transaccion. si ya existe una
+NOT_SUPPORTED		transaccion, se suspendera hasta la conclusion del metodo
+-----------------------------------------------------------------------------------
+			El metodo NO debe ejecutarse en una transaccion, de lo contrario
+NEVER			arrojara una excepcion
+
+
+	Ejemplo Codigo Java
+
+Ejemplo de codigo de transacciones administradas por el contenedor (CMT):
+
+@Stateless
+public class PersonaServiceImpl{
+
+	@Resource
+	private SessionContext context;
+
+	public void modificarPersona(Persona persona){
+		try{
+			personaDao.updatePersona(persona);
+		}catch(Throwable t){
+			contexto.setRollbackOnly();
+		}
+	}
+}

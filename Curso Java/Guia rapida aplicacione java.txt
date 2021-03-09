@@ -1,0 +1,41 @@
+Guia rapida de aplicaciones con java
+
+aplicaciones de escritorio: son el tipo mas basico, se les puede añadir una base de datos sql
+segun la nececidad de esta, la cuales se pueden programar con java basico o navito, o tambien
+segun la necesidad se pueden añadir mas librerias (API's).
+
+paginas web: utilizan HTML para desplegar una pagina web, las cuales se complementan con archivos
+CSS para aplicar diseño a sus componentes, y de javascript para añadir funcionalidad a estos,
+si bien es util para aplicaciones web sencillas los codigos de webs mas complicadas se vuelven
+tediosos de trabajar.
+
+aplicaciones web: en estas se implementa el patron de diseño MVC la cual cada componentes 
+se programan de manera aislada para lograr un mejor funcionamiento, se compone de:
+
+paginas HTML
+Servlets con codigo java
+JavaServerPages(JSP)
+conexiones a base de datos SQL
+
+
+paginas JSF: en el patron de diseño de MVC estas paginas son el estandar para el uso de la capa
+web que interactua con el usuario, implementa tambien los servlets y las conexiones a base de datos
+de manera que se pueda controlar las peticiones de los usuarios y su acceso a la informacion.
+
+aplicaciones EE: son aplicaciones de uso empresarial, en si java EE es un conjunto de API's que 
+dan diversas funcionalidades extra a los patrones de diseño, en cada uno de los elementos que 
+componen el patron de diseño MVC
+
+en la capa de presentacion se utilizan: JSF, Servlets y JSP
+
+en la capa de negocios se utilizan: EJB's (Enterprise Java Beans), tambien pueden ser 
+como servicios web.
+
+Capa de datos: JDBC/JPA con los cuales accederemos a la base de datos(hay muchas herramientas
+que se pueden aplicar en este nivel, depende de la nececidad del usuario).
+
+ademas que se puede integrar seguridad a estas aplicaciones.
+
+Android: se puede programar el uso de aplicaciones android con java
+
+

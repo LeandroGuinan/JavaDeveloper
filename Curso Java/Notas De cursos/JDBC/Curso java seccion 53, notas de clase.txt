@@ -1,0 +1,35 @@
+INTRODUCCION A JDBC
+
+Api: aplication program interface, es un conjuto de clases (java en este caso) empaquetadas en
+un archivo conocido como jar(java archie file), estas clases cumplen una funcion especifica, por
+ejemplo la tarea de conectarse a una base de datos particular(mysql, oracle, etc)
+
+para este curso utilizaremos el Api de jdbc.
+
+JDBC: (java data base connectivity) es un api estandar de java, se utiliza para conectarnos
+a una base de datos. provee las herramientas basicas para trabajar con base de datos, 
+para ejecutar los CRUD(create, read, update, delete)
+
+
+ROL DE JDBC EN UNA ARQUITECTURA JAVA EMPRESARIAL
+
+esta estructura empresarial nos permite crear robustas aplicaciones basandonos en varias capas
+de aplicacion, esto con el objetivo de diversificar las aplicaciones y las habilidades
+de programadores.
+
+el uso de java JDBC en esto se encuentra en la capa de datos, pues es lo que nos permite 
+acceder a la base de datos de la aplicacion.
+
+PASOS BASICOS
+
+1. Descargar el driver dependiendo de la base de datos a utilizar
+
+2. Agregar el driver(controlador) al classpaht de la aplicacion
+
+3. Creamos una clase java
+
+	*registramos el driver JDBC
+	*crear una coneccion a la base de datos
+	*crear un objeto statement (sentencia)
+	*ejecutar la sentencia sql y procesarla
+	*cerrar los objetos creados, como statement o connection.

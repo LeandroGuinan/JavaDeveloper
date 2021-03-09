@@ -1,0 +1,31 @@
+METODOS EN JAVA
+
+metodos:
+
+para crear un metodo es necesario estar dentro de una clase, se debe a que java esta orientada a objeto
+
+ej:
+
+class NombreClase{
+  tipo nombreMetodo(lista_de_argumentos){
+  (tipo: int, string,object si no se espera retorno de valores es void)
+  (nombreMetodo: es como se llamara el metodo, normalmente se nombra como una accion y se usa notacion de camello)
+  (lista_de_argumentos: son los tipos de datos que devolvera este metodo: por ej: int sumar(int a, int b){returnt a+b;})
+  
+ }
+}
+
+llamada general a un metodo: 
+
+primero creamos un objeto del tipo de la clase en la que se enceuntra este metodo
+TipoDeClase objeto = new TipoClase();
+
+llamamos el metodo, enviando argumentos si se requiere
+tipoDevuelto res = objeto.nombreMetodo(arg1,arg2,arg3);
+
+ej:
+//creamos un objeto de la clase aritmetica
+Aritmetica a = new Aritmetica();
+
+//Llamamos el metodo sumar y recibimos el valor devuelto.
+int resultado = a.sumar(5,3);

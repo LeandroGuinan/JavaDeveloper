@@ -1,0 +1,102 @@
+CLASE OBJECT EN JAVA
+
+todas las clases que existen y que creemos heredan de la clase object, ya sea por defecto o un
+extends, pero siempre esta presente, esta base viene descargada junto con el IDE.
+
+normalmente se reescriben los metodos de esta clase base para utilizarlos en nuestras clases,
+los mas comunes de utilizar son:
+
++toString():String
++equals():boolean
++hashCode():int
+
+METODO TOSTRING
+
+este metodo nos sirve para que podamos mostrar una representacion en texto de nuestras clases
+ej:
+
+public class Empleado{
+
+	private String nombre;
+	private double sueldo;
+
+	public Empleado(String nombre, double sueldo){
+		this.nombre = nombre;
+		this.sueldo = sueldo;
+	}
+
+	@override//indica que se esta sobreescribiendo un metodo, es opcional
+
+	public String toString(){
+		return "Empleado{"+"nombre: "+ nombre + ", sueldo: " + sueldo+'}';
+	}
+}
+
+si no se sobreescribe el metodo lo que se imprimira sera la referencia en memoria que apunta
+al objeto actual. se puede modificar el retorno de la cadena segun nuestra nececidad.
+
+METODO EQUALS:
+
+este nos pemite comparar el contenido de dos objetos, como su valor de retorno indica,
+se hace una pregunta: variableObj.equals(variableObj2); de ser cierto retorna true caso contrario
+retorna una flase.
+
+ej:
+
+public class Empleado{
+
+	protected String nombre;
+	protected double sueldo;
+
+	public boolean equals(Object obj){
+		if(obj == null){
+			return false;
+		}
+	}
+
+	if(obj instanceof Empleado){
+		Empleado obj = (Empleado) obj;
+		if(nombre.equals(emp.nombre) && Double.valueOf(sueldo).equals(emp.sueldo)){
+			return true;
+		}else{
+			return false;
+		}
+
+	}else{
+		retunr false;
+	}
+}
+
+este metodo es muy utilizado en algoritmos de ordenamiento, ya que con frecuencia se buscan
+similitudes entre objetos en estos.
+
+METODO HASHCODE
+
+cuando redefinimos el metodo equals debemos tambien redefinir el metodo hashCode.
+si dos objetos son iguales segun el metodo equals, el valor retornado por su metodo hashCode
+debe ser igual.
+
+por defecto hashCode devuelve un entero diferente para cada objeto, se usa en colecciones 
+basadas en hashTable, para el ordenamiento de sus elementos.
+
+si queremos comparar dos objetos si bien podemos llamar al metodo equals o tambien el metodo
+hashCode, que retorna un entero igual en cada objeto si ambos son iguales.
+
+ej: 
+
+public class Empleado{
+	private String nombre;
+	private double sueldo;
+
+	@override
+	public int hashCode(){
+		int hash = 7;
+		hash = 31 * hash + this.nombre.hashCode();
+		hash = 31 * hash + Double.valueOf(this.sueldo).hashCode();
+		return hash;
+	}
+
+}
+
+este se esa en compañia del metodo equals, cuantos mas metodos utilicemos para garantizar que
+dos objetos sean iguales mas confianza se tendra a la hora de utilizar algoritmos de ordenamiento

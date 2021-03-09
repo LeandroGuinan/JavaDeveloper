@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:fragment="head">
+        <title>Plantilla</title>
+        <meta charset="UTF-8"/>
+        <!-- agregamos los links para utilizar componentes css de bootstrap y FW: -->
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <!-- estos son para agregar los javascript necesarios para que funcionen los componentes anteriores: -->
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <!-- para definir un elemento de plantilla, se debe crear el tipo de elemento, y en la etiqueta fragment, se debe
+             agregar el nombre al cual hacerle referencia-->
+        <header th:fragment="header">
+            <!-- creamos el boton de barra de navegacion superior: -->
+            <nav class="navbar navbar-expands-sm navbar-dark bg-dark p-0">
+                <!-- donde este es el contenedor:-->
+                <div class="container">
+                    <!-- link a la accion y para desplegar la barra de navegacion: -->
+                    <a th:href="@{/}" class="navbar-brand" th:text="#{plantilla.titulo}">Control Clientes</a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- aqui se configura el contenido de la barra de navegacion: -->
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <!-- este es el boton inicial, que muestra la etiqueta de titulo: -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item px-2">
+                                <!-- que al darle click, regresa a index: -->
+                                <a th:href="@{/}" class="nav-link active" th:text="#{barra.titulo}"></a>
+                            </li>
+                        </ul>
+                        <!-- en esta seccion, si esta el usuario autenticado: -->
+                        <ul sec:authorize="isAuthenticated()" class="navbar-nav ml-auto">
+                            <li class="nav-item mr-3">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-user"></i>
+                                    <!-- en las cuales se muestran los tags de bienvenido, con el nombre de usuario: -->
+                                    <span th:text="#{barra.bienvenido}">bienvenido:: </span>
+                                    <span sec:authentication="name">Usuario</span>
+                                </a>
+                            </li>
+                            <!-- y por ultimo se añade la funcion de salir al menu desplegable: -->
+                            <li class="nav-item">
+                                <form method="POST" th:action="@{/logout}">
+                                    <a href="#" onclick="this.parentNode.submit();" class="nav-link">
+                                        <i class="fas fa-user-times"></i> [[#{barra.salir}]]
+                                    </a>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- en el mismo header se agrega una barra extra para ser el despliegue de control clientes: -->
+            <section id="main-header" class="py-2 bg-info text-white">
+                <!-- la cual es una clase contenedor: -->
+                <div class="container">
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>
+                                <!-- en la que se agrega un icono de engrane de bt, y el texto de conig: -->
+                                <i class="fas fa-cog"></i>[[#{plantilla.titulo}]]
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+        
+        <!-- se mejora visualmente el footer: -->
+        <footer th:fragment="footer" class="bg-warning text-white mt-5 p-5">
+            <!-- se agrega una clase contenedor: -->
+            <div class="container">
+                <div class="col">
+                    <!-- y un parrafo con su contenido: -->
+                    <p class="lead text-center">
+                        <!-- agregamos los parametros de lang(definido anteriormente) con el prefijo de idioma -->
+                        <a th:href="@{/(lang=es)}">ES</a>|
+                        <a th:href="@{/(lang=en)}">EN</a>
+                        <!-- para hacer logout vasta con la configuracion: -->
+                        <span>&copy; [[#{plantilla.pie-pagina}]]</span>
+                    </p>
+                </div>
+            </div>
+
+        </footer>
+    </body>
+</html>

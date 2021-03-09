@@ -1,0 +1,126 @@
+FUNDAMENTOS DE KOTLIN
+
+a diferencia de java todos los tipos son objetos, por ende tienen distintas caracteriscas cada uno,
+son los mismos tipos de datos(Double, Float, Long, Int, Short,Byte) pero con la diferencia que en
+kotlin no existen los tipos primitivos.
+
+se pueden agregar de dos formas:
+	
+	var ej = 28
+
+la anterior asigna valores directamente segun el tipo indicado
+
+	var:Int = 28
+
+en esta se especifica el tipo de dato que acepta esta variable
+
+	var nombre = "juan"
+
+y en esta se esta agregando un string
+
+	Constantes en Kotlin
+
+para asignar una constante se utiliza la palabra reservada val:
+
+	val nombre = "juan"
+
+tambien se puede definir el tipo de la variable
+
+	val nombre:String = "juan"
+
+tambien se puede declarar una variable constante sin asignarle valor,
+
+val apellido:String
+
+pero una vez se le agrege el valor apellido ="Lara" no se puede modificar de nuevo
+
+
+	Manejo de cadenas en kotlin
+
+se pueden simplemente imprimir juntas utilizando el operador +
+
+var nombre = "Juan"
+    var apellido ="Lara"
+    print(nombre + " " + apellido)
+
+pero en kotlin existe el comcepto de interpolacion, en la cual se puede imprimir un valor
+en una cadena utilizando el $
+
+de la forma: print("mi nombre es: $nombre")
+
+en kotlin existe lo que se llama String template, que se utiliza para asignar cadenas de texto
+mas largas y respetando su orden y estacios, de la forma:
+
+var comentario = """
+texto
+"""
+
+	Agregar datos desde teclado
+
+para agregar datos desde teclado solo se debe usar la funcion: readLine() y agregarla 
+a una variable.
+
+	Listas
+
+para agregar una lista se debe especificar el metodo listOf() a una variable, la cual no se
+puede modificar, el metodo para listas que se pueden agregar valores son: mutableListOf()
+y de la misma forma se pueden crear arreglos
+
+	For Loops
+
+para iterar cada elemento de una lista basta con utilizar un for(nombre in nombres) por ejemplo
+que itera cada elemento y lo imprime si ese es el codigo especificado.
+
+	Maps
+
+para crear una lista con una llave asociada se debe utilizar un mapOf("key" to "value") sin 
+embargo esta lista es no mutable, por ende no se pueden modificar valores, para crear un
+mapa con estas caracteristicas se debe utilizar el metodo mutableMapOf("key" to "value")
+y para imprimir un valor basta con: print(nombreMapa["key"]), para imprimir valor de value
+
+
+	funciones
+
+las funciones son estructuras parecidas a los metodos en java, lo cual son de la forma:
+fun saludar(){//codigo a ejecutar}, para funciones que regresan argumentos se escriben de
+la forma:
+
+fun despedir():String{return "adios"}
+
+y para funciones que reciben argumentos:
+
+fun despedir(nombre:String):String{
+return "Hasta luego $nombre"
+}
+
+a diferencia de java se puede agregar un valor por default en la funcion por si no se envia 
+ninguno, esto de la forma:
+
+fun despedir(nombre:String = "Juan"){return "Hasta luego $nombre"}
+
+esto en automatico le asigna el nombre juan a la cadena nombre y en caso que no se sobreescriba
+este se imprime con ese valor
+
+tambien se pueden agregar mas de un atributo segun se requiera, por ej:
+
+fun despedir(nombre:String, apellido:String):String{return "adios $nombre $apellido} 
+
+tambien se puede escribir una funcion de la siguiente forma:
+
+fun despedir(nombre: String, apellido: String) = "Hasta luego $nombre $apellido"
+
+	Clases en kotlin
+
+para definir una clase se debe utilizar la palabra reservada class, asi como en java, segido del
+nombre de la clase, las cuales comparten muchos elementos en su mayoria con sus contrapartes en java
+
+para declarar un constructor se utiliza el metodo constructor(){/atributos de clase}
+
+de igual manera se pueden imprimir atributos y llamar funciones de esta clase
+
+	Nullable 
+
+por default kotlin no permite asignarle null a una variable a menos que añadamos un "?" en su
+definicion de la manera:
+
+var nombre:String? = null

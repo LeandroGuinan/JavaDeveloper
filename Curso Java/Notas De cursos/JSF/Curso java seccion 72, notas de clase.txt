@@ -1,0 +1,49 @@
+VALIDACIONES EN JSF
+
+ubicados en el paso 3 del ciclo de vida de jsf, procesamineto de validaciones, este tiene que ver
+con el procesamineto de valores y de convertidores, estas validaciones aseguran que nuestros datos
+en las aplicaciones sean consistentes segun los datos introducidos por el usuario, algunos valores
+que podemos validar son:
+
+	*rangos de numeros o limites
+	* largo de cadenas 
+	*formatos de fechas
+	*entre otras 
+
+JSF provee varios tipos de validaciones por ej: v. estandar, v. en metodos de manageBean
+ y v.personalizadas o customizadas.
+
+estas validaciones ocurren en el proceso 3 de JSF, este proceso permite asegurar que antes
+de actualizar los valores del modelo que la informacion posea el tipo de dato deseado.
+
+Veremos dos maneras de ejecutar la validacion en nuestros componentes:
+	
+	*validacion individual por campo
+	*validacion por campos interdependientes
+
+VALIDACION INDIVIDUAL
+
+	*Agregando un atributo required al tag JSF
+	*Agregando un atributo validados al tag JSF
+	*Agregando un validador como tag interno
+	*El tag h:message se utiliza para mostrar errores
+	de un componente
+
+VALIDACIONES INTERDEPENDIENTES
+	
+	*el tag h:messages se utiliza para mostrar varios errores a la vez
+
+
+EJEMPLO DE USO DE VALIDADORES
+
+validador estandar:
+
+<h:inputText id="edadId" required="true" value"#{empleadoBean.edad}">
+	<f:validateLongRange minimun="18" maxium="50"/>
+</h:inputText>
+
+Validador personalizado:
+
+<h:inputText id="edadId" required="true" value"#{empleadoBean.edad}">
+	<f:validator validatorId="validatorIp"/>
+</h:inputText>

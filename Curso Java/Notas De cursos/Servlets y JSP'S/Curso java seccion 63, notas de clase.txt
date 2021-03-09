@@ -1,0 +1,47 @@
+MANEJO DE SESIONES CON HTTPSESSION
+
+	Sesion Http
+
+el API de los servlets nos permite administrar las sesiones de los clientes por medio de la clase
+HttpSessions, esto sucede de manera automatica, cada vez que el usuario realiza una peticion crea
+una sesion.
+
+por ejemplo si un usuario accede a un sitio web por medio de chrome esta es una sesion, pero 
+luego, si se abre de nuevo el sitio web pero en diferente navegador, este ya se considera un nuevo
+usuario, por ende se crea otra sesion.
+
+pero si abrimos una nueva ventana en un navegador en la que la sesion ya esta creada este no se 
+considera un nuevo cliente, por lo tanto no se creara una sesion.
+
+Una sesion nos va a permitir administrar las peticiones que realiza un usuario, el objeto httpSession
+se obtiene a partir del objeto httpServletRequest, por lo que una sesion se utiliza para administrar
+distintas peticiones del usuario.
+
+una sesion entonces tiene una vida mas larga que una peticion, o lo mismo el objeto request, una
+sesion se destruye hasta que transcurra el tiempo que le hemos asignado por inactividad, o tambien
+podemos destruirla manualmente por el metodo invalidate.
+
+	Manejo de sesiones con Servlets
+
+
+*request.getSession(): se utiliza para obtener la sesion que se creo a partir de la peticion del
+cliente.
+
+*sesion.getAttribute(): Permite obtener un atributo previamente agregado a la sesion del cliente
+
+*sesion.setAttribute(): Permite agregar un atributo a la sesion actual del cliente
+
+*sesion.invalidate(): invalida la sesion actual del cliente
+
+*sesion.isNew():Permite saber si la sesion ha sido recien creada.
+
+*sesion.getCreationTime(): Permite conocer la fecha y hora de cuando se creo la sesion
+
+*sesion.getLastAccesedTime(): Permite conocer la ultima vez en que la sesion fue accedida por
+el cliente
+
+*sesion.getMaxInactiveInterval(): Permite conocer el tiempo de inactividad (en seg) necesario
+para que la sesion se destruya si no recibe una peticion
+
+*sesion.setMaxInactiveInterval(): Permite modificar el valor mencionado en la funcion anterior.
+Este valor tambien se puede modificar en el archivo web.xml

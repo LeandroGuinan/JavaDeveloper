@@ -1,0 +1,139 @@
+JAVA PERSISTANCE API
+
+mejor conocido como jpa, es el estandar de persistencia de java. JPA implementa comceptos
+de framework ORM (Oject Relational Mapping).
+
+
+Relacion Objeto-Mapeo
+
+Base			Codigo
+De Datos		Java
+
+Entidad	<----Mapeo----	Diagrama	
+Usuario	-----Generar-->	De Clases
+
+la mayoria de informacion de las aplicaciones empresariales, es almacenadas en bases de datos
+relacionales, al utilizar jdbc tenemos el problema de generar demasiado codigo para  poder
+una simple consulta.
+
+para simplificar los procesos de consulta(Select, Insert, Update, Delete) se han utilizado 
+framework ORM (Object Relational Mapping), tales como hibernate Framework.
+
+CARACTERISTICAS DE JPA
+
+la idea principal del uso de JPA es sustituir el codigo sql para enfocarse en el codigo java,
+con esta idea, JPA permite abstraer la comunicacion de la base de datos y crea un estandar para
+ejecutar consultas y manipular la informacion de una base de datos.
+
+
+	*Persistencia utilizando POJOS
+	
+	*No Intrusivo
+
+	*Consultas utilizando Objetos Java
+	
+	*Configuracion Simplificada
+
+	*Integracion
+
+	*Testing
+
+ARQUITECTURA EMPRESARIAL CON JPA
+
+el rol que toma JPA es en la capa de datos, manejando informacion a travez de consultas, utilizando
+la sentancia select, y manejo de informacion ejecuntando la sentancia insert,update, update y delete.
+tambien una unidad de persistencia destinada a la creacion y eliminacion de conexiones en una base
+de datos y manejo de transacciones, etc...
+
+para manejar patrones de persistencias podemos utilizamod patrones como DAO(Data Access Object),
+este patron de diseño suele definir una interfaz y una implementacion para realizar las operaciones
+mas comunes.
+
+tambien tenemos el patron DTO, este nos permite definir una clase en ocaciones muy similar
+a la clase entidad, que en ocaciones poseen los mismos atributos, pero con el objetivo de
+transferirla a la capa web, por eso se le conoce como capas de valor o de transferencia.
+
+
+CLASES ENTIDAD
+
+*Una clase de entidad es un POJO y puede configurarse por medio de anotaciones o un archivo XML
+
+*Ejemplo de clase de entidad:
+
+@Entity
+public class Persona{
+	@Id
+	@GeneratedValue
+	private Long personaId;
+
+	@Column(nullable = false=
+	private String nombre;
+
+	private String apePaterno;
+	private String apeMaterno;
+	privateString email;
+	private Integer telefono;
+
+	//Constructores, getters, setters
+} 
+
+al dia de hoy una clase conocida como entidad es simplemente un POJO y en combinacion con el 
+uso de anotaciones es suficiente para convertirla en una clase de entidad, la cual representa
+un registro de una tabla de base de datos. 
+
+API DE JPA Y ENTITY MANAGER
+
+para que una clase de entidad pueda ser persistida se debe realizar una llamada al API de 
+JPA, que esta separada de nuestras clases de entidad, por lo cual una clase entidad es solo una
+clase java, la cual al vincularse con un entity manager se persiste en la base de datos.
+
+CONFIGURACION DE UNIDAD DE PERSISTENCIA
+
+este ejemplo es para una aplicacion local, ya que si fuera aplicacion web las configuraciones
+se harian en el servidor web, y no haria falta definir la clase.
+
+<persistence>
+  <persistence-unit>
+     <class>domain.Persona</class>
+	<properties>
+		<property name="javax.persistance.jdbc.driver" 
+		 value="org.apache.derby.jdbc.ClientDriver"/>
+		<property name="javax.persistence.jdbc.url" 
+		 value="jdbc:derby://localhost:1527/PersonaServDB;create=true"/>
+		<property name="javax.persistance.jdbc.user" value="APP"/>
+		<property name="javax.persistance.jdbc.password" value="APP"/>
+	</properties>
+  </persistence-unit>
+</persistence> 
+
+UTILIZANDO LA UNIDAD DE PERSISTENCIA
+
+Ejmplo de uso de unidad de persistencia y del Entity Manager:
+
+@Stateless
+public class PersonaServiceBean implments PersonaService{
+	
+	@PersistenceContext(unitName="PersonaService")
+	EntityManager em;
+	
+	public void agregarPersona(Persona persona){
+	   em.persist(persona);
+	}
+
+	public Persona encontrarPersona(int idPersona){
+	   return em.find(Persona.class, idPersona);
+	}
+
+	public Persona modificarNombrePersona(int idPersona, String nuevoNombre){
+	   Persona persona = em.find(Persona.class,idPersona);
+	   if(persona != null){
+		persona.setNombre(nuevoNombre);
+	   }
+	   return persona;
+	}
+	
+	public void eliminarPersona(int idPersona){
+	  Employee emp = em.find(Employe.class, idPersona);
+	  em.remove(emp);
+	}
+}

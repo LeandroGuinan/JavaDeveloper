@@ -1,0 +1,38 @@
+VARAGS EN JAVA
+
+existen para enviar un conjunto de parametros del mismo tipo a una funcion, una forma es utilizar
+un arreglo
+
+parametros variables
+
+la caracteristica principal de estos es que crea un arreglo con el conjunto de elementos del mismo
+tipo que se envie desde otra metodo.
+
+este crea un arreglo automaticamente de todos los datos introducidos en la llamada al metodo.
+
+
+no necesariamente tiene que ser una coleccion especifica, puede ser cualquier permutacion
+en diferentes llamadas al metodo.
+
+la idea es que se al declarar esta variable es que se transforma en un arreglo y puede ser tratado
+como un arreglo.
+
+y se recorre como un arreglo de una dimension
+
+FOREACH
+
+se puede simplificar la iteracion de cada elemento del arreglo con el ciclo for-each,
+la unica desventaja es que si se quiere conocer el indice del elemento iterando n se va a poder.
+
+
+VARIOS ARGUMENTOS
+
+una regla mas es que es necesario que los argumentos variables es que sea el ultimo elemento 
+que se declare en un metodo, asi no habra confusion con el compilador.
+
+por ej:
+
+	varios parametros("Juan",true,15,20,14);
+
+	public static void variosParametros(String nombre, boolean valido, int... numeros){}
+

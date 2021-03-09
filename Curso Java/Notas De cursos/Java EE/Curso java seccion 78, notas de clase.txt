@@ -1,0 +1,183 @@
+ENTENPRISE JAVA BEANS EJB'S
+
+¿QUE ES?
+
+Un Enterprise JavaBean(EJB) es una clase de java con caracteristicas que los hacen mucho mas potente
+y robusto:
+	
+	-Los metodos de un EJB son transaccionales
+	-Los metodos pueden ser remotos
+	-Facilidad de comunicacion con las bases de datos
+	-Los metodos pueden ser seguros.
+
+los EJB estan alojados en el servidor de aplicaciones.
+
+
+Equipo			Servidor
+Cliente			Aplicacones
+	--------RMI--->
+Codigo			Codigo Java
+Cliente 		(EJB's)
+
+RMI:Remote Method Invocation
+(Es parte del estandas java SE)
+
+los EJB son codigo java del lado del servidor, que normalmente contienen la logica de negocio
+de nuestra aplicacion, por lo tanto cumplen el rol de la capa de servicio de nuestras aplicaciones
+java.
+
+al dia de hoy los EJB's son clases puras de java(POJOS) que al ser desplegados en un servidor de 
+aplicaciones java reducen la complejidad de programacion agregando robustes, reusabilidad y 
+escalabilidad a nuestras aplicaciones empresariales java de mision critica.
+
+actualmente es un estandar el uso de EJB's ya que ofrecen muchas ventajas como el hecho de que
+al ser programada puede ser utilizado en cualquier servidor que soporte java SE, asi como tambien
+seguridad, transaccionalidad, entre muchas mas... todo esto con ayuda de un servidor de aplicaciones.
+
+a diferencia de un java bean convencionale el EJB tiene caracteristicas que lo hacen mas completo
+y robusto. 
+
+CARACTERISTICAS DE UN EJB
+
+cuando un EJB se ejecuta en un contenedor java EE que soporta EJB's, el contenedor agrega los
+siguientes servicios disponibles de manera automatica:
+
+*Seguridad
+*LLamadas Asincronas
+*LLamadas Remotas
+*Web Services
+*Transacciones
+*Inyeccion Dependencias(CDI)
+*Pool de conexiones
+*Thread-Safety
+*Scheduling
+*Mensajeria
+*Interceptores
+
+CONFIGURACION Y TIPOS DE EJB'S
+
+*Configuracion de un JavaBeans(EJB):
+
+	Clase Java   +   Anotaciones = EJB
+
+*Tipos de Enterprise JavaBean:
+
+	-Stateless: no guardan estado y se utiliza la anotacion @Stateless
+	-Stateful: Guardan estado y se utiliza la anotacion @Stateful
+	-Singleton:solo existe una instancia y se utiliza la anotacion @Singleton
+	
+existen muchos mas, como los messageRivenBeans(MDV) que se utilizan para enviar mensajes
+utilizando la tecnologia MBS, como tambien entytiBeans, que es una version sustituida
+en la version Java EE 3.
+
+FORMAS DE COMUNICARNOS CON UN EJB
+
+*Existen diferentes formas de comunicarnos con un EJB:
+
+Cliente		   	Servidor de aplicaciones
+	-------Remote-->
+	--No Interface->
+Codigo		  	 Codigo Java
+Cliente		   	(EJB's)
+
+*Interfaz Local: Se utiliza cuando el cliente se encuentra en el mismo servidor Java
+
+*Interfaz Remota: Se utiliza cuando el cliente se encuentra fuera del servidor Java
+
+*No Interface: Es una variante y simplifiacion de los EJBs locales 
+
+ANATOMIA DE UN EJB 
+
+los EJB's pueden implementar o no una interface(local o remota), y pueden tener uno
+o mas metodos de negocios, son de la forma:
+
+package beans;
+
+import javax.ejb.Stateless
+
+@Stateless
+public class HolaMundoEJB{
+	
+	public int sumar(int a, int b){
+		return a+b;
+	}
+}
+
+el cual el metodo sumar es un metodo de negocio.
+
+CLIENTE DE UN EJB
+
+Un JNDI es un API que permite encontrar servicios o recursos empresariales en un servidor de
+aplicaciones Java
+
+Para encontrar un EJB a partir de la version 3.1 podemos utilizar la siguiente sintaxis:
+
+java:global[/<app-name>]/<module-name>/<bean-name>[!<fully-qualified-interface-name>]
+
+ej:
+
+public void iniciarContenedor()throws Exception{
+
+	String direccion ="java:global[/<app-name>]/<module-name>
+	/<bean-name>[!<fully-qualified-interface-name>]";
+
+	System.out.println("Iniciando EJBContainer");
+	Map<String,Object> map = new HashMap<String,Object>();
+	map.put(EJBContainer.APP_NAME,"miApp");
+	ec = EJBContainer.createEJBContainer(map);
+	ctx = ec.getContext();
+	ejb = (HolaMundoEJB) ctx.lookup(direccion);
+
+}
+
+INYECCION DE DEPENDENCIAS
+
+Existen 2 tipos de inyeccion de dependencias en EJB:
+
+	A)Utilizando la anotacion @EJB
+	B)Utilizando la anotacion @Inyect
+
+Capa Presentacion		Capa Servicio
+					Remoto
+	Cliente	<---------------iEJB---Implementacion-->EJBImpl		
+	(EIJB)				Local
+
+@EJB
+@Inject
+			
+Configuracion			Configuracion componente	
+del Objeto EJB			EJB
+
+JAVA WEB PROFILE
+
+se refiere a la implementacion de API's segun la aplicacion, por ejemplo una aplicacion web java EE
+no tiene acceso al perfil completo de java EE.
+
+las aplicaciones java EE no tienen acceso a todo el api de java EE, esto para reducir la complejidad
+de la programacion, y tambien por el hecho que no la nececitan. 
+si nececitamos una de estas aplicaciones sera necesario aplicar un servidor de aplicaciones
+completo de java.
+
+COMPARACION ENTRE EJB Y EJB ITE
+
+los EJB son los componentes principales de las aplicaciones EE, los cuales agregan seguridad,
+transaccionalidad, etc...
+
+las especificaciones minimas que podemos utilizar en una aplicacion web EE se le conoce como
+EJB LITE, las limitaciones de apis que tenemos cuando trabajamos con estos, son las mismas
+que cuando usamos EJB's, por ello el nombre de lite.
+
+pero muchos de los requerimientos empresariales mas comunes si tendremos acceso, por ej:
+seguridad, declaracion de ejb, manejo de transacciones,etc... 
+
+EMPAQUETAMIENTO DE UN EJB
+
+debido a que la aplicacion EE maneja servlets, web services, paginas jsf, EJB's, etc.. 
+estos componentes deben ser aplicados para ser desplegados en la aplicacion java.
+
+dependiendo de los requerimientos de la aplicacion estos empaquetados pueden ser
+
+PersonaAplicacion.ear: que es el empaquetamiento completo de los archivos xml, class,servlets,etc..
+
+PersonaAplicacion.war: es una version mas reducida, que contiene menos componentes que la anterior
+pero se empaquetan todos en un mismo archivo

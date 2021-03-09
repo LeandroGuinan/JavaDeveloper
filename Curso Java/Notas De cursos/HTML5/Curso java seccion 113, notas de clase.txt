@@ -1,0 +1,37 @@
+MANEJO DE ARCHIVOS EN HTML5 
+
+al dia de hoy html5 nos permite crear aplicaciones que cualquiera con una computadora y un navegador puedan
+utilizar, las aplicaciones web cada vez son mas parecidas a las de escritorio, con caracteristicas como
+el manejo local de archivos, geolocalizacion, drag and drop, etc.. por lo que es posible crear ese tipo 
+de aplicaciones.
+
+html5 agrego el api de manejo de archivos para que podamos modificar tanto la lectura de archivos como
+la escritura.
+
+el api de html5 permite una forma de interactuar con archivos locales en el equipo o dispositivo del usuario.
+se utiliza el elemento input type file.
+
+existen varias api's para el manejo de archivos:
+	*FileReader
+	*FileWriter
+	*FileSystem
+
+el file reader permite:
+*acceder a atributos como: nombre, tamaño, tipo MIME,etc.
+*se utiliza el tipo <input type="file">
+*es posible leer multiples archivos y utilizar drag&drop.
+
+Existen distintas interfaces para el manejo de archivos:
+
+1*Blob(tamaño,tipoMIME,silce)(silce nos permite recuperar solo una parte del archivo, que nos interesa)
+2*File(nombre,lastModificationsDate)
+3*FileList(representa una lista de uno o mas archivos)
+4*FileReader(provee una manera de leer un archivo dado)
+
+Leer Archivos en HTML5
+
+existen varias maneras:
+1*TextData: readAstext()
+2*data://URL:readAsDataURL()(se utiliza para leer archivos en formato texto, como imagenes)
+3*BinaryData:readAsBinaryString()(se utiliza para eer formatos propietarios como docs, xls, psd, etc)
+4*ArrayBuffer:readArrayBuffer()(se utiliza para leer archivos tipo buffer)

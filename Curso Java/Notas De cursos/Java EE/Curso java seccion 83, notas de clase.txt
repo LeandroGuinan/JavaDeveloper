@@ -1,0 +1,23 @@
+CONSULTAS CON EL API DE CRITERIA DE JPA
+
+para simplificar el proceso de ejecucion de query's JPA ofrece el API de criteria, con esta
+API es posible construir consultas dinamicas complejas, desde el mismo lenguaje de programacion
+y no de tipo SQL los filtros necesarios para consulta, el API de criteria es utilizado
+cuando tenemos pantallas con demasiados filtros de busqueda y el usuario tiene la opcion
+de seleccionar uno o mas filtros, en cambio JPQL funciona muy bien cuando tenemos un numero 
+establecido de parametros, y la mayoria de los query's es estatico, es decir, no existe demasiada
+concatenacion.
+
+	API Criteria en JPA 
+
+*El API de Criteria es una alternativa al uso de JPQL o SQL nativo
+*Permite la combinacion de campos de criterio complejos(ej. Una pantalla de busqueda avanzada)
+*Permite crear query's dinamicos complejos mas facilmente, evitando el concatenado de cadenas
+
+	Caracteristicas del API de Criteria
+
+*Son escritos en codigo java
+*son typesafe(parametros revisados en tiempo de compilacion)
+*son queries portables(funcionan en cualquier base de datos)
+*se utilizan clases java en lugar de cadenas JPQL o SQL
+*Permite utilizar expresiones, joins ordenamiento, etc.

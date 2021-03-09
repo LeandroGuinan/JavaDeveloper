@@ -1,0 +1,4 @@
+beans\actions\LoginContAction.class
+beans\actions\validarConAction.class
+beans\actions\validarTalAction.class
+beans\actions\LoginTalAction.class

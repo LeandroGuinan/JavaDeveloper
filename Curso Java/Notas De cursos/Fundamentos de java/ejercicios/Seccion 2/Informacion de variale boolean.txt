@@ -1,0 +1,23 @@
+public class HolaMundo {
+    
+    public static void main(String args[]) {
+       
+        System.out.println("True tipo boolean: "+ Boolean.TRUE);
+        System.out.println("False tipo boolean: "+ Boolean.FALSE);
+        
+        boolean booleanVar = false;
+        
+        if(booleanVar == true){
+            System.out.println("el valor es varadero");
+        }else{
+            System.out.println("el valor es falso");
+        }
+        
+        System.out.println("");
+        
+        var edad = 30;
+        
+        var esAdulto = edad >= 18;
+        System.out.println("esAdulto = " + esAdulto);
+    }
+}

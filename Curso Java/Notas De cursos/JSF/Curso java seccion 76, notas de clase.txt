@@ -1,0 +1,74 @@
+COMPONENTES HTML EN JSF
+
+El API de JSF provee varios componentes basicos para el despliegue de informacion HTML
+
+<h:form/>		<h:inputText/> 			<h:inputTextarea/>
+<h:inputSecret/>	<h:inputHidden/>		<h:outputLabel/>
+<h:outputLink/>		<h:outputFormat/>		<h:outputText/>
+<h:commandButton/>	<h:commandLink/>		<h:message/>
+<h:messages/>		<h:panelGrid/>			<h:panelGroup/>
+<h:dataTable/>		<h:column/>			<h:panelGroup/>
+<h:selectOneRadio/>	<h:selectBooleanCheckbox/>	<selectManyCheckbox/>
+<h:selectManyListbox/>	<h:selectManyMenu/>
+
+El API de JSF provee varios componentes core para el manejo de eventos, administracion de
+componentes, entre otros.
+
+<f:view/>			<f:subview/>			<f:facet/>
+<f:attribute/>			<f:param/>			<f:actionListener/>
+<f:valueChangeListener/>	<f:converter/>			<f:convertDateTime/>
+<f:convertNumber/>		<f:validator/>			<f:validateDoubleRange/>
+<f:validateLength/>		<f:validateLongRange/>		<f:loadBundle/>
+<f:selectItems/>		<f:selectItem/>			<f:verbatim/>
+
+ARQUITECTURA DE COMPONENTES JSF
+
+
+1.<<etiquera jsf>>		2.<<despliegue Componente>>		3.<<Componentes JSF UI>>
+   h:inputText			       Elemento HTML			      HTMLInputText
+(codigo pagina JSF)	  (Codigo HTML que vizualiza el cliente)     (Codigo Java en el Mnaged Bean)
+
+
+COMPONENT TREE EN JSF
+
+Navegador		           Servidor
+
+Codigo HTML --Request--->   Etiquetas JSF  <----> UIInputText del
+generado				         Component Tree
+
+
+Cliente     <--Response--   Pagina JSF 	Componente UI	
+
+
+COMPONENTES DE SELECCION EN JSF
+
+El API de JSF provee distintos tipos de componentes de seleccion:
+
+<h:selectOneListbox/>
+<h:slectOneMenu/>
+<h:selectOneRadio/>
+<h:selectBooleanCheckbox/>
+<h:selectManyCheckbox/>
+<h:selectManyListbox/>
+<h:selectManyMenu/>
+
+SELECT ITEMS EN JSF
+
+Los componentes JSF tales como h:selectOneMenu muestran una lista de datos, los cuales se 
+conocen como Select Items (elementos de seleccion)
+
+Lista de elementos Select Iten ligada a una propiedad del Managed Bean:
+
+	<h:selectOneMenu>
+		<f:selectItems value="#{coloniaHelper.coloniaSelectItems}"/>
+	</h:selectOneMenu>
+
+Lista de elementos en codigo duro en la pagina JSF:
+
+	<h:selectOneMenu>
+		<f:selectItems>
+			<f:selectItem itemLabel="Rojo" itemValue="rojo"/>
+			<f:selectItem itemLabel="Verde"itemValue="verde"/>
+			<f:selectItem itemLabel="Azul" itemValue="azul"/>
+		</f:selectItems>
+	</h:selectOneMenu>

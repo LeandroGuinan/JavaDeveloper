@@ -1,0 +1,21 @@
+public class HolaMundo {
+    
+    public static void main(String args[]) {
+        float floatBar = 100.1F;
+        System.out.println("floatBar = " + floatBar);
+        
+        System.out.println("bits en tipo float:" + Float.SIZE);
+        System.out.println("bytes en tipo float:" + Float.BYTES);
+        System.out.println("valor minimo float: " + Float.MIN_VALUE);
+        System.out.println("Valor maximo float: " + Float.MAX_VALUE);
+        
+        double doubleBar = 100.10;
+        System.out.println("doubleBar = " + doubleBar);
+        
+        System.out.println("bits en tipo Double:" + Double.SIZE);
+        System.out.println("bytes en tipo Double:" + Double.BYTES);
+        System.out.println("valor minimo Double: " + Double.MIN_VALUE);
+        System.out.println("Valor maximo Double: " + Double.MAX_VALUE);
+        
+    }
+}

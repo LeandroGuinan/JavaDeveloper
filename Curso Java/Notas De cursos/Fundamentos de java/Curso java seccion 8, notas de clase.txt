@@ -1,0 +1,37 @@
+OBJETOS EN JAVA
+
+objetos: es la instancia de una clase, desde nuestra plantilla(clase) se crean objetos
+con lo cuales se puede trabajar, es decir,, cambiar sus valores y llamar a sus metodos.
+
+ej:class persona{
+karla(objeto)
+armando(objeto)
+{
+
+estos objetos pueden tener caracteristicas similares como nombre, sexo, edad...
+en si mismo las clases nos sirven para determinar las caracteristicas(atributos o variables)
+de los objetos que se van a utilizar.
+
+sintaxis:
+
+public class PersonaPrueba{
+	public static void main(String args[]){
+		//creacion de objeto:
+		Persona p1 = new Persona();
+		//la palabra new es la que reserva espacio en memoria para la creacion de objetos
+		Persona p2 = new Persona();
+	}
+}
+
+para acceder a los atributos de nuestras clases:
+p1.nombre = "Armando";
+p1.apellidoPaterno = "Esparza";
+p1.apellidoMaterno = "Lara";
+
+recordando: la variable string es un objeto, por ende se debe inicializar, pero al ser un uso
+tan comun se puede omitir el uso de la palabra "new"
+sin embargo los tipos primitivos no son objetos.
+
+como conclusion, una clase define un molde y dentro de este molde se crean los objetos. se pueden
+crear tantos objetos como sea necesario, pero se debe tener en cuenta el espacio en memoria
+con el que se cuenta

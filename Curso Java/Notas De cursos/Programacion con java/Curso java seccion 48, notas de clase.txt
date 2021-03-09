@@ -1,0 +1,89 @@
+	ENTRADA Y SALIDA DE DATOS EN JAVA
+
+en java tenemos un conjunto de clases para leer y recibir informacion, tanto la salida estandar
+(consola) como archivos y otro tipo de entrada y salida de informacion.
+
+consola de entrada y salida de datos
+
+System.in: es una entrada de datos estandar y es de tipo imput string, por ej, leer datos de 
+teclado.
+
+System.out: es una salida estandar, de tipo print string, por ej, mostrar datos en pantalla.
+
+
+System.er: escribe a la salida estandar de errores, de tipo print string, por ej, muestra datos
+de error a pantalla.
+
+	API DE ENTRADA EN JAVA
+
+dos interfaces principales utilizadas para este fin son las clases Reader(tipo char)
+ y ImputStream (tipo byte), ambas heredan de la clase object.
+
+	API DE SALIDA EN JAVA
+
+de la misma manera existen dos interfaces comunmente utilizadas para la salida de datos que son
+Writer(tipo Char) y OutputStream(tipo Byte), ambas heredan de la clase objetct.
+
+	DIFERENCIA ENTRE FLUJOS CHAR Y BYTE
+
+tiene que ver directamente con el flujo de datos con el que estamos trabajando, estos flujos
+o streams sun utilizados para procesar un byte a la vez.
+
+los flujos que procesan byte son recomendados para procesar archivos binarios como son 
+archivos word, pdf, o mas complejos que un simple archivo de texto.
+
+por otro lado las clases tipo reader o writer son utilizadas para procesar un caracter a la 
+vez y estas clases son recomendadas para procesar un flujo de caracteres como codigo aski
+o unicode.
+
+las clases que tiene buffer son utilizadas para procesar mas de un caracter o byte a la vez,
+
+	LECTURA ESTRADA ESTANDAR EN JAVA
+
+utilizando las clases streamreader y bufferreader:
+
+import java.io.*;
+
+public class EntradaDatos{
+
+	public static void main(String[]args){
+		String captura;
+		ImputStreamReader imput = new InputStreamReader(System.in);
+		BufferedReader bInput = new BufferedReader(input);
+
+		try{
+			System.out.println("Introduce un dato: ");
+			captura = bInput.redLine();
+			while(captura != null){
+				System.out.println("Dato introducido: "+captura);
+				captura = bInput.redLine();
+			}
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+}
+
+	CLASE SCANNER EN JAVA
+
+import java.util.*;
+
+public class EntradaDatosScanner{
+
+	public static void main(String[]args){
+		String captura;
+		Scanner in = new Scanner(System.in);
+
+		System.out.println("Introduce un dato");
+		captura = in.nextLine();
+
+		while(captura != null){
+			System.out.println("Dato introducido: "+ captura);
+			captura = scan.nextLine(); 
+		}
+	}
+}
+
+
+
+

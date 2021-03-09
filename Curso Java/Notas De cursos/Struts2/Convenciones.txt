@@ -1,0 +1,66 @@
+				CONVENCIONES EN STRUTS2
+
+*El uso de convenciones nos permite utilizar configuraciones por default en struts2
+
+*Algunas de las convenciones que podemos utilizar son:
+
+	-Mapeo de Vistas(resultados o JSP a utilizar)
+
+	-Mapeo De Acciones
+
+
+				Mapeo De vistas
+
+*Podemos mapear la vista si depositamos los JSP's en la siguiente carpeta:
+
+	WEB-INF/content
+
+que es un carpeta privada de nuestra aplicacion web, se pueden alojar alli las paginas 
+que utilizaremos entre otras cosas.
+
+*Ejemplo: http://localhost:8080/miApp/saludar
+
+Vista a llamar: saludar.jsp
+
+la vista que se esta mandando a llamar es saludar(esto en el url)
+
+
+				Mapeo De Acciones
+
+Asi como podemos mapear vistas, tambien podemos mapear acciones por default
+
+*Podemos mapear acciones de la siguiente Manera:
+
+*El nombre del paquete contiene cualquiera de las siguientes palabras:
+
+-struts
+-struts2
+-action
+-actions
+
+*El nombre de la clase termina con la palabra Action
+
+	Ejemplo de mapeo de acciones:
+
+EJ1:
+URL: http://localhost:8080/miApp/saludar(nombre del path:/saludar)
+
+Nombre del paquete y de la clase accion:
+
+mx.com.gm.actions.SaludarAction
+
+aplicando lo visto anteriormente: el paquete lleva un nombre valido, y el nombre de la clase
+termina con la palabra Action, esto siguiendo notacion de camello. con esto en automatico
+struts buscara una accion con el nombre del path y encontrara la clase
+
+EJ2:
+URL:http://localhost:8080/miApp/usuarios/registrar
+
+*Nombre del paquete y de la clase Action:
+
+mx.com.gm.struts2.usuarios.RegistarAction
+
+como en el ejemplo anterior pero un poco mas complejo, utilizamos el path de usuarios para agregar
+acceder a la accion de registrar por ende debe estar especificado en el nombre del paquete.
+
+mas informacion: https://struts.apache.org/plugins/convention/

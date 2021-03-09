@@ -1,0 +1,38 @@
+TILES EN STRUTS
+
+tiles en si es una plantilla que tenemos disponible para trabajar cuando utilizamos struts2,
+en la cual podemos definir distintas secciones en nuestra pagina web, que son:
+
+*header
+*menu
+*body
+*foother
+
+entre otra secciones..
+
+*para poder utilizar estos moldes nececitaremos de varios archivos, por ejemplo la libreria tiles
+que se agrega al archivo POM.xml:
+
+<dependency>
+	<groupId>org.apache.struts2</groupId>	
+	<artefactId>struts2-tiles-plugin</artefactId>
+	<version>2.5.22</version>
+</dependency>
+
+*ademas de esto debemos configurar nuestro archivo web.xml para poder utilizar correctamente
+tiles
+
+*una vez confugurado este, ahora creamos nuestro archivo tiles.xml, que debe estar en la ruta:
+/WEB-INF/tiles.xml, en el cual agregaremos varias definiciones, que corresponden o a un
+string o a un jsp que vallamos a definir en nuestra platilla. Tambien podemos definir varios
+jsp que podremos reescrbir, pero asi mismo podemos definir cuales se quedaran solo en la plantilla.
+
+y adicional a esto, debemos especificar en el struts.xml que la respuesta que obtendremos es de tipo
+tiles, es el unico inconveniente que tiene tiles, no existe una anotacion para su accion
+por ende debemos especificarlo en el struts.xml.
+
+las clases action tambien tienen unas modificaciones, en la parte de results, debemos especificar
+que el tipo de respuesta sera de tipo tiles.
+
+y por ultimo el archivo jsp que va a implementar tiles, se debe indicar con el prefijo "tiles" y
+con este podemos acceder a su tag.

@@ -1,0 +1,44 @@
+public class HolaMundo {
+
+    public static void main(String args[]) {
+
+        /*manejo de variables primitivas
+        Byte, short, int, long*/
+ /*VARIABLE     LITERAL(POR DEF. SON ENTERO)*/
+        byte butyBar = 127;
+
+        System.out.println(butyBar);
+
+        System.out.println("bits tipo bite: " + Byte.SIZE);
+        System.out.println("bytes tipos bytes: " + Byte.BYTES);
+        System.out.println("valor minimo tipo byte: " + Byte.MIN_VALUE);
+        System.out.println("Valor maximo tipo Byte: " + Byte.MAX_VALUE);
+
+        short shortBAR = 32767;
+        System.out.println(shortBAR);
+
+        System.out.println("Short tipo bite: " + Short.SIZE);
+        System.out.println("Short tipos bytes: " + Short.BYTES);
+        System.out.println("Short minimo tipo byte: " + Short.MIN_VALUE);
+        System.out.println("Short maximo tipo Byte: " + Short.MAX_VALUE);
+
+        int intBar = 5000;
+
+        System.out.println("int tipo bite: " + Integer.SIZE);
+        System.out.println("int tipos bytes: " + Integer.BYTES);
+        System.out.println("int minimo tipo byte: " + Integer.MIN_VALUE);
+        System.out.println("int maximo tipo Byte: " + Integer.MAX_VALUE);
+
+        long loongBar = 9223372036854775807L;
+
+        System.out.println(loongBar);
+
+        System.out.println("Long tipo bite: " + Long.SIZE);
+        System.out.println("Long tipos bytes: " + Long.BYTES);
+        System.out.println("Long minimo tipo byte: " + Long.MIN_VALUE);
+        System.out.println("Long maximo tipo Byte: " + Long.MAX_VALUE);
+        /*por default los var vienen como tipo int, de nesecitar un tipo long basta con escribir una L al final del caracter*/
+        var num = 9223372036854775807L;
+        System.out.println(num);
+    }
+}

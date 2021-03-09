@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <title>Listado Clientes</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!-- se crea una seccion para la tabla de clientes: -->
+        <section th:fragment="listadoClientes" id="clientes">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <!-- se agrega el titulo de los archivos de propertys -->
+                                <h4>[[#{persona.titulo-list}]]</h4>
+                            </div>
+                            <!-- se hace la pregunta, si la lista no es nula, entonces se despliega: -->
+                            <div th:if="${psp != null and !psp.empty}">
+                                <table class="table table-stryped">
+                                    <!-- se agregan los cabeceros: -->
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>[[#{persona.nombre}]]</th>
+                                            <th>[[#{persona.saldo}]]</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <!-- y muy parecido a el index anterior, se toma la variable compartida y se exiben sus valores -->
+                                    <tbody>
+                                        <tr th:each="psp, contador : ${psp}">
+                                            <!-- se toman no los id, si no las posiciones de la tabla: -->
+                                            <td>[[${contador.count}]]</td>
+                                            <td>[[${psp.nombre + ' ' + psp.apellido}]]</td>
+                                            <!-- ademas de esto se le agrega un formato a el valor de saldo: -->
+                                            <td>[[${new java.text.DecimalFormat('$#,##0.00').format(psp.saldo)}]]</td>
+                                            <!-- e igual que antes solo puedes acceder a editar y eliminar si eres admin -->
+                                            <td>
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/} + ${psp.idPersona}" class="btn btn-secondary">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.editar}]]
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminar(idPersona=${psp.idPersona})}" class="btn btn-dark">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{accion.eliminar}]]
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- y como complemento, si la tabla es nula, se muestra lo siguiente: -->
+                            <div class="text-center p-2" th:if="${psp == null and psp.empty}">
+                                <span th:text="#{persona.lista-vacia}">Lista Vacia</span>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- se agrega ahora dos tarjetas mas a la derecha de la lista de personas: -->
+                    <div class="col-md-3">
+                        <!-- una para el saldo total: -->
+                        <div class="card text-center bg-danger text-white mb-3">
+                            <div class="card-body">
+                                <h3 th:text="#{persona.saldoTotal}">Saldo Total</h3>
+                                <h4 class="display-4">
+                                    <!-- accediendo tanto a a etiqueta como a su valor en controladorInicio: -->
+                                    [[${new java.text.DecimalFormat('$#,##0.00').format(saldoTotal)}]]
+                                </h4>
+                            </div>
+                        </div>
+                        <!-- y tambien una para el total de personas/clientes: -->
+                        <div class="card text-center bg-success text-white mb-3">
+                            <div class="card-body">
+                                <h3 th:text="#{persona.totalClientes}">Total Clientes</h3>
+                                <h4 class="display-4">
+                                    <!-- de igual forma, accediendo tanto a su etiqueta como a su variable en controlador: -->
+                                    <i class="fas fa-users"></i>[[${totalClientes}]]
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

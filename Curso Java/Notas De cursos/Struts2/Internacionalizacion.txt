@@ -1,0 +1,12 @@
+INTERNACIONALIZACION STRUTS2
+
+basicamente se trata de manejar varios idiomas en nuestra aplicacion web.
+
+la forma de lograr esto con struts2 es a travez de nuestro navegardor, segun el idioma que
+tenemos configurado por default, sera el idioma que se despliegue en nustra aplicacion. 
+
+los idiomas en nuestra aplicacion se configuran de manera muy similar a el uso de mensajes,
+es decir por medio de archivos de propiedades, cada archivo de propiedades creado, contiene la
+llave y un idioma asociado.
+
+las llaves son las mismas para todos los idiomas, lo que cambia es el contenido de estas

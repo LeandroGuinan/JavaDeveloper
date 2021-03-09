@@ -1,0 +1,70 @@
+ANOTACIONES STRUTS2
+
+se utilizan para eliminar la necesidad del archivo struts.xml, si bien en algunos casos sera
+imposible de eliminar de la aplicacion, en la mayoria de casos se puede evitar.
+
+por ej:
+
+import org.apache.struts2.convention.annotation.Action;
+
+public class SaludarAction{
+	
+	@Action("SaludarAction")
+	public String execute(){
+		return SUCCESS;
+	}
+}
+
+al utilizar la anotacion: Action y establecer la accion de la clase que estamos utilizando,
+directamente se reemplaza la nececidad de establecer la ruta de la accion en el archivo
+struts.xml, tambien podemos reemplazar la ventana de Result con la siguiente anotacion, de
+la siguiente manera:
+
+import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+
+@Result(name="success", location="/WEB-INF/content/login.jsp")
+public class SaludarAction extends ActionSupport{
+	
+	@Action("SaludarAction")
+	@Override
+	public String execute(){
+		return SUCCESS;
+	}
+}
+
+como se puede ver al inicio de la clase se establece el resultado que esperamos de esta accion
+y tambien la ruta a la que sera redirigida la vista una vez recibido el resultado.
+
+como tambien podemos manejar distintos resultados en la capa en la misma accion, utilizando el
+path:
+
+
+import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.convention.annotation.Action;
+import org.apache.struts2.convention.annotation.Result;
+import org.apache.struts2.convention.annotation.Results;
+
+@Results{(
+	@Result(name="success", location="/WEB-INF/content/login.jsp")
+	@Result(name="input", location="login", type="redirectAction")
+)}
+
+public class SaludarAction extends ActionSupport{
+	
+	//aqui van las definiciones de variables
+
+	@Action("validarUsuario")
+	@Override
+	public String execute(){
+		//si el usuario es valido:
+		if("admin".equals(this.usuario)){
+			return SUCCESS;
+		}else{
+			//si el usuario no es valido:
+			return INPUT;
+		}
+	}
+}

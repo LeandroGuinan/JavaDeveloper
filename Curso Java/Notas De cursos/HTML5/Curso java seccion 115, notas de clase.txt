@@ -1,0 +1,44 @@
+DRAG & DROP EN HTML5
+
+las interacciones de drag and drop son muy comunes en las aplicaciones de escritorio, ya se esta acostumbrado
+a utilizarla. esta Api de drag & drop inicio con internet explorer, hoy en dia se ah modernizado.
+
+Esta orientada a eventos, los cuales debemos entender y aplicar para crear aplicaciones mas interactivas.
+
+Se debe definir un elemento a arrastrar
+
+Opcionalmente podemos agregarle el atributo draggable, esto nos permite agregar los archivos que deseemos.
+
+Posteriormente se define "zona objetivo" donde depositaremos el o los elementos a arrastrar
+(copiados, movidos o agregar un link a los mismos).
+
+EVENTOS DRAG & DROP
+
+algunos eventos pueden ser ejecutados de manera repetida ej: evento dragover
+
+dragstart: se ejecuta cuando se comienza a arrastrar un elemento.
+
+dragenter: se ejecuta cuando por primera vez se mueve el cursor sobre la zona objetivo
+
+dragover: se ejecuta tantas veces como el cursor este en la zona objetivo
+
+dragleave: se ejecuta cuando se quita el cursor de la zona objetivo
+
+drag: este evento se ejecuta en el elemento que comenzo el evento dragstart
+
+drop:este evento se dispara cuando el elemento arrastrado se suelta sobre la zona objetivo
+
+dragend: este evento se ejecuta cuando el elemento ha competado la operacion drop.
+
+TRANSFERENCIA DE DATOS CON DRAG & DROP
+
+practicamente todos los navegadores modernos soportan el API de Drag&Drop, a excepcion de los navegadores
+de dispositivos moviles.
+
+EL API de Drag&Drop permite arrastrar datos como texto, imagenes o archivos
+
+Para transferir informacion de utiliza el objetivo dataTransfer
+
+Para colocar la informacion utilizamos el metodo dataTransfer.setData o dataTransger.setImage
+
+para obtener la informacion transferida llamamos al evento dataTransfer.getData

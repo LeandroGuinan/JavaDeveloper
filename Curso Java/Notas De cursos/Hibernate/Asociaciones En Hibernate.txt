@@ -1,0 +1,45 @@
+ASOCIACIONES HIBERNATE
+
+				mapeo de asociaciones
+
+las asociaciones en hibernate y JPA son las mismas que se manejan en la teoria de bases de datos.
+
+*1 a 1
+
+*1 a muchos o muchos a 1
+
+*muchos a muchos
+
+hibernate y jpa soportan las relaciones mencionadas en los archivos de mapeo de cada clase entidad
+o por medio de anotaciones java.
+
+				Ejemplo de relacion 1 a 1
+
+un alumno tiene un domicilio.
+
+estos se pueden utilizar mapeando la clase de entidad con la anotacion: @OneToOne.
+
+				Ejemplo de relacion de 1 a muchos
+
+un instructor tiene muchos cursos
+
+se mapea con: @OneToMany
+
+				Ejemplo de relacion muchos a muchos
+
+un alumno tiene muchos cursos, y un curso tiene muchos alumnos
+
+se mapea con la anotacion: @ManyToMany
+
+este tipo de relaciones no se recomienda por ser dificil de manejar, por ende se recomienda
+normalizar los estas tablas, agregando tablas transitivas
+
+				Normalizacion de relacion de muchos a muchos
+
+un alumno tiene una asignacion y un curso tiene un alumno asignado.
+
+asignacion es la tabla transitiva utilizada para romper la relacion de MuchosAMuchos y
+tener solo relaciones de uno a muchos.
+
+a esta tabla transitiva se le recomienda agregar un id especifico para esta, para no trabajar
+con llaves foraneas

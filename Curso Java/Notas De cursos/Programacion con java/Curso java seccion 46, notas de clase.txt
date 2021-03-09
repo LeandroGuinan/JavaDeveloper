@@ -1,0 +1,27 @@
+COLECCIONES EN JAVA
+
+una coleccion es un conjunto de datos, que pueden o no tener un ordenamiento en particular, es 
+muy similar al manejo de arreglos, pero estas son un poco mas complicadas, se conocen tambien
+como estructuras de datos y permiten ordenar mas informacion.
+
+esta permite añadir registros conforme se nececiten de manera mas dinamica.
+
+API DE COLECCIONES EN JAVA
+
+de manera resumida se dividen en listas, sets y mapas.
+
+los sets son conjuntos de datos y los mapas son llaves relacionadas con un datos, estos mapas
+utilizan funciones hash para el ordenamineto de sus elementos, estos valores hash nos permiten
+diferenciar y ordenar nuestros elementos.
+
+la mayoria de las herramientas a utilizar heredan de la clase collection, las clases sets
+y list heredan de la clase collection y a su vez estas se subdividen en hashset, arraylist, vector
+solo la clase map no hereda de la clase collecion, si no que hereda de la clase map.
+
+set: coleccion no ordenada de elementos, no permite elementos duplicados(no se insertara)
+
+list: es una coleccion ordenada de elementos, esta si permite duplicado de elementos.
+
+map: esta relaciona una tabla con un valor formando una tabla de datos.
+
+estas clases se valen de distintas clases de apoyo como lo son enumerator, entre otras.

@@ -1,0 +1,58 @@
+JSTL(JAVA STANDARD TAG LIBRARY)
+
+JSTL extiende los tags de JSP's, agregando principalmente las siguientes librerias:
+
+*Core: Permite leer y manipular datos, asi como iterar, agregar condiciones y otras funciones
+basicas.
+
+*xml: Permite la manipulacion y transformacion de documentos XML
+
+*sql: Permite ejecutar consultas a una base de datos, asi como crear conexiones a las mismas
+
+*fmt:Permite dar formato a las cadenas, apoyado de conceptos como internacionalizacion(Locale)
+
+CONFIGURACION DE JSTL
+
+Agregar las siguientes librerias al Classpath(No es necesario si el servidor web como glassfish
+ya cuenta con estas librerias):
+
+	*standar.jar
+	*jstl.jar
+
+*Configuracion de la directiva JSP
+
+	*JSP:
+		<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+	
+	*Documento JSP(jspx)
+		<html
+			xmlns:c = "http://java.sun.com/jsp/jstl/core"
+			xmlns:jsp="http://java.sun.com/JSP/Page"     >
+
+LIBRERIA CORE DE JSTL
+
+*Tags de despliegue de informacion:
+	<c:out value="${persona.nombre}">
+
+*Tags de creacion y manipulacion de veriables:
+	<c: var="nombre" value="Carlos" scope="page"/>
+
+*Tags de Elementos condicionales:
+	<c:if test"${i > 0}"/> y <c:choose><c:when test="a"...
+
+*Tags de Iteracion de elementos:
+	<c:forEach var="persona" items="${personas}">...
+	
+
+LIBRERIA CORE DE JSTL
+
+*Tags de importacipon de recursos web:
+	<c:import url ="recursoInternoExterno">
+
+*Tags de redireccionamiento:
+	<c:redirect url="${nuevaUrl}"/>
+
+*Tags de manejo de parametros:
+	<c:import url = "c-import-param.jsp">
+	<c:param name="nombre" value="${param.select}"/>
+	</c:import>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h2>Agregar Usuario</h2>
+            <div>
+                <form th:action="@{/agregarUS}" method="post" th:object="${usuario}">
+                    <label for="User">User:</label>
+                    <input type="text" name="User" th:field="${usuario.username}"/><br/>
+                    <label for="User">Password:</label>
+                    <input type="password" name="Pass" th:field="${usuario.password}"/><br/>
+                    <input type="submit" value="Agregar"/>    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

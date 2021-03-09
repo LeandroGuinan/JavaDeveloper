@@ -1,0 +1,17 @@
+public class HolaMundo {
+    
+    public static void main(String args[]) {
+       
+        
+        System.out.println("bits en tipo char:" + Character.SIZE);
+        System.out.println("bytes en tipo char:" + Character.BYTES);
+        System.out.println("valor minimo char: " + Character.MIN_VALUE);
+        System.out.println("Valor maximo char: " + Character.MAX_VALUE);
+        
+        char varChar = '\u0021';
+        System.out.println("varChar = " + varChar);
+        
+        char varCharDecimal = 33;
+        System.out.println("varCharDecimal = " + varCharDecimal);
+    }
+}

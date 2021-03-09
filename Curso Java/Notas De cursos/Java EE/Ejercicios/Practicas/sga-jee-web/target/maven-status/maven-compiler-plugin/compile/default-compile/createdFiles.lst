@@ -1,0 +1,16 @@
+it\com\gm\sga\servicio\PersonaServiceRS.class
+it\com\gm\sga\cliente\ciclodevidajpa\ActualizarObjetoSesionLarga.class
+it\com\gm\sga\cliente\ciclodevidajpa\EliminarObjetoJPA.class
+it\com\gm\sga\datos\PersonaDao.class
+it\com\sga\web\ConfiguracionBean.class
+it\com\gm\sga\cliente\ciclodevidajpa\ActualizarObjetoJPA.class
+it\com\gm\sga\servicio\PersonaService.class
+it\com\gm\sga\servicio\PersonaServiceWs.class
+it\com\sga\web\PersonaServletSinUtilizar.class
+it\com\gm\sga\domain\Persona.class
+it\com\gm\sga\cliente\ciclodevidajpa\EncontrarObjetoJPA.class
+it\com\gm\sga\servicio\PersonaServiceImpl.class
+it\com\gm\sga\datos\PersonaDaoImpl.class
+it\com\gm\sga\servicio\PersonaServiceRemote.class
+it\com\sga\web\PersonaBean.class
+it\com\gm\sga\cliente\ciclodevidajpa\PersistirObjetoJPA.class

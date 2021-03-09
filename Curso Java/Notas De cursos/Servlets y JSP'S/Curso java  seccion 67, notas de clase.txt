@@ -1,0 +1,105 @@
+INCLUSION DE ARCHIVOS EN JSP's
+
+en terminos simples, es agregar un jsp dentro de otro, pero existen dos formas de hacer esta 
+accion:
+
+	*Inclusion Estatica(tambien conocida como inclusion
+	 en tiempo de traduccion, traslation time):
+	
+		<%@include file="paginaRelativa.jsp"%>
+
+		Este se llama por medio de directivas, luego
+		especificamos por medio del atributo file
+		el jsp que vamos a utilizar
+
+	
+	*Inclusion Dinamica(tambien conocida como inclusion
+	 en tiempo de ejecucion, request time):
+
+		<jsp:include page="paginaRelativa"/>
+	
+		A diferencia del anterior, en este utilizamos
+		el comcepto de una accion, esto nos permite
+		realizar un include de manera dinamica de otro
+		jsp. incluimos tambien el atributo de page
+
+	INCLUSION ESTATICA
+
+*sintaxis:
+	<%@ include file="paginaRelativa.jsp"%>
+
+*Objetivo:
+	-Reutilizar codigo en texto plano, HTML o JSP's
+
+	-En este caso el JSP que se incluye puede afectar al JSP incluyente
+
+*Notas:
+
+	-En este caso no se delega el control al JSP incluido, si no que se incluye
+	 al archivo JSP, generando un unico JSP
+	
+	-Por lo anterior, se pueden tener variables o metodos que se comparten entre
+	 los JSP's 
+
+	-Para tener la version mas reciente, se recomienda compilar y contruir nuevamente
+	 el proyecto
+	
+supongamos que tenemos varios jsp que se agregan unos a otros por medio de inclusion estatica,
+esto implica que luego de hacer la traduccion de estos jsp al servlet, se envian todos los jsp
+generados como un unico servlet y este es al que se le muestra al usuario.
+
+	INCLUSION DINAMICA
+
+*sintaxis:
+	<jsp:include page="paginaRelativa.jsp"/>
+
+
+*Objetivo:
+	-Reutilizar codigo en texto plano, HTML o JSP's
+
+	-Permite actualizar el contenido sin alterar al JSP que incluye el contenido
+	 a reutilizar.
+
+*Notas:
+	-El JSP principal, delega el control al JSP incluido y la salida  del JSP se agrega
+	 al JSP principal
+
+	-No se comparten variables o metodos entre los JSP's, pero garantiza tener siempre
+	 la version mas reciente
+
+	-La pagina debe ser relativa a la aplicacion Web(uso de /)
+
+	-Se pueden incluir archivos privados(desde la carpeta WEB-INF).
+
+supongamos que tenemos la misma configurancion anterior, pero a diferencia de este con una inclusion
+dinamica, la diferencia principal es que esta crea un servlet por cada jsp que incluido en la pagina
+principal, y al momento de ejecutar estos simplemente delega el control temporalmente a estos servlets
+para al finalizar retornar el control al servlet principal.
+
+	COMPARACION ENTRE TIPOS DE INCLUSION:
+
+			INCLUSION		INCLUSION
+			ESTATICA		DINAMICA
+
+cuando ocurre la	en tiempo		en tiempo
+Inclusion		de traduccion		de ejecucion
+
+que se incluye?		el contenido		la salida
+			del archivo		de la pagina
+
+Numero de servlet	    1			     2
+Generados	
+
+puede incluir
+cabeceros que afectan	    SI			     NO
+al JSP principal
+
+Puede incluir atributos     SI			     NO
+o metodos en comun
+
+Puede actualizar la pag
+principal si se actualiza   SI			     NO
+la pagina principal
+
+El JSP principal delega	    NO			     SI
+el control JSP incluido

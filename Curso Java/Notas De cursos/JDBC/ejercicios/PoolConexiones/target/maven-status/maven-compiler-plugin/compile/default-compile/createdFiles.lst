@@ -1,0 +1,8 @@
+domain\UsuarioPassword.class
+domain\PersonaDTO.class
+datos\UsuarioPasswordJDBC.class
+test\ManejoPersonas.class
+datos\Conexion.class
+datos\PersonaDao.class
+datos\PersonaDaoJDBC.class
+test\PruebaServer2.class

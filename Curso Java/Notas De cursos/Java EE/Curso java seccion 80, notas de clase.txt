@@ -1,0 +1,255 @@
+CICLO DE VIDA EN JPA
+
+el API de JPA simplifica en gran medida la forma en la que interactuamos con una base de datos, esta
+agrega un ciclo de vida para la administracion de los objetos de entidad.
+
+
+
+OBJETO --Creacion de nuevo objeto(new())-->TRANSITIVO
+					  (Transient)
+					   |	|
+				Persist()  |	|rollback	  
+					   |	|
+					   |	|
+					Persistido ---remove()-->Eliminado
+					(Managed)<-----rollback--Removed()
+					   |	|
+ 				Commit	   |	|
+				rollback   |	|merge()
+				close()    |	|
+					Separado
+				   	(Detached)
+
+1.Crear nuevo Objeto
+2.Inicia transaccion{
+3.Ejecuta SQL
+4.Conmmit/rollback
+}
+5.Termina la transaccion
+
+			Transaccion(Contexto Persistente)
+				|
+1.				2.{3.4.}					5.
+Entity e ---(T)Treansient-->(P)Persistent-->fluhs()--->close()---->
+
+
+Ejemlo:
+
+@Test
+public void testPersistirObjeto(){
+	//paso1. Crear nuevo objeto
+	//objeto en estado transitivo
+	Persona persona = new persona("Pedro","Luna",null,"pluna@mail.com","11223344");
+
+	//paso2. Iniciar transaccion
+	EntityTransaction tx = new em.getTransaction();
+
+	//paso3. Ejecutar SQL
+	em.persist(persona1);
+	
+	//paso4. Comit/rollback
+	tx.comit();
+
+	//objeto en estado detached
+	log.debug("Objeto persistido: "+persona);
+	
+}
+
+RECUPERAR UN OJETO ENTIDAD EN JPA
+
+1.Iniciar 			2.Ejecutar		3.Termina 			
+transaccion			SQL			transaccion
+
+
+		Transaccion			|
+	   (contexto Persistente)		|
+----------					|
+find(id) |					|
+---------|------>(P)persistent-------->Close()	|---->(D)Detached
+merge(id)|					|
+---------					|
+
+Ejemplo:
+
+@Test
+public void testEncontrarObjeto(){
+
+	//paso1. Inicia transaccion
+	EntityTransaction tx = em.getTransaction();
+	
+	//Paso2. Ejecutamos SQL de tipo select
+	Persona persona1 = em.find(Persoa.class,32);
+
+	//Paso3. Termina transaccion
+	tx.commit();
+
+	//Objeto en estado detached
+	log.debug("Objeto recuperado:"+persona1);
+
+}
+
+ACTUALIZAR UN OBJETO PERSISTENTE EN JPA
+
+1.Iniciar TransaccionI{
+2.Ejecutar SQL
+}
+3.Terminar TransaccionI
+4.setValue(nuevo valor)
+5.Inicia TransaccionII{
+6.Ejecuta SQL
+}
+7.Termina Transaccion II
+
+1. 			2.				3. 			
+						
+		Transaccion			|
+	   (contexto Persistente)		|
+----------					|
+find(id) |					|
+---------|------>(P)persistent->Flush()->Close()|---->(D)Detached ------->Entity e---->...
+merge(id)|					|
+---------					|
+
+
+		
+4. 	|         5.{6.}			     |	   7.
+...---->|merge(e)---->(P)Persistent->Flush()->Close()|--->(D)Detached
+	|					     |
+
+Ejemplo:
+
+@Test
+public void test ActualizarObjeto(){
+
+	//Paso1. Iniciar transaccion1
+	EntityTransaction txt1 = em.getTransaction();
+	
+	//Paso2. Ejecutar SQL de tipo select
+	Persona persona1 = em.find(Persona.class,23);
+
+	//Paso3. Termina transaccion1
+	txt1.commit();
+
+	//Objeto en estado detached
+	log.debug("Objeto recuperado: " + persona1);
+
+	//Paso4. setValue(nuevoValor)
+	persona1.setApeMaterno("Nava");
+
+	//Paso5. Inicia Transaccion 2
+	EntityTransaction tx2 = em.getTransaction();
+
+	/*Paso6. Ejecuta SQL (es un select, pero al estar modificado, al terminar la transaccion hara
+	 un update) Como ya tenemos el objeto hacemos solo un merge para resincronizar*/
+	em.merge(persona1);
+
+	//Paso7. Termina transaccion 2
+	/*Al momento de hacer comit, se revisan las diferencias entre el objeto de la base de datos
+	  y el objeto en memoria, y se aplican los cambios si los hubiese*/
+	txt2.commit();
+
+	//Objeto en estado detached ya modificado
+	log.debug("Objeto modificado: "+persona1);
+}
+
+ACTUALIZAR UN OBJETO PERSISTENTE CON SEESION LARGA
+
+1.Inicia transaccion{
+2.Ejecuta SQL
+3.setValue(nuevoValor)
+}
+4.Termina transaccion
+
+1.		2.			3.			|4.
+								|
+find(id)--->(P) Persistent-->Entity e --->flush()-->close()-----|--->(D)Detached
+								|
+								|
+
+Nota: no hay necesidad de hacer UPDATE explicito, al terminar la transaccion(commit)
+se ejecuta el update.
+
+EJEMPLO:
+
+@Test
+public void testActualizarObjetoSesionLarga(){
+
+	//Paso1. Inicia transaccion 1
+	EntityTransaction tx1 = em.getTransaction();
+
+	//Paso2. Ejecuta SQL de tipo select
+	//puede ser un find o un merge si ya tenemos el objeto
+	Persona persona1 = em.find(Persona.class,23);
+	
+	//Paso3. setValue(nuevoValor)
+	persona1.setApeMaterno("Aguirre");
+	persona1.setApeMaterno("Torres");
+
+	//Paso4. Termina transaccion 1
+	//Ejecuta el update, aunque hayamos hecho 2 cambios sobre el objeto
+	//unicamente persiste el ultimo cambio del objeto
+	//es decir, el valor de apeMaterno=Torres
+	txt.commit();
+
+	//objeto en estado detached
+	log.debug("Objeto recuperado:"+persona1);
+}
+
+ELIMINAR UN OBJETO PERSISTENTE
+
+1.Iniciar TransaccionI{
+2.Ejecutar SQL
+}
+3.Terminar TransaccionI
+4.Inicia TransaccionII{
+5.EjecutaSQL
+}
+6.Terminar transaccionII
+
+1. 			2.				3. 			
+						
+		Transaccion			|
+	   (contexto Persistente)		|
+----------					|
+find(id) |					|
+---------|------>(P)persistent->Flush()->Close()|---->(D)Detached ------->Entity e---->...
+merge(id)|					|
+---------					|
+
+
+		
+4. 	|         5.			     	     |	   6.
+...---->|remove(e)---->(R)Removed->Flush()->Close()  |--->(T)Transient
+	|					     |
+
+EJEMPLO:
+@Test
+public void testEliminarObjeto{
+
+	//Paso1. Inicia transaccion 1
+	EntityTransaction tx1 = em.getTransaction();
+
+	//Paso2. Ejecuta SQL de tipo select
+	Persona persona1 = em.find(Persona.class,23);
+
+	//Paso3. Termina transaccion1
+	tx1.commit();
+
+	//Objeto en estado detached
+	log.debug("Objeto recuperado: " + persona1);
+	
+	//Paso4. Inicia transaccion 2
+	EntityTransaction tx2 = em.getTransaction();
+
+	//Paso5. Ejecuta SQL (es un delete)
+	em.remove(persona1);
+
+	//Paso6. Termina transaccion 2
+	//Al momento de hacer commit,
+	//se realiza el delete
+	txt2.commit();
+
+	/*Objeto en estado transitivo ya modificado ya no es posible resincronizarlo en otra
+	 transaccion solo esta en memoria, pero al terminar el metodo se eliminara*/
+	log.debug("Objeto eliminado:" + persona1);
+}

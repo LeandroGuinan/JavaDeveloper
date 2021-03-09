@@ -1,0 +1,67 @@
+BLOQUES DE CODIGO EN JAVA
+
+un bloque de codigo es cualquier parte de codigo que inicia con llaves y termina con llaves,
+como clases, metodos, ciclos, sentencias condicionales, etc... cualquier contenido dentro de estas
+llaves se conoce como bloque de codigo.
+
+existen bloques de codigo anonimos que nos permiten inicializar variables que su objetivo
+es que se inicializen variables antes de la ejecucion del constructor.
+
+por ej:
+
+public class Persona{
+
+	private final int idPersona;
+	private static int contadorPersona;
+	
+	{//1.0
+		System.out.println("Ejecutar bloque inicializador");
+		idPersona = ++contadorPersona;
+
+	}
+
+
+	Persona(){
+		System.out.println("Ejecuta Constructor");
+	}
+
+	public int getIdPersona();
+	return idPersona;
+}
+
+en el bloque de codigo (1.0) se esta inicializando un bloque de inicializacion anonimo, en el que
+se esta inicializando la variable idPersona, estos bloques inicializadores se inician antes de los 
+metodos, por ende se ejecutan en la memoria heap.
+
+BLOQUES DE CODIGO ESTATICOS EN JAVA
+
+existen bloques de codigo para inicializar argumentos estaticos que recordemos se inicializan antes
+de las variables, junto con la clase de java.
+
+por ej:
+
+public class Persona{
+
+	private final int idPersona;
+	private static int contadorPersonas;
+
+	static{//1.0
+		System.out.println("Ejecuta bloque estatico");
+		contadorPersonas = 10;
+	}
+	
+	{//2.0
+
+	System.out.println("Ejecuta bloque inicializador");
+	idPersona = ++contadorPersonas;
+	}
+
+	Persona(){//3.0
+		System.out.println("Ejecuta Constructor");
+	}
+
+}
+
+en este ejemplo se ve el orden de elementos incializados en la clase, se inicializa primero
+el bloque de codigo anonimo estatico se incializan antes del NO estatico, luego se ejecuta
+el no estatico y por ultimo los constructores.

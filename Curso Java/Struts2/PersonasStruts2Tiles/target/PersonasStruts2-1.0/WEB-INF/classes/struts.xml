@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <!-- con esto indicamos donde se encuentra nuestra clase linkAction -->
+    <constant name="struts.convention.default.parent.package" value="it.com.gm.actions"/>
+    <package name="it.com.gm.actions" extends="struts-default">
+        <!-- no es necesario definir accion por accion, al definir el tipo y el paquete estos se procesan
+             segun el tipo de resultado        -->
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+        </result-types>
+    </package>    
+</struts>

@@ -1,0 +1,56 @@
+RESULTADOS STRUTS2
+
+segun la logica de aplicacion vista anteriormente
+
+todo inicia con un request del usuario, que hace una accion, la cual se conecta con las distintas
+capas segun la nececidad de nuestra aplicacion, por ejemplo con la capa de servicio, se procesa
+la logica de nuestra aplicacion y se regresa la respuesta a la accion y finalmente la accion va
+a definir cual es la vista que se va mostrar incluyendo la respuesta a mostrar
+
+1.Request -------->2.Action------->3.Logica De Negocio---------->4.Action------->response
+
+es decir en el paso4 es donde se decide que respuesta mostrar y procesar
+
+
+			Respuesta Dentro de la clase Action
+
+ej:
+
+package...
+
+public class String execute(){
+	
+	public Strign execute(){
+		return "exito";
+	}
+}
+
+la cadena "exito" es la que determina a que archivo .jsp se dirige luego de ser procesada
+
+como ya se ah visto antes existen varias constantes que pueden ser utilizadas como retorno
+del metodo execute, cada una de ellas con una accion distinta segun el caso:
+
+SUCCESS: indica que esta correcto el formulario y puede ser procesado la siguiente vista
+
+INPUT: se pide que se llene de nueva cuenta un formulario, si es que hubo un error en el
+procesamiento de este.
+
+LOGIN: sirve para mostrar al usuario la pagina de login 
+
+ERROR: puede redirigir a una pagina de error
+
+NONE: se puede quedar en la misma pagina sin ejecutar ninguna otra accion. 	
+
+
+podemos configurar nuestro archivo struts.xml para que la accion login
+y esta redirija directamente al jsp de pages/login.jsp
+
+como tambien podemos definir la accion para que valide un usuario y segun el resultado
+obtenido esta redirija a la opcion de bienvenido o caso contrario si introduce mal los valores
+este no podra acceder y debera llenar el formulario de nuevo
+
+como tambien esta configuracion se puede hacer por medio de anotaciones en las clases Action,
+sin llegar a utilizar el struts.xml
+
+para mas detalle ver ejercicio: mensajesStruts2
+		

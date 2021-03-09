@@ -1,0 +1,40 @@
+INTRODUCCION A CSS3
+
+css3 es la nueva version de css que extiende los modulos definidos en la anterior version, esta contempla 
+nuevas nececidades de los desarrolladores web, por ejemplo el desarrollo de aplicaciones moviles, por lo
+que esta es una de las prioridades en css3.
+
+no todos los navegadores aplican las recomendaciones, cada navegador puede correr css de maenera diferente.
+
+como se dice anteriormente la prioridad de css es crear estilos para todo tipo de aplicaciones desde tablets
+hasta telefonos/tablets.
+
+algunas caracteristicas son:
+
+*CSS3 Selectores: nos permiten seleccionar los documentos dom de los html
+
+*Colores css3: se agregaron nuevas formas de manejar colores y transparencias.
+
+*Tipografia: ahora podemos agregar variantes de fuentes y efectos a nuestros textos
+
+*Page Layout: la flotacion de elementos ah evolucionado, y ahora existen mas formas de crear layouts en paginas
+
+*CSS3 BoxModel: ahora es mas facil modificar nuestros elementos, flexible y adaptable.
+
+*media Queries: esta herramienta permite crear diseños que se adecuen a distintos tipos de dispositivos.
+
+Entre otras como: esquinas redondeadas, background multiples, animaciones, sombras, efectos de texto, etc...
+
+PREFIJOS DE CSS
+
+estos permiten agregar soporte a las aplicaciones css sin comprometer la implementacion final de dicha cara-
+cteristica.
+
+prefijos para distintos navegadores:
+
+firefox: -moz-
+internet explorer: -ms-,mso-
+opera: -o-
+chrome y safari: -webkit-
+
+se utilizan para agregar las nuevas caracteristicas de css3 en el navegador de manera nativa.

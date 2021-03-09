@@ -1,0 +1,58 @@
+OGNL Struts2
+
+por las siglas: Object Graphic Navigation Language.
+
+es el sistema que nos permite establecer comunicacion entre nuestros archivos jsp y las
+clase java que vamos a nececitar para desplegar esta informacion.
+
+Analisis de peticion respuesta en struts2
+
+la iniciar o invocar una accion en struts2 directamente estamos utilizando el comcepto
+de interceptores, los cuales hacen posible recuperar objetos, desplegarlos, utilizar
+internacionalizacion, etc... para todos estos fines struts aplica el comcepto de interceptores
+que directamente hace el request y response de manera automatica.
+
+al hacer uso de estas acciones a travrez de OGNL llamamos directamente a ActionContext(Thread Local)
+que es donde se almacenan la informacion que recibimos de nuestras vistas, a travez del valueStack,
+tambien podemos acceder a nuestro objeto request, session, application, etc... segun los camceptos
+de jsp y servlets.
+
+struts2 agrega tambien el comcepto de valueStack tambien para agregar informacion de las vistas.
+
+Ahora una vez terminada dicha accion se envia un resultado a invocar, en este momento el OGNL
+toma accion nuevamente.
+
+el resultado toma del valueStack los valueStack respectivos y se envian de nuevo a la vista y
+finaliza esta peticion. 
+
+si bien ya se ah aplicado este comcepto en anteriores ejercicios, ahora se esta formalizando 
+el comcepto...
+
+Ejemplo del uso del OGNL:
+
+definicion de variables dentro de clases Action:
+
+public class PersonaAction{
+	
+	private String nombre;
+	private String apellido;
+
+	public String execute(){
+		return "exito";
+	}
+}
+
+uso de OGNL en la vista JSP
+
+<body
+	<h1>Formulario de Personas OGNL</h1>
+
+	<s:form>
+		<s:textfield label="Nombre" name="nombre"/>
+		<s:textfield label="Apellido" name="apellido"/>
+		<s:submit value="Enviar"/>
+	</s:form>
+</body> 	
+
+como se puede ver desde la vista se manda a llamar los elementos de la clase action, que son
+procesadas por el OGNL. 

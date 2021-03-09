@@ -1,0 +1,12 @@
+USO PALABRA THIS EN JAVA
+
+Es una referencia implicita al objeto que se esta ejecutando., es util para evitar ambiguedad entre
+las variables de clase y las locales. Tambien perimite a un objeto enviarse a el mismo como
+parametro.
+
+Es un operador que nos permite acceder a un objeto que se este ejecutando en cualquier metodo java.
+
+Existen dos tiempos en java, el momento en que se esta escribiendo el codigo y el momento cuando se esta 
+ejecutando. el operador this se debe pensar para el momento de ejecucion.
+
+La palabra this no se puede ejecutar en un contexto static ya que aun no se han creado objetos

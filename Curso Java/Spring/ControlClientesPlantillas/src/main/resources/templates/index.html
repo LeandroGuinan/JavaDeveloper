@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- para manejar infomacion dinamica de spring, se debe agregar: -->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        
+        <!-- para tomar un elemento de una plantilla, se debe crear un elemento del mismo tipo del componente que se tomara de la plantilla
+             especificar la direccion de esta, y colocar el nombre que se le dio en esta, de manera que: -->
+        <header th:replace="layout/plantilla :: header"></header>
+        
+        <!-- este no es expresion language como tal, pero funciona de manera muy similar para alcanzar variables de lado de la vista -->
+        <br/>
+        
+        <!-- para hacer una verificacion: (corrsponde a un if) -->
+        <div th:if="${psp != null and !psp.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+                
+                <!-- para iterar elementos de una lista: (corresponde a foreach) -->
+                <tr th:each="persona : ${psp}">
+                    <td th:text="${persona.nombre}">Mostrar Nombre</td>
+
+                    <td th:text="${persona.apellido}">Mostrar Apellido</td>
+
+                    <td th:text="${persona.email}">Mostrar Email</td>
+
+                    <td th:text="${persona.telefono}">Mostrar telefono</td>
+                    <!-- en este caso se comperte el id persona a travez de path variable -->
+                    <td><a th:href="@{/editar/} + ${persona.idPersona}" th:text="Editar"/></td>
+                    
+                    <!-- en este caso se envia la informacion como query param: -->
+                    <td><a th:href="@{/eliminar(idPersona=${persona.idPersona})}" th:text="Eliminar"/></td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${psp == null or psp.empty}">
+            La lista esta vacia
+        </div>
+        <br/>
+        <!-- para acceder a otro path se utiliza: @{/pathNombre} -->
+        <a th:href="@{/agregar}">Crear Persona</a>
+        <br/>
+        <footer th:replace="layout/plantilla :: footer"></footer>
+        
+        
+    </body>
+</html>

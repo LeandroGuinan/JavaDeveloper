@@ -1,0 +1,6 @@
+FORMULARIOS CON HTML
+
+se trata de herramientas que requieren ser llenadas por el usuario para ser alojadas en un servidor web, 
+tal es la importancia que la mayoria de las paginas utilizan estos para almacenar informacion del usuario.
+
+son de forma de tabla de base de datos, en la cual el usuario llena los campos de informacion

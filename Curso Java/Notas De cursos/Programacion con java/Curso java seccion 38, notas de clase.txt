@@ -1,0 +1,38 @@
+POLIMORFISMO EN JAVA
+
+es la habilidad de cargar metodos sintaxticamente iguales en tipos distintos.
+
+por ejemplo un objeto creado de una clase hija tiene acceso a los metodos creados en la clase
+padre en una clase de prueba gracias al polimorfismo, es decir, ejecuta los metodos de la clase hija
+con la variable del tipo de la clase padre.
+
+la importancia de este es que se puede generalizar un metodo que resiba de distintas clases.
+
+por ej:
+
+Empleado emp = new Empleado("Juan",1000);
+emp.obtenerDetalles();
+
+//hasta aquie se esta ejecutanto un objeto de tipo empleado, pero:
+
+emp = new Gerente("karla",2000,"Finanzas");
+emp.obtenerDetalles();
+
+//ahora se le esta danto una nueva referencia de clase hija, el cual es un metodo sobreescrito
+//aqui entra el comcepto de polimorfismo, se ejecutara el metodo de la clase cual haga
+//en ese momento referencia, en este caso a un tipo gerente
+//solo es posible que la variable emp haga esta referencia debido a que la clase gerente
+//extiende de la clase Empleado.
+
+
+este comcepto esta muy relacionado tambien con el comcepto de herencia, ya que gracias a este
+es posible aplicar el polimorfismo.
+
+super E INVOCACION DE METODOS SOBREESCRETOS
+
+para hacer un llamado al metodo de clase padre incluso desde el metodo que se esta sobreescribiendo
+basta con llamar:
+
+super.nombreMetodo
+
+de esta manera se reutiliza el codigo ya escrito en la clase padre

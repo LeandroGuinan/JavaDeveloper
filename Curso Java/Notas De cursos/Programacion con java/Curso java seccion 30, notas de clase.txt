@@ -1,0 +1,25 @@
+JAVADOC EN JAVA
+
+java permite documentar nuestros proyectos por medio de javadoc que es un documento html, que
+muestra cada una de las clases de java.
+
+para que los comentarios se adjunten tienen que agregar las formas:
+
+/**
+
+* comentario java doc
+
+*/
+
+existen mas utilidades del java doc como:
+
+@author:nombre del autor del programa
+
+@deprecated: indica elementos obsoletos
+
+@param:definicion de un parametro de un metodo
+
+para documentar un proyecto solo se debe hacer click derecho sobre el pryecto y seleccionar
+"generate javadoc"
+
+entre otros...

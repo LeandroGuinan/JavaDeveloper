@@ -1,0 +1,97 @@
+CICLO DE VIDA HIBERNATE
+
+se inicia con la creacion de un objeto:
+una vez creado, pero no esta guardado, se die que esta en estado transitivo.
+
+una vez guardado en una base de datos por cualquier metodo(save, persist, etc..)
+se dice que esta en estado persistente(ya que ya se ah guardado la informacion
+en la base de datos).
+
+una vez terminada la transaccion, por cualquier metodo(close, clear,etc...)
+este objeto pasa al estado separado(detached).
+
+1.{
+en caso de utilizar un metodo de update, merge, o cualfuera entonces se regresa al
+estado de persistencia.
+
+terminado este si ejecutamos el metodo delete entonces este objeto pasa a ser eliminado
+por el recolector de basura, y ya no se puede volver a persistir  en la base de datos.
+}
+
+2.{
+en caso de existencia de este objeto, entonces se debe recuperar por algun metodo
+(get,load,find,miterate,etc...
+}
+
+3.{
+si no se persiste el objeto en la base de datos, entonces este del estado de detached,
+este pasa a ser eliminado por el recolector de basura.
+}
+
+
+			Algunos estados de los objetos de entidad
+
+*Estado Transitivo(Transient):
+Los objetos de entidad nuevos no son guardados directamente en la base de datos
+
+No estan asociados con un registro de base de datos
+
+Se consideran no transaccionales
+
+
+*Estado Persistente(Persistent):
+Un objeto persistente tiene asociado un registro en la base de datos
+
+*Los objetos persistentes siempre estan asociados con una sesion y son transaccionales.Su estado
+se sincroniza con la base de datos al terminar la transaccion.
+
+
+*Estado Separado(Detached):
+Estos objetos tienen asociado un registro de base de datos, pero su estado no esta sincronizado
+con la base de datos.
+
+Todos los objetos recuperados en una transaccion se convierten en detached una vez que termina
+la transaccion.
+
+
+			Persistir un objeto en hibernate/JPA
+
+1.se crea un objeto de entidad
+2.inicia la transaccion
+3.ejecuta SQL
+4.commit/rollback
+5.termina la transaccion
+
+			Recuperar un objeto en hibernate/JPA
+
+1.inicia la transaccion
+2.ejecuta SQL
+3.termina la transaccion
+
+			Modificar un objeto en hibernate/JPA
+
+1.inicia transaccion I
+2.ejecuta SQL
+3.termina transaccion I
+4.setValue(nuevo valor)
+5.inicia transaccion II
+6.ejecuta SQL
+7.Termina transaccion II
+
+caso de transaccion larga
+
+1.inicia transaccion
+2.ejecuta SQL
+3.setValue(nuevo valor)
+4.termina transaccion
+
+			Eliminar un objeto en hibernate/JPA
+
+
+1.inicia transaccion I
+2.ejecuta SQL
+3.termina transaccion I
+4.setValue(nuevo valor)
+5.inicia transaccion II
+6.ejecuta SQL
+7.Termina transaccion II

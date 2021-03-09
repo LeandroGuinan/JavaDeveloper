@@ -1,0 +1,44 @@
+INTANCE OF EN JAVA
+
+esta sentencia responde a la pregunta si una clase tiene que ver con otra en una jerarquia de
+clases, por ejemplo si son clases hijas o abuelas, a esto se refiere esta palabra reservada.
+
+uso de instace of:
+
+public class EjemploInstanceOf{
+
+	public static void main(String[]args){
+
+		FiguraGeometrica figura;
+		
+		figura = new Elipse();
+		determinarTipo(figura);
+
+	}
+
+	private static void determinarFigura(FiguraGeometrica figura){
+	
+		if(figura instanceof Elipse){
+			//procesa algo en particular de la elipse
+			System.out.println("Es una elipse");
+		}
+		
+		if(figura instanceof Circulo){
+
+			//procesa algo particular del circulo
+			System.out.println("Es un circulo");
+
+		}
+
+		if(figura instanceof FiguraGeometrica){
+
+			//procesa algo particular de la figura geometrica
+			System.out.println("Es una figura geometrica");
+		}
+	}
+}
+
+siendo todas clases unidas por jerarquias como hijas y abuelas se todas las sentencias if 
+serian true en este caso, pues el instance of busca parentezco entre clases.
+
+es conveniente preguntar por la clase mas alejada de la clase preguntada

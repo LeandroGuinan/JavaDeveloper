@@ -1,0 +1,23 @@
+CANVAS EN HTML5
+
+el api de canvas nos permite dibujar en cierta parte de la pantalla, es util para crear juegos, aplicaciones
+multimedia, graficos etc...
+para el uso de este API es necesario conocimiento basico de java script, y a dia de hoy cualquier navegador
+soporta este api.
+
+se puede pensar que el uso de canvas como el uso de un pincel, con el que podremos dibujar:
+
+*Rectangulos y circulos
+*Lineas y curvas
+*texto
+*imagenes
+*video
+
+ademas del uso de canvas nativo tambien hay frameworks de javaScript que facilitan el uso de canvas, que
+permiten incorporar elementos de alto desempeño como animaciones, transiciones, filtros, manejo de eventos,etc.
+
+ejemplo de canvas en html5:
+*animaciones
+*juegos HTML5
+*aplicaciones multimedia
+*graficos

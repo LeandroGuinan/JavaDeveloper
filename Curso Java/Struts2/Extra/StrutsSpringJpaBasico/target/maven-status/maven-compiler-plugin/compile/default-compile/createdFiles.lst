@@ -1,0 +1,6 @@
+it\com\gm\capadatos\PersonaDaoImpl.class
+it\com\gm\actions\MostrarPersonaAction.class
+it\com\gm\capaservicio\PersonaServiceImpl.class
+it\com\gm\capaservicio\PersonaService.class
+it\com\gm\capadatos\domain\Persona.class
+it\com\gm\capadatos\PersonaDao.class

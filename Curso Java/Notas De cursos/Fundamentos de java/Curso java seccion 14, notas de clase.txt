@@ -1,0 +1,71 @@
+REGRESO DE UN METODO Y LA PALABRA RETURN EN JAVA
+
+REGRESO DE UN METODO: cuando se utiliza un metodo existen tres maneras de salir, regresar al metodo
+que hizo la llamada o terminar el metodo:
+
+	1) se encuentra la palabra return
+	2) se llega al fin del metodo
+	3) Ocurre un error
+
+
+Palabra Return utilizando tipos primitivos
+
+ej del uso de la palabra return:
+public class PalabraReturn{
+
+	public static void main (String[]args){
+	int resultado = sumar(3,6);
+	System.out.println("Resultado: "+resultado);
+	}
+
+	public static int sumar(int a, int b){
+		return a + b;
+	}
+}
+
+la palabra return solo puede retornar un tipo simple, ya sea un int o float... pero tambien puede
+retornar objetos.
+
+public class PalabraReturnClases{
+	public static void main(String[]args){
+		
+		Suma s = crarObjetoSuma();
+		int res = s.a+s.b;
+		System.out.println("Resultado:"+res);
+	}
+	public static Suma crearObjetoSuma(){
+		Suma s = new Suma(3,4);
+		return s;
+	}
+}
+
+class Suma{
+	int a;
+	int b;
+	
+	Suma(int a, int b){
+		this.a = a;
+		this.b = b;
+	}
+}
+
+USO RETURN CONDICIONADO:
+
+viene cuando el return esta dentro de una estructura condicional:
+
+public class PalabraReturn{
+	public static void mian(String[]args){
+		int res = sumar(0,0);
+		System.out.println("Resultado: "+res);
+	}
+
+	public static int sumar(int a, int b){
+		if(a == 0 && b == 0){
+			System.out.println("Puede proporcionar valores distintos a cero");
+			return 0;
+		}
+		return a + b;
+	}
+}
+con esto se ve que pueden existir dos return en un mismo metodo, pero deben estar en una estructura
+condicional, de lo contrario sera un error de programacion.

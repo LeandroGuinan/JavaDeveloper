@@ -1,0 +1,39 @@
+CONSULTAS CON JPQL
+
+	Java Persistence Query Language(JPQL)
+
+nos permite recuperar informacion de la base de datos, el JPQL se enfoca en recuperar objetos
+java en lugar de datos individuales.
+
+*Lenguaje de Consulta, similar a SQL pero utilizando objetos java.
+
+*Queries Parametrizables
+
+*Consulta de Ejecucion en IDE's como Netbeans, Eclipse, Intellij Idea o MyEclipse
+
+*Consultas avanzadas con recuperacion de colecciones de datos.
+
+	-Caracteristicas:
+
+*Uso de select, from y where y subselects
+
+*Sensible a Mayusculas/Minusculas
+
+*Asociaciones, uso de joins y fetch
+
+*Uso de expresiones y operadores como: +,>,between,upper,etc.
+
+*Uso de Funciones de agregacion, tales como: avg, sum, count, etc.
+
+*Uso de order by y group by.
+
+JPA nos permite recuperar los objetos de diferentes maneras, tanto utilizando una sintaxis 
+similar a SQL, tambien ofrece mas alternativas utilizando codigo java, conocido como el API
+de Criteria y QueryByExample, de esta manera tenemos diferentes tipos de consultas, ya sean
+dinamicQuerys, consultas que reciben parametros en tiempos de ejecucion, namedQuerys(consultas
+creadas previamente y que se pueden utilizar solo usando el nombre),NativeQuerys(son consultas
+de SQL nativos) y por ultimo tenemos Criteria API para realizar consultas pero utilizando 
+codigo java.
+
+RECORDAR: las consultas de JPQL no es igual a SQL, ya que JPQL trabaja con objetos de entidad
+de java, por lo tanto se debe respetar las mayusculas y minusculas 

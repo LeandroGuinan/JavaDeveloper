@@ -1,0 +1,75 @@
+package it.com.gm.web;
+
+import it.com.gm.domain.Persona;
+import it.com.gm.servicio.PersonaService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+//para implementar el patron de diseño sprin MVC, pero la configuracion es muy similar  
+@Controller
+//para enviar informacion al log, se agrega la libreria:
+@Slf4j
+public class ControladorInicio {
+    
+    //con esta anotacion, se guardan inyecta directamente la capa establecida:
+    @Autowired
+    private PersonaService personaService;
+    
+    //mapeado del metodo get:
+    //al estar vacio el inicio(/) se despliegara este mensaje al inicio de la aplicacion
+    @GetMapping("/")
+    //con el objeto model podemos enviar datos desde nuestro controlardor al navegador
+    public String inicio(Model mode){
+        var persona = personaService.listarPersona();
+        mode.addAttribute("psp", persona);
+        //en este caso nos regresa a una pagina de index.html(formato por default)
+        return "index";
+    }
+    
+    //en este caso creamos en memoria un objeto de tipo persona, que sera utilizado por la pagina
+    //a la que redirijimos
+    @GetMapping("/agregar")
+    public String agregar(Persona persona){
+        return "modificar";
+    }
+    
+    //estamos usando el metodo post en este caso, y el objeto persona 
+    //que recibimos es el mismo objeto previamene creado por el metodo
+    //get, y en ese caso lo llena, persiste y redirije a inicio
+    @PostMapping("/guardar")
+    public String guardar(Persona persona){
+        personaService.guardar(persona);
+        return "redirect:/";
+    }
+    
+    //en esta peticion get, ademas de el path recibe la el id de la persona
+    //que automaticamente se le asocia a la variable persona que recibe
+    @GetMapping("/editar/{idPersona}")
+    public String editar(Persona persona, Model mode){
+        //por esto no es necesario hacer el setIdPersona, pero
+        //si es necesario encontrar el objeto para recibir el resto
+        //de atributos:
+        persona = personaService.encontrarPersona(persona);
+        //se comparte este objeto persona completo a la pagina de modificar:
+        mode.addAttribute("persona",persona);
+        //y se hace redirije a esta pagina(que recibe siempre un objeto tipo persona):
+        return "modificar";
+    }
+    
+    /*
+    como recibe la informacion de un objeto de tipo persona simplemente
+    la asocia a el objeto de tipo persona que este metodo recibe
+    */
+    @GetMapping("/eliminar")
+    public String eliminar(Persona persona){
+        //y al ya tener un id asociado este procede a eliminarse con la capa de servicio:
+        personaService.eliminar(persona);
+        //y se redirige a la vista:
+        return "redirect:/";
+    }
+    
+}

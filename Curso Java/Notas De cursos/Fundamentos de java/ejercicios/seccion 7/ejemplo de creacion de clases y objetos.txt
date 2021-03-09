@@ -1,0 +1,13 @@
+public class Persona {
+    //Atriburos de nuestra clase
+    String nombre;
+    String apellido;
+    
+    //Metodo de la clase
+    //lo usaran los objetos de esta clase
+    public void desplegarNombre(){
+        System.out.println("Nombe: " + nombre);
+        System.out.println("Apellido: "+ apellido);
+        
+    }
+}

@@ -1,0 +1,66 @@
+CABECEROS DE RESPUESTA CON SERVLETS
+
+los cabeceros de respuesta se utilizan para indicar al navegador web como debe comportarse ante
+una respuesta de parte del servidor web.
+
+un ejemplo comun es generar hojas de Excel, PDF's, audio, Video, etc, en lugar de solo responder
+con texto.
+
+para indicar el tipo de respuesta se utilizan los tipos MIME
+(multipropose Internet Mail Extensions).
+
+Los tipos MIME son un conjunto de especificaciones con el objetivo de intercambiar archivos a travez
+de internet como puede ser texto, audio, video, entre otros tipos.
+
+EJEMPLOS MAS COMUNES DE TIPOS MIME
+
+application/msword		Microsoft Word document
+application/pdf			Acrobat(.pdf)file
+application/vnd.ms-excel	Excel spreadsheet
+application/vnd.ms-powerpoint	Power Point Presentation
+application/zip			Zip archive
+audio/x-wav			Microsoft Windows sound file
+text/css			HTML cascading style sheet
+text/html(default)			HTML document
+text/xml			XML document
+image/gif			GIF image
+image/jpeg			JPEG image
+image/png			PNG image
+video/mpeg			MPEG video clip
+video/quicktime			QuickTime video clip
+
+API DE SERVLETS AL UTILIZAR CABECEROS DE RESPUESTA
+
+metodos para establecer valores headers:
+
+response.setHeader(String nombreCabecero, String valorCabecero), tambien pueden ser:
+setDateHeader y setIntHeader que ponen un cabecero, si ya existe lo reemplaza.
+
+para añadir cabeceros usaremos:
+
+response.addHeader, addDateHeader y addIntHeader
+
+los cuales agregan nuevos cabeceros sin reemplazarlos
+
+Metodos mas comunes para establecer valores de los headers:
+
+*setContentType(se utiliza la tabla MIME para definir su valor).
+*setContentLenght/nota: para especificar el largo del contenido que vamos a responder al cliente/
+*addCookie
+*sendRedirect
+
+CABECEROS DE RESPUESTA MAS COMUNES
+
+.Cache-Control y Pragma: se usan para el control del cache
+
+.Content-Encoding: Indica la codificacion del documento
+
+.Content-Length: Indica el numero de bytes en la respuesta
+
+.Expires: Indica el tipo MIME a responder
+
+.Last-Modified: Indica el tiempo en que el documento fue modificado
+
+.Refresh: Indica los segundos en que el navegador recarga la pagina
+
+.WWW-Authnticate: Indica el tipo de autenticacion.

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+    "-//Apache Software Foundation/DTD Tiles Configuration 3.0//EN"
+    "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+    
+<tiles-definitions>
+    <definition name="inicial" template="/WEB-INF/inicial.jsp">
+        <put-attribute name="title" value="Calculadora"/>
+        <put-attribute name="header" value="/WEB-INF/head.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/menu.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/body.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/footer.jsp"/>
+    </definition>
+    <definition name="cuadradoTile" extends="inicial">
+        <put-attribute name="title" value="Cuadrado"/>
+        <put-attribute name="body" value="/WEB-INF/content/cuadrado.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/content/cuaFoo.jsp"/>
+    </definition>
+    <definition name="circuloTile" extends="inicial">
+        <put-attribute name="title" value="Circulo"/>
+        <put-attribute name="body" value="/WEB-INF/content/circulo.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/content/ciFoo.jsp"/>
+    </definition>
+</tiles-definitions>

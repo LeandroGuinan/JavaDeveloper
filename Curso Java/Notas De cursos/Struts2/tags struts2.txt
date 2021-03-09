@@ -1,0 +1,38 @@
+		TAGS EN STRUTS
+
+este es un tema importante en el manejo de struts2, en el manejo de servlets de struts2 todos
+estos estan en el en el archivo struts-tags.tld, esto en el archivo de dependencies, este archivo
+especifica el prefijo que podemos utilizar para llamar a este, como tambien el path con el que
+podemos llamarlo.
+
+		Uso del TLD de los tags de struts2
+
+como ya se ah venido viendo, estos se trabajan desde el jsp, utilizando el prefijo s y el uri
+especificado en el archivo .tld, de manera:
+
+<%@taglib prefix="s" uri="/struts-tags"%>
+<html>
+	<head>...</head>
+	<body>
+		<s:form>
+			<!-- ejemplos: -->
+			<s:textfield label="Nombre" name="persona.nombre"/>
+			<s:submit/>
+		</s:form>
+	</body>
+<html>
+
+todos los elementos que le antecede una 's' en su nombre son componentes de struts2, definidos en 
+el tag del documento .tld
+
+		Tipos de tags en struts2
+
+algunos de estos son:
+
+*Control: if, iterator, etc...
+
+*Datos: hipervinculos, url, action, etc...
+
+*Formularios: form, button, inputText, etc...
+
+*UI(No Formularios): Mensajes de error, div, etc...

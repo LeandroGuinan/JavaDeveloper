@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!-- utilizamos los mismos cabeceros que el index, los demas compomentes corresponden a los facelets, y los ui -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Listado De Personas</title>
+    </h:head>
+    <h:body>
+        <p:ajaxStatus style="width: 16px; height: 16px;" id="ajaxStatusPanel">
+            <f:facet name="start">
+                <h:graphicImage library="images" name="loadingGif.gif"/>
+            </f:facet>
+            
+            <f:facet name="complete">
+                <h:outputText value=""/>
+            </f:facet>
+            
+        </p:ajaxStatus>
+        
+        <!-- prependId: para que no agrege el nombre del formulario a cada elemento(original)
+             id: nombre con que se reconoce este form-->
+        <h:form id="personaListForm">
+            <!-- estas etiquetas son para mostrar los mensajes, en caso que huniera -->
+            <p:growl id="messages" showDetail="true"/>
+            <p:messages/>
+            
+            <!-- tabla de bases de datos utilizando primefaces, value: el valor que recibe esta tabla, se esta utilizando un bean, editable: es para poder editar los valores
+            rowKey: para indicar el id de la persona que se esta seleccionando, selection: para que en automatico apunte y guarde la persona seleccionada, selectionMode: para solo poder
+            acceder a un registro a la vez-->
+            <p:dataTable id="personasDataTable" value="#{personaBean.personas}" var="persona" editable="true" rowKey="#{persona.idPersona}" selection="#{personaBean.personaSeleccionada}" selectionMode="single">
+                <!-- este es el cabecero: -->
+                <f:facet name="header">
+                    Listado De Personas
+                </f:facet>
+                
+                <!-- Columna de ID -->
+                <p:column headerText="Id">
+                    <h:outputText value="#{persona.idPersona}"/>
+                </p:column>
+                
+                <!-- Columna de nombre: -->
+                <p:column headerText="Nombre">
+                    <!-- Entramos a esta celda para poder hacerla editable -->
+                    <p:cellEditor>
+                        <!-- Entramos al editor y le damos un nombre, en este cellEditor podemos tanto mostrar informacion como modificarla -->
+                        <f:facet name="output">
+                            <h:outputText value="#{persona.nombre}"/>
+                        </f:facet>
+                        <!-- Este proximo tag es para poder introducir informacion en esta celda, desde la misma tabla -->
+                        <f:facet name="input">
+                            <p:inputText value="#{persona.nombre}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                <!-- Columna de apellido: -->
+                <p:column headerText="Apellido">
+                    <!-- Entramos a esta celda para poder hacerla editable -->
+                    <p:cellEditor>
+                        <!-- Entramos al editor y le damos un nombre, en este cellEditor podemos tanto mostrar informacion como modificarla -->
+                        <f:facet name="output">
+                            <h:outputText value="#{persona.apellido}"/>
+                        </f:facet>
+                        <!-- Este proximo tag es para poder introducir informacion en esta celda, desde la misma tabla -->
+                        <f:facet name="input">
+                            <p:inputText value="#{persona.apellido}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                <!-- Columna de Email -->
+                <p:column headerText="Email">
+                    <!-- Entramos a esta celda para poder hacerla editable -->
+                    <p:cellEditor>
+                        <!-- Entramos al editor y le damos un nombre, en este cellEditor podemos tanto mostrar informacion como modificarla -->
+                        <f:facet name="output">
+                            <h:outputText value="#{persona.email}"/>
+                        </f:facet>
+                        <!-- Este proximo tag es para poder introducir informacion en esta celda, desde la misma tabla -->
+                        <f:facet name="input">
+                            <p:inputText value="#{persona.email}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                <!-- Columna de telefono -->
+                <p:column headerText="Telefono">
+                    <!-- Entramos a esta celda para poder hacerla editable -->
+                    <p:cellEditor>
+                        <!-- Entramos al editor y le damos un nombre, en este cellEditor podemos tanto mostrar informacion como modificarla -->
+                        <f:facet name="output">
+                            <h:outputText value="#{persona.telefono}"/>
+                        </f:facet>
+                        <!-- Este proximo tag es para poder introducir informacion en esta celda, desde la misma tabla -->
+                        <f:facet name="input">
+                            <p:inputText value="#{persona.telefono}"/>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                <!-- Este es para agregar el footer de la pagina, con esto agregamos el boton de regresar -->
+                <f:facet name="footer">
+                    <!-- este es el boton para regresar al index -->
+                    <p:commandButton value="Regresar" action="index"/>
+                    
+                    <p:spacer height="5px"/>
+                    <!-- este es el boton para agregar un nuevo registro
+                    actionListener: con este evento reiniciamos la persona
+                    update: con este refrescamos la ventana emergente
+                    oncomplete: con este redirigimos la vista a la ventana para agregar valor-->
+                    <p:commandButton value="Agregar" actionListener="#{personaBean.reiniciarPersonaSeleccionada}" update=":dialogForm" action="PF('personaDialog').show();"/>
+                </f:facet>
+                
+                <!-- esta ultima es para poder editar cualquier renglon de nuestra tabla -->
+                <p:column headerText="Opciones" style="width: 50px">
+                    <p:rowEditor/>
+                </p:column>
+                
+                <!-- este tag es para agregar el evento para editar la informacion de nuestra tabla -->
+                <p:ajax event="rowEdit" listener="#{personaBean.editListener}"/>
+                
+            </p:dataTable>
+            
+            <!-- menu contextual que referencia a la data Table -->
+            <p:contextMenu for="personasDataTable">
+                <!-- Boton para eliminar Persona
+                value: cadena a mostrar
+                update:refrescar la tabla referenciada
+                icon:imagen a mostrar
+                actionListener: evento realizado-->
+                <p:menuitem value="Eliminar" update="personaListForm:personasDataTable" icon="ui-icon-close" actionListener="#{personaBean.eliminarPersona}"/>
+            </p:contextMenu>
+            
+        </h:form>
+        
+        <!-- Elemento de dialogo agregar nuevos valores
+        id:nombre del from
+        widgetVar: nombre con el que se le referencia
+        header: cabecero
+        modal: para que se agrege encima del html
+        showEffect: efectos mostrados
+        hideEffect: efectos al cerrarse
+        resizable: para que se ajueste o no la ventana-->
+        <p:dialog id="personaDlg" widgetVar="personaDialog" header="Agregar Persona" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+            <!-- formulario dentro de este dialog -->
+            <h:form id="dialogForm">
+                <!-- para mostrar informacion -->
+                <p:outputPanel id="personaDetail" style="text-align: center">
+                    <p:panelGrid id="display" columns="4" columnClasses="label, value">
+                        <!-- esto para agregarle un valor a esta nueva persona -->
+                        <!-- Elemento Nombre: -->
+                        <h:outputText value="Nombre:"/>
+                        <h:inputText value="#{personaBean.personaSeleccionada.nombre}"/>
+                        
+                        <!-- Elemento Apellido -->
+                        <h:outputText value="Apellido:"/>
+                        <h:inputText value="#{personaBean.personaSeleccionada.apellido}"/>
+                        
+                        <!-- Elemento Email -->
+                        <h:outputText value="Email:"/>
+                        <h:inputText value="#{personaBean.personaSeleccionada.email}"/>
+                        
+                        <!-- Elemento Telefono -->
+                        <h:outputText value="Telefono:"/>
+                        <h:inputText value="#{personaBean.personaSeleccionada.telefono}"/>
+                        
+                        <!-- Para controlar este dialog form: -->
+                        <f:facet name="footer">
+                            <!-- Boton para agregar persona
+                            value: caracteres Mostrados
+                            actionListener: evento realizado
+                            update:se refresca el data table referenciado
+                            oncomplete: evento que se realiza al terminar-->
+                            <p:commandButton value="Agregar" actionListener="#{personaBean.agregarPersona}" 
+                                             update="display,personaListForm:personasDataTable" action="PF('personaDialog').hide();"/>
+                        </f:facet>
+                    </p:panelGrid>
+                </p:outputPanel>
+            </h:form>
+        </p:dialog>
+        
+    </h:body>
+</html>

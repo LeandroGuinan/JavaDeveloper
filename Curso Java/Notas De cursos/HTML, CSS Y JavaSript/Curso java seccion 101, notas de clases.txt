@@ -1,0 +1,38 @@
+INTRODUCCION A CSS
+
+en español se traduce como hojas de estilo en cascada
+
+en donde html se encarga de agregar la informacion al sitio web, css se encarga del diseño de este, que se vea
+presentable, colores, efectos, etc...
+
+los estilos css, se usan para dar formato a html de menera centralizada.
+
+la idea es crear estilos css y aplicarlos a nuestros documentos html, se conoce como un lenguaje en cascada
+ya que se aplican de esta manera, de cascada o de manera heredada.
+
+cuando una pagina web se crea se crea lo que se conoce como document object model(DOM)
+
+se construye como un arblo de objeos, en cada rama de este arbol se pueden aplicar diseños diferentes
+a nuestros elementos de archivos html, esto se logra a travez de selectores. 
+
+SELECTORES CSS
+
+como su nombre lo indica se utilizan para seleccionar elementos de nuestros documentos html a travez del dom
+
+se clacificn en:
+
+	TIPO ID:	
+
+		*se utilizan para especificar el estilo de un elemento unico en la pagina web acual
+		
+		*para definir un ID de Css se utiliza el operador #
+
+		*se debe aplicar al atributo id en los elementos HTML
+	
+	Selectores Class:
+
+		*Estos selectores se utilizan para especificar el estilo de un grupo de elementos
+
+		*Para definir una clase CSS se utiliza el operador punto(.)
+
+		*Se debe aplicar al atributo clss en los elementos HTML

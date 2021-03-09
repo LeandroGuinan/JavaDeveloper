@@ -1,0 +1,95 @@
+ENCAPSULAMINENTO EN JAVA
+
+esta es una de las caracteristica mas importante de la POO, puesto que nos permite aislar nuestros
+objetos del uso de otros objetos externos y de esta manera restringir el acceso al uso a atributos o
+metodos que no deseaamos que se utilicen
+
+	En java por lo general el estado de un objeto es oculto
+	a este concepto se le conoce como encapsulamiento
+	java utiliza modificadores de acceso para esta caracteristica
+	son cuatro en total: public, private, default y protected.
+
+MODIFICADORES DE ACCESO BASICO	
+
+modificadores private y public:
+
+firma de un metodo:
+
+modificador_acceso otros_modificadores nombreMetodo(listaArgumentos...);
+
+private solo permite acceder solo desde la misma clase al metodo o atributo marcado con este modificador
+
+public permite acceder desde cualquier clase a cualquier metodo o atributo definido con este modificador.
+
+EJ:
+
+public class PruebaEncapsulamiento{//clase
+	public static void main(String[]args){
+
+		persona p1 = new Persona("Juan");
+		//marca error
+		//no se puede acceder directamente a un atributo privado desde otra clase
+		p1.nombre ="Pedro";
+		//si es posible acceder a un metodo o atributo publico desde otra clase
+		p1.obtenerNombre
+	}
+}
+
+class Persona{
+	privqte String nombre;//uso de private en un atributo
+
+	public Persona(String nombre){//uso de public en un metodo
+	this.nombre = nombre;
+	}
+
+	public String obtenerNombre(){//uso de public en un metodo
+	return nombre;
+	}
+}
+
+EJ FORMAL:
+
+public class PruebaEncapsulamiento{
+	public static void main(String[]args){
+		//creamos el objeto
+	Persona p1 = new Persona();
+	//Modificamos el atributo nombre
+	p1.setNombre("Juan");
+	//Accedemos al atributo nombre
+	System.out.println("Nombre: "+p1.getNombre());
+	}
+}
+
+class Persona{
+
+	//AtributoPrivado
+	private String nombre;
+	public String getNombre(){//se utiliza el metodo get para obtener informacion
+	return nombre;
+	}
+	
+	//Metodo publico para modificar al atributo nombre
+	public String setNombre(String nombre){//se utiliza el metodo set para modificar informacion del atributo o variable
+	//Ejemplo metodos gethers y sethers
+	this.nombre = nombre;
+
+	}
+}
+
+NOTACION DONA DE UN OBJETO JAVA
+
+una de las ideas principales de la POO es que los argumentos de los objetos sean privados y que el unico 
+acceso a ellos sea por medio de metodos de tipo publico, a esto se le conoce como interface del objeto porque
+es a travez de estos metodos que seremos capaces de acceder a estos datos o modificarlos.
+
+Los metodos que modifican la informacion de los datos se les llaman muthetors, y se llaman con el el 
+metodo set
+
+por otro lado los metodos que leen la informacion de estos datos se les conoce como accesors y llevan el
+prefijo de get, exepto cuando la variable sea boleean en ese caso se le llaman "is"
+
+lo que se busca es tener un control de la infromacion y estados de nuestros objetos.
+
+por ejemplo: si queremos modificar un objeto1, por medio de otro objeto podemos asegurarnos asi que
+que el tipo del objeto sea correcto para agregarlo al atributo correcto
+
