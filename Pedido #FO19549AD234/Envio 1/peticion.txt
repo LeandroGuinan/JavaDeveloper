@@ -1,0 +1,29 @@
+se solicita crear una aplicacion crud:
+
+base de datos sql, dos relaciones, una para la gestion de usuarios y otra para la seccion empresarial
+
+relacion de usuario:
+
+persona -> empleado -> usuario <- rol
+
+relacion de clientes:
+
+municipios
+	    |---> direccion -->  cliente <--|contacto  
+departamentos			 	 <--|contribuyente
+					 <--|isr
+					 <--|empresa
+
+
+
+se solicita ademas los atributos en la aplicacion java:
+
+*pantalla inicial, en la que se haga login segun un usuario
+
+*menu principal que tenga las opciones:
+	-añadir usuario(admin)
+	-crear cliente
+	-buscar cliente
+	-update un cliente
+	- eliminar
+	-exportar(pdf y excel)

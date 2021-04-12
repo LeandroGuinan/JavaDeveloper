@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence  http://xmlns.jcp.org/xml/ns/persistence_2_2.xsd">
+  <persistence-unit name="PU" transaction-type="RESOURCE_LOCAL">
+    <class>mx.com.domain.Empleado</class>
+    <class>mx.com.domain.Contribuyente</class>
+    <class>mx.com.domain.Empresa</class>
+    <class>mx.com.domain.Municipio</class>
+    <class>mx.com.domain.Direccion</class>
+    <class>mx.com.domain.Isr</class>
+    <class>mx.com.domain.Rol</class>
+    <class>mx.com.domain.Departamento</class>
+    <class>mx.com.domain.Contacto</class>
+    <class>mx.com.domain.Usuario</class>
+    <class>mx.com.domain.Cliente</class>
+    <class>mx.com.domain.Persona</class>
+    <class>mx.com.test.Municipio</class>
+    <class>mx.com.test.Departamento</class>
+    <class>mx.com.test.Isr</class>
+    <class>mx.com.test.Contacto</class>
+    <class>mx.com.test.Empresa</class>
+    <class>mx.com.test.Contribuyente</class>
+    <class>mx.com.test.Cliente</class>
+    <class>mx.com.test.Direccion</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pedido_cliente?useSSL=false&amp;useTimezone=true&amp;serverTimezone=UTC&amp;allowPublicKeyRetrival=true"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.password" value="admin"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+    </properties>
+  </persistence-unit>
+</persistence>
